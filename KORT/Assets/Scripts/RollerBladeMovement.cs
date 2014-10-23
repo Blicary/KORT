@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+
 
 public class RollerBladeMovement : ActionScript
 {
@@ -37,6 +39,10 @@ public class RollerBladeMovement : ActionScript
     public void Start()
     {
         if (!graphics_object) Debug.LogWarning("No graphics object specified");
+
+        // events
+        aim_infohub.event_set_aim_direction += new EventHandler<EventArgs<Vector2>>(SetAimDirection);
+        aim_infohub.event_set_aim_rotation += new EventHandler<EventArgs<float>>(SetAimRotation);
     }
 
     public void Update()
@@ -133,6 +139,26 @@ public class RollerBladeMovement : ActionScript
     public void Turn(float direction)
     {
         input_turn = direction == 0 ? 0 : direction > 0 ? 1 : -1;
+    }
+
+    // setters
+    public void SetAimRotation(float rotation)
+    {
+        this.rotation = rotation;
+        direction = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
+    }
+    public void SetAimRotation(object sender, EventArgs<float> e)
+    {
+        SetAimRotation(e.Value);
+    }
+    public void SetAimDirection(Vector2 direction)
+    {
+        this.direction = direction;
+        rotation = Mathf.Atan2(direction.y, direction.x);
+    }
+    public void SetAimDirection(object sender, EventArgs<Vector2> e)
+    {
+        SetAimDirection(e.Value);
     }
 
 

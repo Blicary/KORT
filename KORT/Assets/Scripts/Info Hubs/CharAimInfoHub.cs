@@ -7,11 +7,11 @@ public delegate void SetAimDirectionEventHandler(object sender, EventArgs e);
 
 public class CharAimInfoHub : MonoBehaviour 
 {
-
     private Vector2 aim_direction;
     private float aim_rotation;
 
-    public event SetVelocityEventHandler event_set_aim_direction;
+    public event EventHandler<EventArgs<Vector2>> event_set_aim_direction;
+    public event EventHandler<EventArgs<float>> event_set_aim_rotation;
 
 
     // PUBLIC ACCESSORS
@@ -37,8 +37,12 @@ public class CharAimInfoHub : MonoBehaviour
         this.aim_rotation = aim_rotation;
     }
 
-    public void SetAimDirection(Vector2 velocity)
+    public void SetAimDirection(Vector2 direction)
     {
-        event_set_aim_direction(this, new GeneralHelpers.SingleEventArg<Vector2>(velocity));
+        event_set_aim_direction(this, new EventArgs<Vector2>(direction));
+    }
+    public void SetAimRotation(float rotation)
+    {
+        event_set_aim_rotation(this, new EventArgs<float>(rotation));
     }
 }

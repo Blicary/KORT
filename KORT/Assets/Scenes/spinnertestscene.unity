@@ -1223,6 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aim: {fileID: 504678759}
+  move: {fileID: 504678758}
 --- !u!1 &1570681425
 GameObject:
   m_ObjectHideFlags: 0

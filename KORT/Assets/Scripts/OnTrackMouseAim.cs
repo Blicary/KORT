@@ -19,6 +19,7 @@ public class OnTrackMouseAim : ActionScript
         if (!has_control) return;
 
         Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         aim_rotation = AngleBetweenVectors(transform.position, mouse_pos);
 
         graphics_object.localEulerAngles = new Vector3(0, 0, aim_rotation - 90);

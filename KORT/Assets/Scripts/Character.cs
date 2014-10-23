@@ -4,6 +4,8 @@ using System.Collections;
 public class Character : MonoBehaviour
 {
     public CharAimInfoHub aim;
+    public CharMoveInfoHub move;
+
 
     // general
     private bool alive = true;
@@ -12,7 +14,12 @@ public class Character : MonoBehaviour
     public void Update()
     {
         // TESTING
-        Debug.DrawRay(transform.position, aim.GetAimDirection(), Color.white, 1);
+        //Debug.DrawRay(transform.position, aim.GetAimDirection(), Color.white, 1);
+        //move.SetVelocity(Vector2.zero);
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            aim.SetAimDirection(Vector2.up);
+        }
     }
 
     // PUBLIC ACCESSORS 

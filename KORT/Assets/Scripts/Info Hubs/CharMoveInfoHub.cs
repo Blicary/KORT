@@ -2,25 +2,23 @@
 using System.Collections;
 using System;
 
-public delegate void SetVelocityEventHandler(object sender, EventArgs e);
-
 
 public class CharMoveInfoHub : MonoBehaviour 
 {
     private Vector2 velocity, velocity_last;
 
-    public event SetVelocityEventHandler event_set_velocity;
+    public event EventHandler<EventArgs<Vector2>> event_set_velocity;
 
 
     // PUBLIC ACCESSORS
 
     public Vector2 GetVelocity()
     {
-        return Vector2.zero;
+        return velocity;
     }
     public Vector2 GetVelocityLastFrame()
     {
-        return Vector2.zero;
+        return velocity_last;
     }
 
 
@@ -37,7 +35,7 @@ public class CharMoveInfoHub : MonoBehaviour
     
     public void SetVelocity(Vector2 velocity)
     {
-        event_set_velocity(this, new GeneralHelpers.SingleEventArg<Vector2>(velocity));
+        event_set_velocity(this, new EventArgs<Vector2>(velocity));
     }
 
 }
