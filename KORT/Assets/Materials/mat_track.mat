@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: lightbrown
+  m_Name: mat_track
   m_Shader: {fileID: 10753, guid: 0000000000000000e000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -29,4 +29,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .56078434, g: .474380225, b: .360661298, a: 1}
+        second: {r: .301960796, g: .262899995, b: .228542879, a: 1}
