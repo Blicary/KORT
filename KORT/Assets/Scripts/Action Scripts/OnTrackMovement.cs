@@ -17,7 +17,7 @@ public class OnTrackMovement : ActionScript
     private bool on_track = false;   // whether connected to a track or not
     // track collider connected to - helps insure we do not attach to the same track segment more than once
     private Collider2D track = null; 
-    private int track_direction = 1; // left or right (-1 or 1) along the track
+    public int track_direction = 1; // left or right (-1 or 1) along the track
     private Vector2 direction;       // actual direction of movement
 
 
@@ -116,7 +116,7 @@ public class OnTrackMovement : ActionScript
         // insure no interference from transform rotation
         transform.rotation = Quaternion.identity;
 
-        SendMessage("OnTrackAttach");
+        SendMessage("OnTrackAttach", SendMessageOptions.DontRequireReceiver);
     }
     private void DetachFromTrack(bool forceful)
     {
@@ -138,7 +138,7 @@ public class OnTrackMovement : ActionScript
             transform.Translate(normal * tracks_checker.radius);
         }
 
-        SendMessage("OnTrackDetach");
+        SendMessage("OnTrackDetach", SendMessageOptions.DontRequireReceiver);
     }
 
     private void UpdateTrackAttatchment()
