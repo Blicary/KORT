@@ -14,10 +14,10 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         float input_turn = Input.GetAxis("Horizontal");
-        bool input_fwrd = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-        bool input_break = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-        bool input_break_up = Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow);
-        bool input_action = Input.GetKeyDown(KeyCode.Space);
+        bool input_fwrd = Input.GetButton("Forward");
+        bool input_break = Input.GetButton("Break");
+        bool input_break_up = Input.GetButtonUp("Break");
+        bool input_action = Input.GetButtonDown("Action");
         bool input_fire = Input.GetButtonDown("Fire");
 
 
