@@ -6,10 +6,10 @@ public class PlayerController : MonoBehaviour
     // references
     public OnTrackMovement on_track_movement;
     public RollerBladeMovement roller_blade_movement;
-
+    public AttackHandler attack_handler;
 
     private bool break_turned = false;
-
+    private bool selected_melee = false; // True = melee , False = ranged
 
     public void Update()
     {
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
         bool input_break_up = Input.GetButtonUp("Break");
         bool input_action = Input.GetButtonDown("Action");
         bool input_fire = Input.GetButtonDown("Fire");
+        bool input_switch = Input.GetButtonUp("SwitchWeapon");
 
 
         // on track
@@ -45,17 +46,34 @@ public class PlayerController : MonoBehaviour
                     break_turned = roller_blade_movement.BreakTurn();
                 }
 
-                
+
             }
             else if (input_fwrd)
             {
                 roller_blade_movement.MoveForward();
             }
-            
+
             if (input_break_up) break_turned = false;
         }
 
-        
+        // Attack actions
+        {
+            // Run an attack
+            if (input_fire)
+            {
+                // Check if the attack is melee.
+                if (selected_melee)
+                {
+                    
+                }
+                else // Otherwise the attack is ranged.
+                { 
+                    
+                }
+            }
+
+        }
+
 
     }
 }
