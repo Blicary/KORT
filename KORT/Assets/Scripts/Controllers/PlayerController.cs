@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool selected_melee = false; // True = melee , False = ranged
     private float since_melee = 0f;
     private bool can_melee = true;
+    private bool can_ranged = true;
 
     public void Update()
     {

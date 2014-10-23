@@ -1189,6 +1189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   on_track_movement: {fileID: 1547080539}
   roller_blade_movement: {fileID: 1547080538}
+  attack_handler: {fileID: 0}
 --- !u!4 &1547080534
 Transform:
   m_ObjectHideFlags: 0
