@@ -6,12 +6,12 @@ public class PlayerController : MonoBehaviour
     // references
     public OnTrackMovement on_track_movement;
     public RollerBladeMovement roller_blade_movement;
-    public AttackHandler attack_handler;
+    public AttackInfoHub attack_handler;
 
     private bool break_turned = false;
 
     // Combat variables
-    private bool selected_melee = false; // True = melee , False = ranged
+    private bool selected_melee = true; // True = melee , False = ranged
     private float since_melee = 0f;
     private bool can_melee = true;
     private bool can_ranged = true;
@@ -73,12 +73,14 @@ public class PlayerController : MonoBehaviour
                 // Check if the attack is melee.
                 if (selected_melee)
                 {
+                    // Debug.Log("melee attack");
                     attack_handler.MeleeCollision();
                     attack_handler.render_animation();
                     can_melee = false;
                 }
                 else // Otherwise the attack is ranged.
                 {
+                    // Debug.Log("ranged attack");
                     attack_handler.RangedCollision();
                     attack_handler.render_animation();
                 }
@@ -95,6 +97,7 @@ public class PlayerController : MonoBehaviour
                 {
                     selected_melee = true;
                 }
+                // Debug.Log("switched attack");
             }
 
         }

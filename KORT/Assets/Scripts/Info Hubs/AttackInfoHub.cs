@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AttackHandler : MonoBehaviour
+public class AttackInfoHub : MonoBehaviour
 {
     public void start()
     {
