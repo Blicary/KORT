@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Character : MonoBehaviour
 {
-    public CharAim aim;
+    public CharAimInfoHub aim;
 
     // general
     private bool alive = true;

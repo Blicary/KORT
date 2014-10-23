@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OnTrackMovement : CharMovement
+public class OnTrackMovement : ActionScript
 {
     // references
+    public CharMoveInfoHub move_infohub;
     public LayerMask tracks_layer;          // physics layer for track raycasting
     public CircleCollider2D tracks_checker; // separate (larger) collider for colliding with tracks 
 
@@ -25,7 +26,7 @@ public class OnTrackMovement : CharMovement
 
     public void Update()
     {
-        if (on_track && HasControl())
+        if (on_track && has_control)
         {
             UpdateTrackAttatchment();
 
@@ -33,7 +34,10 @@ public class OnTrackMovement : CharMovement
             velocity_last = velocity;
             velocity = direction * track_speed;
             transform.Translate(velocity * Time.deltaTime);
-            
+
+            // inform infohub
+            move_infohub.InformVelocityLastFrame(velocity_last);
+            move_infohub.InformVelocity(velocity);
         }
     }
 
@@ -89,7 +93,7 @@ public class OnTrackMovement : CharMovement
         // find direction first time
         Vector2 perp = Perpendicular(contact.normal);
 
-        float dot = Vector2.Dot(GetVelocityLastFrame(), perp);
+        float dot = Vector2.Dot(move_infohub.GetVelocity(), perp);
         track_direction = dot == 0 ? track_direction : dot > 0 ? 1 : -1;
 
         direction = CalculateDirection(contact.normal);
@@ -106,7 +110,7 @@ public class OnTrackMovement : CharMovement
     }
     private void AttachToTrack(Collider2D collider)
     {
-        GainControl();
+        has_control = true;
         on_track = true;
         track = collider;
 
@@ -119,6 +123,7 @@ public class OnTrackMovement : CharMovement
     {
         if (!on_track) return;
 
+        has_control = false;
         on_track = false;
         track = null;
         
@@ -129,6 +134,7 @@ public class OnTrackMovement : CharMovement
 
             Vector2 v = (direction + normal).normalized;
             velocity = v * track_speed;
+            move_infohub.InformVelocity(velocity);
 
             transform.Translate(normal * tracks_checker.radius);
         }
@@ -193,15 +199,5 @@ public class OnTrackMovement : CharMovement
     public bool IsOnTrack()
     {
         return on_track;
-    }
-    public override Vector2 GetVelocity()
-    {
-        if (!HasControl()) return GetAlternate().GetVelocity();
-        return velocity;
-    }
-    public override Vector2 GetVelocityLastFrame()
-    {
-        if (!HasControl()) return GetAlternate().GetVelocityLastFrame();
-        return velocity_last;
     }
 }

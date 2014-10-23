@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RollerBladeMovement : CharMovement
+public class RollerBladeMovement : ActionScript
 {
     // references
+    public CharMoveInfoHub move_infohub;
+    public CharAimInfoHub aim_infohub;
     public Transform graphics_object;
 
 
@@ -39,7 +41,7 @@ public class RollerBladeMovement : CharMovement
 
     public void Update()
     {
-        if (!HasControl()) return;
+        if (!has_control) return;
 
 
         // rotation
@@ -47,12 +49,16 @@ public class RollerBladeMovement : CharMovement
         graphics_object.localEulerAngles = new Vector3(0, 0, (rotation * Mathf.Rad2Deg) - 90);
         direction = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
 
+        // inform infohub
+        aim_infohub.InformAimDirection(direction);
+        aim_infohub.InformAimRotation(rotation);
+
         // reset input variables
         input_turn = 0;
     }
     public void FixedUpdate()
     {
-        if (!HasControl()) return;
+        if (!has_control) return;
 
 
         velocity_last = rigidbody2D.velocity;
@@ -80,6 +86,11 @@ public class RollerBladeMovement : CharMovement
             }
         }
 
+
+        // inform infohub
+        move_infohub.InformVelocity(rigidbody2D.velocity);
+        move_infohub.InformVelocityLastFrame(velocity_last);
+
         // reset input variables
         input_fwrd = false;
         input_break = false;
@@ -87,12 +98,13 @@ public class RollerBladeMovement : CharMovement
 
     public void OnTrackAttach()
     {
+        has_control = false;
         rigidbody2D.velocity = Vector2.zero;
     }
     public void OnTrackDetach()
     {
-        rigidbody2D.velocity = GetVelocity();
-        GainControl();
+        has_control = true;
+        rigidbody2D.velocity = move_infohub.GetVelocity();
 
         // set rotation based on movement direction coming off a track
         rotation = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x);
@@ -125,15 +137,5 @@ public class RollerBladeMovement : CharMovement
 
 
     // PUBLIC ACCESSORS
-    public override Vector2 GetVelocity()
-    {
-        if (!HasControl()) return GetAlternate().GetVelocity();
-        return rigidbody2D.velocity;
-    }
-    public override Vector2 GetVelocityLastFrame()
-    {
-        if (!HasControl()) return GetAlternate().GetVelocityLastFrame();
-        return velocity_last;
-    }
 
 }

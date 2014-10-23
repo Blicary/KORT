@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OnTrackMouseAim : CharAim 
+public class OnTrackMouseAim : ActionScript 
 {
     // references
+    public CharAimInfoHub aim_infohub;
     public OnTrackMovement on_track_movement;
     public Transform graphics_object;
 
@@ -15,42 +16,30 @@ public class OnTrackMouseAim : CharAim
 
     public void Update()
     {
-        if (!HasControl()) return;
+        if (!has_control) return;
 
         Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         aim_rotation = AngleBetweenVectors(transform.position, mouse_pos);
 
         graphics_object.localEulerAngles = new Vector3(0, 0, aim_rotation - 90);
+
+
+        // inform infohub
+        aim_infohub.InformAimRotation(aim_rotation);
+        aim_infohub.InformAimDirection(new Vector2(Mathf.Cos(aim_rotation), Mathf.Sin(aim_rotation)));
     }
 
-    public override void SetAimDirection(Vector2 direction)
-    {
-        if (!HasControl()) GetAlternate().SetAimDirection(direction);
-        aim_rotation = Vector2.Angle(Vector2.right, direction);
-    }
-    public override void SetAimRotation(float rotation)
-    {
-        if (!HasControl()) GetAlternate().SetAimRotation(rotation);
-        aim_rotation = rotation;
-    }
 
 
     // PUBLIC ACCESSORS
-    public override Vector2 GetAimDirection()
-    {
-        if (!HasControl()) return GetAlternate().GetAimDirection();
-        return new Vector2(Mathf.Cos(aim_rotation), Mathf.Sin(aim_rotation));
-    }
-    public override float GetAimRotation()
-    {
-        if (!HasControl()) return GetAlternate().GetAimRotation();
-        return aim_rotation;
-    }
 
     public void OnTrackAttach()
     {
-        GainControl();
+        has_control = true;
+    }
+    public void OnTrackDetach()
+    {
+        has_control = false;
     }
 
 
