@@ -1,0 +1,88 @@
+interface for each type of action script with multiple versions (base classes for character action scripts)
+	char_movement
+		GetVelocity
+		GetVelocityLastFrame
+		SetVelocity		
+	
+	char_aim
+		GetAimDirection
+		GetAimRotation
+		SetAimDirection
+		SetAimRotation
+
+	char_attack
+		...
+
+
+
+character controllers (controllers)
+ 	get input (player input or ai)
+ 	give commands to and get information from character action scripts (specific and base classes)'
+
+	eg.
+	PlayerController
+	AIMoveController
+	AIAttackController
+
+
+character action scripts
+	make a character do stuff (behaviour)
+	often derive from bases classes that serve as general interfaces
+
+	eg.
+	OnTrackMovement (child of CharMovement)
+	RollerBladeMovement (child of CharMovement)
+	OnTrackAim (child of CharAim)
+
+
+Prob: what if 2 movement systems, then two general interfaces of CharMovement... must be only one...
+Answer: base classes are connected to each other via an 'alternate' field; only one of the same type is allowed
+	control at any given time, and this script's functions are used regardless of which script was accessed
+Prob: what if an action script wants to control aim direction and velocity, it cannot have more than one 
+	interface type...
+Potential Prob: rather complicated system... unecessisarily so? 
+		it is unintuitive that any CharMove script should access the same information (from other
+		CharMove scripts) 
+
+
+
+
+
+InfoHub Method
+
+- info hub scripts for different categories of information
+- a single of each relevent info hub is found on a character child object
+	MoveInfoHub
+		GetVelocity
+		GetVelocityLastFrame
+		InformVelocity	
+
+	AimInfoHub
+		GetAimDirection
+		GetAimRotation
+		InformAimDirection
+		InformAimRotation
+
+- character action scripts take references to info hubs and inform them as appropriate
+- controllers can give some general commands through info hubs (like attack maybe)
+
+Potential Prob: info hub scripts do not serve as two way interfaces (except for setting)...
+		cannot give a general command which might be important for things like weapon scripts...
+Answer: the game is not modularly complex enough to need a standard input interface for action scripts,
+	an enemy or player controller will very likely know exactly which script it is dealing with and
+	will often need to in order to have total control. In the rare case a general input is desired
+	(perhaps for doing an attack regardless of what attack abilities an enemy has), an info hub can 
+	have a function which sets a flag, which can then be picked up (and turned off) by an action script.
+	Or instead of having a flag, the hub could use sendmessage
+Potential Prob: no general means to give control to a particular action script over an alternate
+Answer:	base action script class will have a has_control field. Insuring that the right scripts have 
+	control is up to other scripts
+
+inform or set or both?
+
+
+
+
+
+
+
