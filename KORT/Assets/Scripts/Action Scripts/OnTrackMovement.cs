@@ -57,9 +57,8 @@ public class OnTrackMovement : ActionScript
             {
                 if (on_track)
                 {
-                    // change track direction
-                    direction *= -1;
-                    track_direction *= -1;
+                    // detach
+                    DetachFromTrack(false);
                 }
             }
         }
