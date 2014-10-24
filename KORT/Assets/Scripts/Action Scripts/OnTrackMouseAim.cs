@@ -10,7 +10,7 @@ public class OnTrackMouseAim : ActionScript
     public Transform graphics_object;
 
     // general
-    private float aim_rotation = 0.0f;
+    private float aim_rotation = 0.0f; // radians
 
 
     // PUBLIC MODIFIERS
@@ -23,7 +23,7 @@ public class OnTrackMouseAim : ActionScript
 
         aim_rotation = AngleBetweenVectors(transform.position, mouse_pos);
 
-        graphics_object.localEulerAngles = new Vector3(0, 0, aim_rotation - 90);
+        graphics_object.localEulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * aim_rotation - 90);
 
 
         // inform infohub
@@ -55,7 +55,7 @@ public class OnTrackMouseAim : ActionScript
     /// <returns></returns>
     private float AngleBetweenVectors(Vector2 p1, Vector2 p2)
     {
-        float theta = Mathf.Rad2Deg * Mathf.Atan2(Mathf.Abs(p2.y - p1.y), Mathf.Abs(p2.x - p1.x));
+        float theta = Mathf.Atan2(Mathf.Abs(p2.y - p1.y), Mathf.Abs(p2.x - p1.x));
         //Debug.Log("Theta:" + "(" + (p2.y - p1.y) + ") / (" + (p2.x - p1.x) + ")");
         if (p2.y > p1.y)
         {
@@ -65,18 +65,18 @@ public class OnTrackMouseAim : ActionScript
             }
             else
             {
-                return 180 - theta;
+                return Mathf.PI - theta;
             }
         }
         else
         {
             if (p2.x > p1.x)
             {
-                return 360 - theta;
+                return Mathf.PI*2 - theta;
             }
             else
             {
-                return 180 + theta;
+                return Mathf.PI + theta;
             }
         }
     }

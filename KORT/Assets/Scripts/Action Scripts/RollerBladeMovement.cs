@@ -16,7 +16,7 @@ public class RollerBladeMovement : ActionScript
     public float speed = 20f;
 
     public float rotate_speed = 5f;
-    private float rotation = 0;
+    private float rotation = 0; // radians
 
     private float drag = 0.5f, stunned_drag = 4f;
     private float break_drag = 6.5f; // amount of drag when breaking

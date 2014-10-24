@@ -8,7 +8,7 @@ public delegate void SetAimDirectionEventHandler(object sender, EventArgs e);
 public class CharAimInfoHub : MonoBehaviour 
 {
     private Vector2 aim_direction;
-    private float aim_rotation;
+    private float aim_rotation; // radians
 
     public event EventHandler<EventArgs<Vector2>> event_set_aim_with_direction;
     public event EventHandler<EventArgs<float>> event_set_aim_with_rotation;
@@ -37,7 +37,7 @@ public class CharAimInfoHub : MonoBehaviour
         this.aim_direction = aim_direction;
     }
     /// <summary>
-    /// inform the info hub of only the rotation of aim
+    /// inform the info hub of only the rotation (in radians) of aim
     /// </summary>
     /// <param name="aim_rotation"></param>
     public void InformAimRotation(float aim_rotation)
