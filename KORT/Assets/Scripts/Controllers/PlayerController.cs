@@ -10,12 +10,6 @@ public class PlayerController : MonoBehaviour
 
     private bool break_turned = false;
 
-    // Combat variables
-    private bool selected_melee = true; // True = melee , False = ranged
-    private float since_melee = 0f;
-    private bool can_melee = true;
-    private bool can_ranged = true;
-
     public void Update()
     {
         float input_turn = Input.GetAxis("Horizontal");
@@ -63,42 +57,8 @@ public class PlayerController : MonoBehaviour
 
         // Attack actions
         {
-            // Update attacks
 
-
-
-            // Run an attack
-            if (input_fire)
-            {
-                // Check if the attack is melee.
-                if (selected_melee)
-                {
-                    // Debug.Log("melee attack");
-                    attack_handler.MeleeCollision();
-                    attack_handler.render_animation();
-                    can_melee = false;
-                }
-                else // Otherwise the attack is ranged.
-                {
-                    // Debug.Log("ranged attack");
-                    attack_handler.RangedCollision();
-                    attack_handler.render_animation();
-                }
-            }
-
-            // Switch weapons
-            if (input_switch)
-            {
-                if (selected_melee)
-                {
-                    selected_melee = false;
-                }
-                else
-                {
-                    selected_melee = true;
-                }
-                // Debug.Log("switched attack");
-            }
+            
 
         }
 
