@@ -47,11 +47,13 @@ public class Character : MonoBehaviour
     {
         if (invulnerable) return;
 
-        info_hub_move.KnockBack(force);
+        if (alive)
+        {
+            if (can_kill && stunned || weak) Kill();
+            else Stun();
+        }
 
-        if (!alive) return;
-        if (can_kill && stunned || weak) Kill();
-        else Stun();
+        info_hub_move.KnockBack(force);
     }
     /// <summary>
     /// Instantly kill, no stun
@@ -61,10 +63,9 @@ public class Character : MonoBehaviour
     {
         if (invulnerable) return;
 
-        info_hub_move.KnockBack(force);
+        if (alive) Kill();
 
-        if (!alive) return;
-        Kill();
+        info_hub_move.KnockBack(force);
     }
 
 
