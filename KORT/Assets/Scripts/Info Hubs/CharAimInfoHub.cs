@@ -39,10 +39,10 @@ public class CharAimInfoHub : MonoBehaviour
 
     public void SetAimDirection(Vector2 direction)
     {
-        event_set_aim_direction(this, new EventArgs<Vector2>(direction));
+        if (event_set_aim_direction != null) event_set_aim_direction(this, new EventArgs<Vector2>(direction));
     }
     public void SetAimRotation(float rotation)
     {
-        event_set_aim_rotation(this, new EventArgs<float>(rotation));
+        if (event_set_aim_rotation != null) event_set_aim_rotation(this, new EventArgs<float>(rotation));
     }
 }

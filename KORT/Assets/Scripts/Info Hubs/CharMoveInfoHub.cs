@@ -8,6 +8,7 @@ public class CharMoveInfoHub : MonoBehaviour
     private Vector2 velocity, velocity_last;
 
     public event EventHandler<EventArgs<Vector2>> event_set_velocity;
+    public event EventHandler<EventArgs<Vector2>> event_knockback;
 
 
     // PUBLIC ACCESSORS
@@ -35,7 +36,11 @@ public class CharMoveInfoHub : MonoBehaviour
     
     public void SetVelocity(Vector2 velocity)
     {
-        event_set_velocity(this, new EventArgs<Vector2>(velocity));
+        if (event_set_velocity != null) event_set_velocity(this, new EventArgs<Vector2>(velocity));
+    }
+    public void KnockBack(Vector2 force)
+    {
+        if (event_knockback != null) event_knockback(this, new EventArgs<Vector2>(force));
     }
 
 }

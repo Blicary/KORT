@@ -4,6 +4,7 @@ using System.Collections;
 public class OnTrackMouseAim : ActionScript 
 {
     // references
+    public Character character;
     public CharAimInfoHub aim_infohub;
     public OnTrackMovement on_track_movement;
     public Transform graphics_object;
@@ -16,7 +17,7 @@ public class OnTrackMouseAim : ActionScript
 
     public void Update()
     {
-        if (!has_control) return;
+        if (!has_control || character.IsStunned() || !character.IsAlive()) return;
 
         Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

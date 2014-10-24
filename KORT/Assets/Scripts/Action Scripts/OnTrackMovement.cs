@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+
 
 public class OnTrackMovement : ActionScript
 {
     // references
+    public Character character;
     public CharMoveInfoHub move_infohub;
     public LayerMask tracks_layer;          // physics layer for track raycasting
     public CircleCollider2D tracks_checker; // separate (larger) collider for colliding with tracks 
@@ -24,6 +27,10 @@ public class OnTrackMovement : ActionScript
 
     // PUBLIC MODIFIERS
 
+    public void Start()
+    {
+        move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);
+    }
     public void Update()
     {
         if (on_track && has_control)
@@ -75,7 +82,8 @@ public class OnTrackMovement : ActionScript
     //input
     public void DetachManually()
     {
-        DetachFromTrack(true);
+        if (character.IsAlive() && !character.IsStunned())
+            DetachFromTrack(true);
     }
 
 
@@ -165,6 +173,12 @@ public class OnTrackMovement : ActionScript
     private void UpdateAttachedPosition(Vector2 point_on_track, Vector2 track_normal)
     {
         transform.position = point_on_track + track_normal * radius;
+    }
+
+    // events 
+    private void OnKnockBack(object sender, EventArgs<Vector2> e)
+    {
+        DetachFromTrack(true);
     }
 
 

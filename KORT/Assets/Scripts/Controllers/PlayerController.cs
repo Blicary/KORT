@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     // references
     public OnTrackMovement on_track_movement;
     public RollerBladeMovement roller_blade_movement;
-    public AttackInfoHub attack_handler;
+    public AttackInfoHub attack_infohub;
 
     private bool break_turned = false;
 

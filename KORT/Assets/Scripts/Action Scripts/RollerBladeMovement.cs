@@ -6,6 +6,7 @@ using System;
 public class RollerBladeMovement : ActionScript
 {
     // references
+    public Character character;
     public CharMoveInfoHub move_infohub;
     public CharAimInfoHub aim_infohub;
     public Transform graphics_object;
@@ -17,7 +18,7 @@ public class RollerBladeMovement : ActionScript
     public float rotate_speed = 5f;
     private float rotation = 0;
 
-    private float drag = 0.5f;
+    private float drag = 0.5f, stunned_drag = 4f;
     private float break_drag = 6.5f; // amount of drag when breaking
     // the max speed at which a break turn can happen
     private float break_turn_speed_threshold = 8f;
@@ -43,11 +44,12 @@ public class RollerBladeMovement : ActionScript
         // events
         aim_infohub.event_set_aim_direction += new EventHandler<EventArgs<Vector2>>(SetAimDirection);
         aim_infohub.event_set_aim_rotation += new EventHandler<EventArgs<float>>(SetAimRotation);
+        move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(KnockBack);
     }
 
     public void Update()
     {
-        if (!has_control) return;
+        if (!has_control || character.IsStunned() || !character.IsAlive()) return;
 
 
         // rotation
@@ -66,10 +68,19 @@ public class RollerBladeMovement : ActionScript
     {
         if (!has_control) return;
 
-
         velocity_last = rigidbody2D.velocity;
 
 
+        // incapacitated character
+        if (character.IsStunned() || !character.IsAlive())
+        {
+            // drag
+            rigidbody2D.velocity /= 1 + stunned_drag * Time.deltaTime;
+            return;
+        }
+        
+
+        // regular movement
         if (input_break)
         {
             // breaking drag
@@ -147,18 +158,34 @@ public class RollerBladeMovement : ActionScript
         this.rotation = rotation;
         direction = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
     }
-    public void SetAimRotation(object sender, EventArgs<float> e)
-    {
-        SetAimRotation(e.Value);
-    }
     public void SetAimDirection(Vector2 direction)
     {
         this.direction = direction;
         rotation = Mathf.Atan2(direction.y, direction.x);
     }
-    public void SetAimDirection(object sender, EventArgs<Vector2> e)
+
+    // other
+    public void KnockBack(Vector2 force)
     {
-        SetAimDirection(e.Value);
+        float m = Mathf.Min(force.magnitude, 2);
+        transform.Translate(force.normalized * m);
+    }
+
+
+    // PRIVATE MODIFIERS
+
+    // events
+    private void SetAimRotation(object sender, EventArgs<float> e)
+    {
+        if (has_control) SetAimRotation(e.Value);
+    }
+    private void SetAimDirection(object sender, EventArgs<Vector2> e)
+    {
+        if (has_control) SetAimDirection(e.Value);
+    }
+    private void KnockBack(object sender, EventArgs<Vector2> e)
+    {
+        if (has_control) KnockBack(e.Value);
     }
 
 
