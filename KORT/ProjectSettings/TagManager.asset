@@ -47,7 +47,7 @@ TagManager:
   - name: Terrain
     userID: 2
     uniqueID: 3610840603
-    locked: 1
+    locked: 0
   - name: Default
     userID: 0
     uniqueID: 0

@@ -42,13 +42,15 @@ public class RollerBladeMovement : ActionScript
         if (!graphics_object) Debug.LogWarning("No graphics object specified");
 
         // events
-        aim_infohub.event_set_aim_direction += new EventHandler<EventArgs<Vector2>>(SetAimDirection);
-        aim_infohub.event_set_aim_rotation += new EventHandler<EventArgs<float>>(SetAimRotation);
-        move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(KnockBack);
+        aim_infohub.event_set_aim_with_direction += new EventHandler<EventArgs<Vector2>>(OnSetAim);
+        aim_infohub.event_set_aim_with_rotation += new EventHandler<EventArgs<float>>(OnSetAim);
+        move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);
     }
 
     public void Update()
     {
+        Debug.Log("r: " + aim_infohub.GetAimRotation());
+
         if (!has_control || character.IsStunned() || !character.IsAlive()) return;
 
 
@@ -123,8 +125,21 @@ public class RollerBladeMovement : ActionScript
         has_control = true;
         rigidbody2D.velocity = move_infohub.GetVelocity();
 
-        // set rotation based on movement direction coming off a track
-        rotation = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x);
+
+        if (!character.IsStunned())
+        {
+            // set rotation based on movement direction coming off a track
+            rotation = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x);
+            SetAim(rotation);
+        }
+        else
+        {
+            // maintain aim direction
+            rotation = aim_infohub.GetAimRotation();
+            SetAim(rotation);
+        }
+
+        
     }
 
     // input
@@ -153,15 +168,19 @@ public class RollerBladeMovement : ActionScript
     }
 
     // setters
-    public void SetAimRotation(float rotation)
+    public void SetAim(float rotation)
     {
         this.rotation = rotation;
         direction = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
+        aim_infohub.InformAimRotation(rotation);
+        aim_infohub.InformAimDirection(direction);
     }
-    public void SetAimDirection(Vector2 direction)
+    public void SetAim(Vector2 direction)
     {
         this.direction = direction;
         rotation = Mathf.Atan2(direction.y, direction.x);
+        aim_infohub.InformAimRotation(rotation);
+        aim_infohub.InformAimDirection(direction);
     }
 
     // other
@@ -175,15 +194,15 @@ public class RollerBladeMovement : ActionScript
     // PRIVATE MODIFIERS
 
     // events
-    private void SetAimRotation(object sender, EventArgs<float> e)
+    private void OnSetAim(object sender, EventArgs<float> e)
     {
-        if (has_control) SetAimRotation(e.Value);
+        if (has_control) SetAim(e.Value);
     }
-    private void SetAimDirection(object sender, EventArgs<Vector2> e)
+    private void OnSetAim(object sender, EventArgs<Vector2> e)
     {
-        if (has_control) SetAimDirection(e.Value);
+        if (has_control) SetAim(e.Value);
     }
-    private void KnockBack(object sender, EventArgs<Vector2> e)
+    private void OnKnockBack(object sender, EventArgs<Vector2> e)
     {
         if (has_control) KnockBack(e.Value);
     }

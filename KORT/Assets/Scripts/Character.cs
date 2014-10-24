@@ -9,7 +9,8 @@ public class Character : MonoBehaviour
 
     // general
     private bool alive = true;
-    public bool invulnerable = false;
+    public bool weak = false; // a weak character will die in one hit (no stun)
+    public bool invulnerable = false; // cannot be knocked back or stunned or killed when hit
 
     // damage
     private bool stunned = false;
@@ -37,14 +38,33 @@ public class Character : MonoBehaviour
         
     }
 
-    public void Hit(Vector2 force)
+    /// <summary>
+    /// Stun a non stunned character,
+    /// Kill a stunned or weak character
+    /// </summary>
+    /// <param name="force"></param>
+    public void Hit(Vector2 force, bool can_kill)
     {
         if (invulnerable) return;
+
         info_hub_move.KnockBack(force);
 
         if (!alive) return;
-        if (stunned) Kill();
+        if (can_kill && stunned || weak) Kill();
         else Stun();
+    }
+    /// <summary>
+    /// Instantly kill, no stun
+    /// </summary>
+    /// <param name="force"></param>
+    public void HitPowerful(Vector2 force)
+    {
+        if (invulnerable) return;
+
+        info_hub_move.KnockBack(force);
+
+        if (!alive) return;
+        Kill();
     }
 
 
