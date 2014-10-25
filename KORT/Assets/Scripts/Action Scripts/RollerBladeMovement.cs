@@ -106,7 +106,6 @@ public class RollerBladeMovement : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Col");
         if (collision.collider.tag == "wall")
         {
             if (input_fwrd) TurnAwayFromWall(collision.contacts[0]);
@@ -139,7 +138,6 @@ public class RollerBladeMovement : MonoBehaviour
     // input
     public void MoveForward(bool forward)
     {
-        Debug.Log("MoveForward command - " + forward);
         if (!character.IsStunned()) input_fwrd = forward;
     }
     public void Break(bool apply_breaks)
