@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 
-public class RollerBladeMovement : ActionScript
+public class RollerBladeMovement : MonoBehaviour
 {
     // references
     public Character character;
@@ -49,7 +49,7 @@ public class RollerBladeMovement : ActionScript
 
     public void Update()
     {
-        if (!has_control || character.IsStunned() || !character.IsAlive()) return;
+        if (character.IsStunned() || !character.IsAlive()) return;
 
 
         // rotation
@@ -66,8 +66,6 @@ public class RollerBladeMovement : ActionScript
     }
     public void FixedUpdate()
     {
-        if (!has_control) return;
-
         velocity_last = rigidbody2D.velocity;
 
 
@@ -121,14 +119,9 @@ public class RollerBladeMovement : ActionScript
         }
     }
 
-    public void OnTrackAttach()
+
+    public void OnEnable()
     {
-        has_control = false;
-        rigidbody2D.velocity = Vector2.zero;
-    }
-    public void OnTrackDetach()
-    {
-        has_control = true;
         rigidbody2D.velocity = move_infohub.GetVelocity();
 
 
@@ -144,8 +137,10 @@ public class RollerBladeMovement : ActionScript
             rotation = aim_infohub.GetAimRotation();
             SetAim(rotation);
         }
-
-        
+    }
+    public void OnDisable()
+    {
+        rigidbody2D.velocity = Vector2.zero;
     }
 
     // input
@@ -227,15 +222,15 @@ public class RollerBladeMovement : ActionScript
     // events
     private void OnSetAim(object sender, EventArgs<float> e)
     {
-        if (has_control) SetAim(e.Value);
+        SetAim(e.Value);
     }
     private void OnSetAim(object sender, EventArgs<Vector2> e)
     {
-        if (has_control) SetAim(e.Value);
+        SetAim(e.Value);
     }
     private void OnKnockBack(object sender, EventArgs<Vector2> e)
     {
-        if (has_control) KnockBack(e.Value);
+        KnockBack(e.Value);
     }
 
 

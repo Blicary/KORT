@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 
-public class OnTrackMovement : ActionScript
+public class OnTrackMovement : MonoBehaviour
 {
     // references
     public Character character;
@@ -33,7 +33,7 @@ public class OnTrackMovement : ActionScript
     }
     public void Update()
     {
-        if (on_track && has_control)
+        if (on_track)
         {
             UpdateTrackAttatchment();
 
@@ -117,7 +117,6 @@ public class OnTrackMovement : ActionScript
     }
     private void AttachToTrack(Collider2D collider)
     {
-        has_control = true;
         on_track = true;
         track = collider;
 
@@ -130,7 +129,6 @@ public class OnTrackMovement : ActionScript
     {
         if (!on_track) return;
 
-        has_control = false;
         on_track = false;
         track = null;
         

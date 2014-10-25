@@ -585,6 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7736e5f176a624cb349ff0401dec67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chosen_weapon: 0
 --- !u!1 &516796709
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &516796710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,7 +693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &716775070
 Transform:
   m_ObjectHideFlags: 0
@@ -732,7 +733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d26dfc24e56b9544b66467e3390e0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  has_control: 1
   character: {fileID: 716775075}
   move_infohub: {fileID: 1709205942}
   tracks_layer:
@@ -1431,7 +1431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   on_track_movement: {fileID: 1547080539}
   roller_blade_movement: {fileID: 1547080538}
-  attack_infohub: {fileID: 0}
+  on_track_mouse_aim: {fileID: 1547080536}
+  attack_infohub: {fileID: 504678760}
 --- !u!4 &1547080534
 Transform:
   m_ObjectHideFlags: 0
@@ -1469,7 +1470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea88ee8a43bdc446a09cd509ca4ed09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  has_control: 0
   character: {fileID: 1547080540}
   aim_infohub: {fileID: 504678759}
   on_track_movement: {fileID: 1547080539}
@@ -1500,7 +1500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1481976d52b09c449b1663f549d98623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  has_control: 1
   character: {fileID: 1547080540}
   move_infohub: {fileID: 504678758}
   aim_infohub: {fileID: 504678759}
@@ -1519,7 +1518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d26dfc24e56b9544b66467e3390e0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  has_control: 0
   character: {fileID: 1547080540}
   move_infohub: {fileID: 504678758}
   tracks_layer:
@@ -1906,7 +1904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1929566577
 Transform:
   m_ObjectHideFlags: 0
@@ -1933,7 +1931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d26dfc24e56b9544b66467e3390e0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  has_control: 1
   character: {fileID: 1929566579}
   move_infohub: {fileID: 1206721695}
   tracks_layer:

@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour
     // references
     public OnTrackMovement on_track_movement;
     public RollerBladeMovement roller_blade_movement;
+    public OnTrackMouseAim on_track_mouse_aim;
     public AttackInfoHub attack_infohub;
+    
 
     private bool break_turned = false;
 
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
         bool input_action = Input.GetButtonDown("Action");
         bool input_fire = Input.GetButtonDown("Fire");
         bool input_switch = Input.GetButtonUp("SwitchWeapon");
+
 
 
         // on track
@@ -71,4 +74,18 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    public void OnTrackAttach()
+    {
+        roller_blade_movement.enabled = false;
+        on_track_movement.enabled = true;
+        on_track_mouse_aim.enabled = true;
+    }
+    public void OnTrackDetach()
+    {
+        roller_blade_movement.enabled = true;
+        on_track_movement.enabled = false;
+        on_track_mouse_aim.enabled = false;
+    }
+
 }

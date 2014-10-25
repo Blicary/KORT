@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OnTrackMouseAim : ActionScript 
+public class OnTrackMouseAim : MonoBehaviour 
 {
     // references
     public Character character;
@@ -17,7 +17,7 @@ public class OnTrackMouseAim : ActionScript
 
     public void Update()
     {
-        if (!has_control || character.IsStunned() || !character.IsAlive()) return;
+        if (character.IsStunned() || !character.IsAlive()) return;
 
         Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         aim_rotation = AngleBetweenVectors(transform.position, mouse_pos);
@@ -32,15 +32,13 @@ public class OnTrackMouseAim : ActionScript
 
 
 
-    // PUBLIC ACCESSORS
+    // PUBLIC MODIFERES
 
-    public void OnTrackAttach()
+    public void OnEnable()
     {
-        has_control = true;
     }
-    public void OnTrackDetach()
+    public void OnDisable()
     {
-        has_control = false;
     }
 
 
