@@ -1,27 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RangedBase : MonoBehaviour {
-
-    // Combat times
-    public float time_between_ranged = 1.0f;
-
+public class RangedBase : WeaponBase 
+{
     // Combat variables
     private GameObject bolt;
-    private float last_ranged = 0f;
-    private bool can_ranged = true;
-
+    // Override RunAttack() from WeaponBase
     public void RunAttack()
     { 
         // Check if the player has waited long enough wince their last
         //   attack with this weapon.
-        if ((Time.time - last_ranged) > time_between_ranged)
+        if ((Time.time - last_attack) > time_between_attack)
         { 
             // If they have, do all the stuff that needs to happen when attack 
             //   is run.
             HandleBoltInstantiation();
             HandleAnimation();
-            last_ranged = Time.time;
+            last_attack = Time.time;
         }
     }
 

@@ -57,7 +57,14 @@ public class PlayerController : MonoBehaviour
 
         // Attack actions
         {
-
+            if (input_fire)
+            {
+                attack_handler.Attack();
+            }
+            else if (input_switch)
+            {
+                attack_handler.SwitchWeapon();
+            }
             
 
         }
