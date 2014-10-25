@@ -184,7 +184,8 @@ public class RollerBladeMovement : MonoBehaviour
     {
         if (character.IsStunned())
         {
-            rigidbody2D.velocity = force.normalized * Mathf.Min(force.magnitude, speed);
+            //rigidbody2D.velocity = force.normalized * Mathf.Min(force.magnitude, speed);
+            rigidbody2D.AddForce(force, ForceMode2D.Impulse);
             move_infohub.InformVelocity(rigidbody2D.velocity);
         }
         else
