@@ -318,7 +318,6 @@ Transform:
   - {fileID: 270400021}
   - {fileID: 849591873}
   - {fileID: 998785530}
-  - {fileID: 1966372740}
   - {fileID: 1190249819}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -616,7 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63751edb0cefa242b040c25c94c6925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knock_back: 50
+  knock_back: 10
   can_kill: 0
 --- !u!114 &516796711
 MonoBehaviour:
@@ -982,7 +981,7 @@ GameObject:
   - 61: {fileID: 879680629}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1211,7 +1210,7 @@ Transform:
   m_LocalScale: {x: 3, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 299389700}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!61 &1190249820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1619,7 +1618,7 @@ GameObject:
   - 61: {fileID: 1638712018}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1885,6 +1884,7 @@ Transform:
   - {fileID: 1629534498}
   - {fileID: 879680628}
   - {fileID: 1638712017}
+  - {fileID: 1966372740}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &1929566576
@@ -2009,7 +2009,7 @@ GameObject:
   - 61: {fileID: 1966372741}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2024,8 +2024,8 @@ Transform:
   m_LocalPosition: {x: -44.5394173, y: 68.0958328, z: 0}
   m_LocalScale: {x: 51, y: 3, z: 1}
   m_Children: []
-  m_Father: {fileID: 299389700}
-  m_RootOrder: 5
+  m_Father: {fileID: 1904286800}
+  m_RootOrder: 4
 --- !u!61 &1966372741
 BoxCollider2D:
   m_ObjectHideFlags: 0

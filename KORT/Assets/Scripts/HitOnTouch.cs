@@ -13,6 +13,6 @@ public class HitOnTouch : MonoBehaviour
         if (!c) return;
 
 
-        c.Hit(collision.relativeVelocity * knock_back, can_kill);
+        c.Hit(collision.relativeVelocity.normalized * knock_back, can_kill);
     }
 }

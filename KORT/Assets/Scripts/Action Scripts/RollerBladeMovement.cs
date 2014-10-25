@@ -49,8 +49,6 @@ public class RollerBladeMovement : ActionScript
 
     public void Update()
     {
-        Debug.Log("r: " + aim_infohub.GetAimRotation());
-
         if (!has_control || character.IsStunned() || !character.IsAlive()) return;
 
 
@@ -115,6 +113,14 @@ public class RollerBladeMovement : ActionScript
         input_break = false;
     }
 
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "wall")
+        {
+            TurnAwayFromWall(collision.contacts[0]);
+        }
+    }
+
     public void OnTrackAttach()
     {
         has_control = false;
@@ -145,14 +151,16 @@ public class RollerBladeMovement : ActionScript
     // input
     public void MoveForward()
     {
-        input_fwrd = true;
+        if (!character.IsStunned()) input_fwrd = true;
     }
     public void Break()
     {
-        input_break = true;
+        if (!character.IsStunned()) input_break = true;
     }
     public bool BreakTurn()
     {
+        if (character.IsStunned()) return false;
+
         // only turn once and when moving slow enough
         if (rigidbody2D.velocity.magnitude <= break_turn_speed_threshold)
         {
@@ -164,7 +172,8 @@ public class RollerBladeMovement : ActionScript
     }
     public void Turn(float direction)
     {
-        input_turn = direction == 0 ? 0 : direction > 0 ? 1 : -1;
+        if (!character.IsStunned())
+            input_turn = direction == 0 ? 0 : direction > 0 ? 1 : -1;
     }
 
     // setters
@@ -186,12 +195,34 @@ public class RollerBladeMovement : ActionScript
     // other
     public void KnockBack(Vector2 force)
     {
-        float m = Mathf.Min(force.magnitude, 2);
-        transform.Translate(force.normalized * m);
+        if (character.IsStunned())
+        {
+            rigidbody2D.velocity = force.normalized * Mathf.Min(force.magnitude, speed);
+            move_infohub.InformVelocity(rigidbody2D.velocity);
+        }
+        else
+        {
+
+        }
+
     }
 
 
     // PRIVATE MODIFIERS
+
+    private void TurnAwayFromWall(ContactPoint2D contact)
+    {
+        Vector2 perp = GeneralHelpers.Perpendicular(contact.normal);
+
+        /*
+        float dot = Vector2.Dot(direction, perp);
+        float turn_dir = 1;
+        turn_dir = dot == 0 ? turn_dir : dot > 0 ? 1 : -1;
+        */
+ 
+        direction = Vector2.Lerp(direction,  contact.normal, Time.deltaTime * 4f);
+        SetAim(direction);
+    }
 
     // events
     private void OnSetAim(object sender, EventArgs<float> e)
