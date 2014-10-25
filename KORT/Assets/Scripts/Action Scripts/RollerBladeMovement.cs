@@ -60,9 +60,6 @@ public class RollerBladeMovement : MonoBehaviour
         // inform infohub
         aim_infohub.InformAimDirection(direction);
         aim_infohub.InformAimRotation(rotation);
-
-        // reset input variables
-        input_turn = 0;
     }
     public void FixedUpdate()
     {
@@ -105,17 +102,14 @@ public class RollerBladeMovement : MonoBehaviour
         // inform infohub
         move_infohub.InformVelocity(rigidbody2D.velocity);
         move_infohub.InformVelocityLastFrame(velocity_last);
-
-        // reset input variables
-        input_fwrd = false;
-        input_break = false;
     }
 
     public void OnCollisionStay2D(Collision2D collision)
     {
+        Debug.Log("Col");
         if (collision.collider.tag == "wall")
         {
-            TurnAwayFromWall(collision.contacts[0]);
+            if (input_fwrd) TurnAwayFromWall(collision.contacts[0]);
         }
     }
 
@@ -123,7 +117,6 @@ public class RollerBladeMovement : MonoBehaviour
     public void OnEnable()
     {
         rigidbody2D.velocity = move_infohub.GetVelocity();
-
 
         if (!character.IsStunned())
         {
@@ -144,13 +137,14 @@ public class RollerBladeMovement : MonoBehaviour
     }
 
     // input
-    public void MoveForward()
+    public void MoveForward(bool forward)
     {
-        if (!character.IsStunned()) input_fwrd = true;
+        Debug.Log("MoveForward command - " + forward);
+        if (!character.IsStunned()) input_fwrd = forward;
     }
-    public void Break()
+    public void Break(bool apply_breaks)
     {
-        if (!character.IsStunned()) input_break = true;
+        if (!character.IsStunned()) input_break = apply_breaks;
     }
     public bool BreakTurn()
     {

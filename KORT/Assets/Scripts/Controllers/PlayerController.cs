@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
         // rollerblading
         else
         {
+            roller_blade_movement.Break(false);
+            roller_blade_movement.MoveForward(false);
+
             // turn
             roller_blade_movement.Turn(input_turn);
 
@@ -42,7 +45,7 @@ public class PlayerController : MonoBehaviour
             // forward, break, break turn
             if (input_break)
             {
-                roller_blade_movement.Break();
+                roller_blade_movement.Break(true);
                 if (!break_turned && input_fwrd)
                 {
                     break_turned = roller_blade_movement.BreakTurn();
@@ -52,11 +55,14 @@ public class PlayerController : MonoBehaviour
             }
             else if (input_fwrd)
             {
-                roller_blade_movement.MoveForward();
+                roller_blade_movement.MoveForward(true);
             }
 
             if (input_break_up) break_turned = false;
         }
+
+        
+
 
         // Attack actions
         {
