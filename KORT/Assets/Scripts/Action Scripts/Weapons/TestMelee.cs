@@ -13,6 +13,7 @@ public class TestMelee : MeleeBase
 	// Update is called once per frame
 	void Update () 
     {
-	
+        /// Delete this if you are doing your own animation management here
+        base.Update();
 	}
 }

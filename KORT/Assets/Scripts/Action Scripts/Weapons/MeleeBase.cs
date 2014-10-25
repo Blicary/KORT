@@ -4,9 +4,12 @@ using System.Collections;
 public class MeleeBase : WeaponBase
 {
     // Combat animation variables
-    float animation_length = .2f; // the time in seconds it takes for the
-                                  //  the attack animation to complete.
-    bool in_animation = false;
+    public float animation_length = 0.2f; // the time in seconds it takes for the
+                                  //   the attack animation to complete.
+    public float animation_start;        // the time in seconds when the animation
+                                  //   began.
+    protected bool in_animation = false;
+    public SpriteRenderer animation; // the renderer with the actual animation
 
     // Override RunAttack() from WeaponBase 
     public override void RunAttack()
@@ -42,19 +45,29 @@ public class MeleeBase : WeaponBase
     { 
         /// This is the function responcible for initiating the weapon 
         /// animation.
+        /// The animation is ended by the update function when it determines
+        /// that the animation is over.
         // Debug.Log("Animate Melee");
-
+        animation.enabled = true;
+        in_animation = true;
+        animation_start = Time.time;
     }
 
 	// Use this for initialization
-	void Start () 
+	public void Start () 
     {
         weapon_name = "Weapon Melee";
+
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	public void Update () 
     {
-	
+        //Debug.Log("animation");
+        if (in_animation && (Time.time - animation_start) > animation_length)
+        {
+            in_animation = false;
+            animation.enabled = false;
+        }
 	}
 }
