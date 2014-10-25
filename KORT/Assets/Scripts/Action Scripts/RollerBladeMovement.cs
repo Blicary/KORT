@@ -112,7 +112,6 @@ public class RollerBladeMovement : MonoBehaviour
         }
     }
 
-
     public void OnEnable()
     {
         rigidbody2D.velocity = move_infohub.GetVelocity();
@@ -138,7 +137,12 @@ public class RollerBladeMovement : MonoBehaviour
     // input
     public void MoveForward(bool forward)
     {
-        if (!character.IsStunned()) input_fwrd = forward;
+        if (forward)
+        {
+            if (!character.IsStunned()) input_fwrd = true;
+        }
+        else input_fwrd = false;
+        
     }
     public void Break(bool apply_breaks)
     {
@@ -190,7 +194,7 @@ public class RollerBladeMovement : MonoBehaviour
         }
         else
         {
-            //rotation +=
+            //something with rotation...
         }
 
     }

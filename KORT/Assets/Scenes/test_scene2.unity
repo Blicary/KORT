@@ -663,7 +663,7 @@ GameObject:
   - 114: {fileID: 516796711}
   - 114: {fileID: 516796710}
   m_Layer: 0
-  m_Name: BoringEnemy
+  m_Name: Boring Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,8 +680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63751edb0cefa242b040c25c94c6925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knock_back: 10
-  can_kill: 0
+  knock_back: 30
+  can_kill: 1
 --- !u!114 &516796711
 MonoBehaviour:
   m_ObjectHideFlags: 0
