@@ -3,6 +3,11 @@ using System.Collections;
 
 public class MeleeBase : WeaponBase
 {
+    // Combat animation variables
+    float animation_length = .2f; // the time in seconds it takes for the
+                                  //  the attack animation to complete.
+    bool in_animation = false;
+
     // Override RunAttack() from WeaponBase 
     public override void RunAttack()
     {
@@ -28,6 +33,9 @@ public class MeleeBase : WeaponBase
         /// they've been hit by the attack and should do some sort of 
         /// damage thing.
         // Debug.Log("Check for Collisions");
+
+
+
     }
 
     private void HandleAnimation()
@@ -35,6 +43,7 @@ public class MeleeBase : WeaponBase
         /// This is the function responcible for initiating the weapon 
         /// animation.
         // Debug.Log("Animate Melee");
+
     }
 
 	// Use this for initialization
