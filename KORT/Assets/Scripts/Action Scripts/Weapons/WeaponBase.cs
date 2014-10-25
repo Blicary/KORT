@@ -12,7 +12,7 @@ public class WeaponBase : MonoBehaviour
     public float last_attack = 0f;
 
     // Run Attack
-    abstract public void RunAttack()
+    public void RunAttack()
     {
         /// This method should ALWAYS be overrided by a child class
         /// in implementation.
