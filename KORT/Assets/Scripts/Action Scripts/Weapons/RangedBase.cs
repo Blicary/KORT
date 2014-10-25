@@ -14,6 +14,7 @@ public class RangedBase : WeaponBase
         { 
             // If they have, do all the stuff that needs to happen when attack 
             //   is run.
+            Debug.Log("Ranged Attack with " + weapon_name);
             HandleBoltInstantiation();
             HandleAnimation();
             last_attack = Time.time;
@@ -27,6 +28,7 @@ public class RangedBase : WeaponBase
         /// bolt object, and giving that object a direction to travel in.
         /// Any other information that needs to be GIVEN to bolts, should
         /// be imparted to them here.
+        Debug.Log("Instantiate Bolt");
     }
 
     private void HandleAnimation()
@@ -35,12 +37,13 @@ public class RangedBase : WeaponBase
         /// objects have been hit by the attack and telling the objects
         /// they've been hit by the attack and should do some sort of 
         /// damage thing.
+        Debug.Log("Animate Ranged");
     }
 
 	// Use this for initialization
 	void Start () 
     {
-	
+        weapon_name = "Weapon Ranged";
 	}
 	
 	// Update is called once per frame
