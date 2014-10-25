@@ -14,10 +14,12 @@ public class WeaponBase : MonoBehaviour
     public float last_attack = 0f;
 
     // Run Attack
-    public void RunAttack()
+    virtual public void RunAttack()
     {
         /// This method should ALWAYS be overrided by a child class
         /// in implementation.
+        /// 
+        // Debug.Log("weapon base runattack");
     }
 
 

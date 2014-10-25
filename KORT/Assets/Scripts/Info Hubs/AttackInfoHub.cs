@@ -6,8 +6,8 @@ using System;
 public class AttackInfoHub : MonoBehaviour
 {
     // Weapon Relay Variables
-    public WeaponBase[] weapon_list;
-    public int weapon_count;
+    public GameObject weapon_manager;
+    private WeaponBase[] weapon_list;
     public int chosen_weapon = 0;
     
     // Weapon Relay Functions
@@ -17,13 +17,14 @@ public class AttackInfoHub : MonoBehaviour
         /// Then it calls the RunAttack() script for the weapon that is 
         /// currently selected.
 
-        if (weapon_count == 0)
+        if (weapon_list.Length == 0)
         {
             // if the character has no weapon, don't do the rest of the method.
             return;
         }
-
+        
         WeaponBase active_weapon = (WeaponBase) weapon_list[chosen_weapon];
+        // Debug.Log("Attack with (" + chosen_weapon + ") " + active_weapon);
         active_weapon.RunAttack();
 
     }
@@ -34,14 +35,14 @@ public class AttackInfoHub : MonoBehaviour
         /// It then rotates which weapon will be have the RunAttack() script 
         /// called when Attack() is called.
 
-        if (weapon_count == 0)
+        if (weapon_list.Length == 0)
         {
             // if the character has no weapon, don't do the rest of the method.
             return;
         }
 
         // Cycle to the next weapon.
-        if (chosen_weapon < weapon_count)
+        if (chosen_weapon < (weapon_list.Length-1) )
         {
             chosen_weapon += 1;
         }
@@ -49,6 +50,10 @@ public class AttackInfoHub : MonoBehaviour
         {
             chosen_weapon = 0;
         }
+
+        // comment these lines out in non-debug builds:
+        WeaponBase active_weapon = (WeaponBase)weapon_list[chosen_weapon];
+        // Debug.Log( "Switched Weapon to (" + chosen_weapon + ") " + active_weapon );
 
     }
 
@@ -59,11 +64,9 @@ public class AttackInfoHub : MonoBehaviour
     }
 
     // Unity Functions
-    public void start()
+    public void Start()
     {
-        if (weapon_count != 0)
-        { 
-            weapon_list = new WeaponBase[weapon_count];
-        }
+        weapon_list = weapon_manager.GetComponents<WeaponBase>();
+        // Debug.Log("Made List");
     }
 }

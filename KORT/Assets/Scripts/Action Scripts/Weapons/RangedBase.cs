@@ -6,18 +6,22 @@ public class RangedBase : WeaponBase
     // Combat variables
     private GameObject bolt;
     // Override RunAttack() from WeaponBase
-    public void RunAttack()
+    public override void RunAttack()
     { 
         // Check if the player has waited long enough wince their last
         //   attack with this weapon.
+
+        // Debug.Log("RunAttack with " + weapon_name);
+        // Debug.Log("Attack Logic: (" + Time.time + "-" + last_attack+") > "+time_between_attack);
         if ((Time.time - last_attack) > time_between_attack)
         { 
             // If they have, do all the stuff that needs to happen when attack 
             //   is run.
-            Debug.Log("Ranged Attack with " + weapon_name);
             HandleBoltInstantiation();
             HandleAnimation();
             last_attack = Time.time;
+
+            // Debug.Log("Ranged Attack with " + weapon_name);
         }
     }
 
@@ -28,7 +32,7 @@ public class RangedBase : WeaponBase
         /// bolt object, and giving that object a direction to travel in.
         /// Any other information that needs to be GIVEN to bolts, should
         /// be imparted to them here.
-        Debug.Log("Instantiate Bolt");
+        // Debug.Log("Instantiate Bolt");
     }
 
     private void HandleAnimation()
@@ -37,7 +41,7 @@ public class RangedBase : WeaponBase
         /// objects have been hit by the attack and telling the objects
         /// they've been hit by the attack and should do some sort of 
         /// damage thing.
-        Debug.Log("Animate Ranged");
+        // Debug.Log("Animate Ranged");
     }
 
 	// Use this for initialization
