@@ -176,7 +176,7 @@ public class OnTrackMovement : MonoBehaviour
     // events 
     private void OnKnockBack(object sender, EventArgs<Vector2> e)
     {
-        DetachFromTrack(true);
+        if (this.enabled) DetachFromTrack(true);
     }
 
 

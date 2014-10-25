@@ -190,7 +190,7 @@ public class RollerBladeMovement : MonoBehaviour
         }
         else
         {
-
+            //rotation +=
         }
 
     }
@@ -215,15 +215,15 @@ public class RollerBladeMovement : MonoBehaviour
     // events
     private void OnSetAim(object sender, EventArgs<float> e)
     {
-        SetAim(e.Value);
+        if (this.enabled) SetAim(e.Value);
     }
     private void OnSetAim(object sender, EventArgs<Vector2> e)
     {
-        SetAim(e.Value);
+        if (this.enabled) SetAim(e.Value);
     }
     private void OnKnockBack(object sender, EventArgs<Vector2> e)
     {
-        KnockBack(e.Value);
+        if (this.enabled) KnockBack(e.Value);
     }
 
 
