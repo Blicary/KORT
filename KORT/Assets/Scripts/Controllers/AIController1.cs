@@ -5,7 +5,6 @@ public class AIController1 : MonoBehaviour
 {
     public Behaviour patrol_script, close_attack_script, ranged_attack_script;
 
-
     // 0 - patrol
     // 1 - close attack
     // 2 - ranged attack
@@ -18,39 +17,64 @@ public class AIController1 : MonoBehaviour
 
     public void Start()
     {
-        state = 0;
-
         close_attack_script.enabled = false;
         ranged_attack_script.enabled = false;
-        patrol_script.enabled = true;
+        StartPatrol();
     }
 
     public void Update()
     {
         if (state == 0)
         {
-            if (FindTarget())
-            {
-                state = 1;
-                patrol_script.enabled = false;
-                close_attack_script.enabled = true;
-            }
+            
         }
         else if (state == 1)
         {
             float dist = (target.transform.position - transform.position).magnitude;
             if (dist > de_agro_radius)
             {
+                //Debug.Log("Target released");
+
                 target = null;
-                Debug.Log("Target released");
-                state = 0;
+
                 close_attack_script.enabled = false;
-                patrol_script.enabled = true;
+                StartPatrol();
             }
         }
         else if (state == 2)
         {
 
+        }
+    }
+
+    private void StartPatrol()
+    {
+        state = 0;
+        patrol_script.enabled = true;
+        StartCoroutine("UpdateTargetSearch");
+    }
+    private void StopPatrol()
+    {
+        StopCoroutine("UpdateTargetSearch");
+        patrol_script.enabled = false;
+    }
+    private void StartCloseAttack()
+    {
+        state = 1;
+        close_attack_script.enabled = true;
+    }
+
+
+    private IEnumerator UpdateTargetSearch()
+    {
+        while (true)
+        {
+            if (FindTarget())
+            {
+                StopPatrol();
+                StartCloseAttack();
+            }
+            yield return new WaitForSeconds(0.5f);
         }
     }
     private bool FindTarget()
@@ -69,4 +93,5 @@ public class AIController1 : MonoBehaviour
 
         return false;
     }
+
 }

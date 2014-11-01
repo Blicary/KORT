@@ -8,7 +8,7 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
     public CharAimInfoHub aim;
     
     private float stop_dist = 3;
-    private float rotation_allowance = 0;
+    private float rotation_allowance = 0.4f;
 
     
 
@@ -26,7 +26,7 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
             movement.MoveForward(false);
             movement.Turn(0);
             movement.Break(true);
-            if (movement.GetVelocity().magnitude < 0.1f)
+            if (movement.GetVelocity().magnitude < 1f)
             {
                 movement.Break(false);
                 StopMovement();
@@ -35,7 +35,6 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
         else
         {
             // turn
-
             Vector2 v = to_dest.normalized;
             float direction_rotation = Mathf.Atan2(v.y, v.x);
             float rot_diff = Mathf.Clamp(aim.GetAimRotation(), -Mathf.PI*2f, Mathf.PI*2f) - Mathf.Clamp(direction_rotation, -Mathf.PI*2f, Mathf.PI*2f);
@@ -43,7 +42,7 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
 
             if (rot_diff > rotation_allowance)
                 movement.Turn(1);
-            else if (rot_diff < rotation_allowance)
+            else if (rot_diff < -rotation_allowance)
                 movement.Turn(-1);
             else
                 movement.Turn(0);

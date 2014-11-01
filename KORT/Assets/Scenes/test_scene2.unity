@@ -311,7 +311,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 256958535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.8327723, y: -28.5300941, z: 0}
+  m_LocalPosition: {x: -11.3888655, y: -28.3081417, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 344276221}
@@ -325,7 +325,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 13.1199999
+  m_Radius: 12.54
   m_Center: {x: 0, y: 0}
 --- !u!1 &270400020
 GameObject:
@@ -729,7 +729,6 @@ GameObject:
   - 58: {fileID: 516796713}
   - 50: {fileID: 516796712}
   - 114: {fileID: 516796711}
-  - 114: {fileID: 516796710}
   - 114: {fileID: 516796715}
   - 114: {fileID: 516796716}
   - 114: {fileID: 516796717}
@@ -740,19 +739,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &516796710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 516796709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e63751edb0cefa242b040c25c94c6925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knock_back: 30
-  can_kill: 0
 --- !u!114 &516796711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +754,7 @@ MonoBehaviour:
   name: Simple Enemy
   weak: 0
   invulnerable: 0
-  stun_duration: 5
+  stun_duration: 1
 --- !u!50 &516796712
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -835,13 +821,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 516796709}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e9c4eda006ee1c41be75f19b4925db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 256958537}
-  wait_timer_max: 1
+  reaction_time: .100000001
+  wait_time: .5
   movement: {fileID: 516796715}
   aim: {fileID: 1017694840}
 --- !u!114 &516796717
@@ -858,6 +845,8 @@ MonoBehaviour:
   patrol_script: {fileID: 516796716}
   close_attack_script: {fileID: 516796716}
   ranged_attack_script: {fileID: 516796716}
+  roller_blade_movement: {fileID: 516796715}
+  on_track_movement: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
