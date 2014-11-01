@@ -288,7 +288,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 173855321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.3974953, y: 2.82851553, z: -.00415039062}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1547080534}
@@ -307,6 +307,7 @@ MonoBehaviour:
   time_between_attack: 1
   AimScript: {fileID: 504678759}
   weapon_name: Weapon Base
+  aim_info_hub: {fileID: 0}
   last_attack: 0
 --- !u!114 &173855324
 MonoBehaviour:
@@ -322,6 +323,7 @@ MonoBehaviour:
   time_between_attack: 1
   AimScript: {fileID: 504678759}
   weapon_name: Weapon Base
+  aim_info_hub: {fileID: 0}
   last_attack: 0
   animation_length: .200000003
   animation_start: 0
@@ -541,6 +543,56 @@ Transform:
   - {fileID: 67566313}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &348210104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 348210105}
+  - 212: {fileID: 348210107}
+  m_Layer: 0
+  m_Name: WeaponArc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348210105
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348210104}
+  m_LocalRotation: {x: 0, y: 0, z: .38268292, w: .923879743}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1419248460}
+  m_RootOrder: 1
+--- !u!212 &348210107
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348210104}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 1906500487
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d25836b390321544cb990272f6d5887a, type: 3}
+  m_Color: {r: 1, g: .29411763, b: .29411763, a: 1}
 --- !u!1 &407446227
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +770,7 @@ GameObject:
   - 4: {fileID: 592138098}
   - 114: {fileID: 592138100}
   - 114: {fileID: 592138099}
+  - 114: {fileID: 592138101}
   m_Layer: 0
   m_Name: Info Hubs
   m_TagString: Untagged
@@ -759,6 +812,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d7c27b97f79a04ba386f30b8139dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &592138101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592138097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7736e5f176a624cb349ff0401dec67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon_manager: {fileID: 0}
+  chosen_weapon: 0
 --- !u!1 &716775069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1295,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 716775070}
   m_RootOrder: 0
+--- !u!1 &1096070650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1096070653}
+  - 114: {fileID: 1096070652}
+  m_Layer: 0
+  m_Name: Weapon Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1096070652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1096070650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bca14415de7364faa3a36ec12918b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time_between_attack: 1
+  AimScript: {fileID: 592138099}
+  weapon_name: Weapon Base
+  aim_info_hub: {fileID: 592138099}
+  last_attack: 0
+  animation_length: .200000003
+  animation_start: 0
+  animation: {fileID: 348210107}
+  character_group: {fileID: 2016543160}
+--- !u!4 &1096070653
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1096070650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1985509788}
+  m_RootOrder: 4
 --- !u!1 &1190249818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1584,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 60894462}
+  - {fileID: 348210105}
   m_Father: {fileID: 1985509788}
   m_RootOrder: 0
 --- !u!212 &1419248461
@@ -1865,7 +1980,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1712494103}
   - 212: {fileID: 1712494104}
-  - 60: {fileID: 1712494105}
   m_Layer: 0
   m_Name: WeaponArc
   m_TagString: Untagged
@@ -1907,24 +2021,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d25836b390321544cb990272f6d5887a, type: 3}
   m_Color: {r: 1, g: .29411763, b: .29411763, a: 1}
---- !u!60 &1712494105
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1712494102}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Poly:
-    m_Paths:
-    - - {x: .192386627, y: .629598022}
-      - {x: .0112068178, y: .634798944}
-      - {x: .000804901123, y: .236407116}
-      - {x: .23040162, y: .000804042851}
-      - {x: .640000165, y: .000804090523}
-      - {x: .640000165, y: .183994964}
-      - {x: .470779419, y: .448417246}
 --- !u!1 &1753394146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,6 +2460,7 @@ Transform:
   - {fileID: 1753394147}
   - {fileID: 592138098}
   - {fileID: 1649323203}
+  - {fileID: 1096070653}
   m_Father: {fileID: 2016543161}
   m_RootOrder: 3
 --- !u!114 &1985509789
@@ -2476,6 +2573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b929eb438ffba0d4299231d0a87d45c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 592138101}
   reaction_time: .100000001
   movement: {fileID: 1985509791}
   aim: {fileID: 592138099}
