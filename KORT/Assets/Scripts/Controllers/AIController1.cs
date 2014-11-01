@@ -3,7 +3,8 @@ using System.Collections;
 
 public class AIController1 : MonoBehaviour 
 {
-    public Behaviour patrol_script, close_attack_script, ranged_attack_script;
+    public Behaviour patrol_script, ranged_attack_script;
+    public AICloseAttackBase close_attack_script;
 
     // 0 - patrol
     // 1 - close attack
@@ -61,6 +62,7 @@ public class AIController1 : MonoBehaviour
     private void StartCloseAttack()
     {
         state = 1;
+        close_attack_script.SetTarget(target);
         close_attack_script.enabled = true;
     }
 
@@ -87,7 +89,7 @@ public class AIController1 : MonoBehaviour
             if (c)
             {
                 target = c;
-                Debug.Log("Found target: " + target.name);
+                //Debug.Log("Found target: " + target.name);
                 return true;
             }
         }

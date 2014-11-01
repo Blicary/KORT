@@ -9,7 +9,6 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
     
     private float stop_dist = 3;
     private float turn_accuracy = 0.4f; // 0 is most accurate
-
     
 
 
@@ -36,17 +35,15 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
         {
             // turn
             Vector2 v = to_dest.normalized;
-            float direction_rotation = Mathf.Atan2(v.y, v.x);
-            float rot_diff = Mathf.Clamp(aim.GetAimRotation(), -Mathf.PI*2f, Mathf.PI*2f)
-                - Mathf.Clamp(direction_rotation, -Mathf.PI*2f, Mathf.PI*2f);
-            //Debug.Log(rot_diff);
+            float target_rotation = GeneralHelpers.PosifyRotation(Mathf.Atan2(v.y, v.x) % (2f * Mathf.PI));
+            float actual_rotation = GeneralHelpers.PosifyRotation(aim.GetAimRotation() % (2f * Mathf.PI));
 
-            if (rot_diff > turn_accuracy)
-                movement.Turn(1);
-            else if (rot_diff < -turn_accuracy)
-                movement.Turn(-1);
-            else
-                movement.Turn(0);
+            float rot_diff = actual_rotation - target_rotation;
+
+            int turn_dir = rot_diff > turn_accuracy ? 1 : rot_diff < -turn_accuracy ? -1 : 0;
+            if (Mathf.Abs(rot_diff) > Mathf.PI) turn_dir *= -1;
+
+            movement.Turn(turn_dir);
 
 
             // move
