@@ -19,7 +19,10 @@ public class GeneralHelpers
     {
         return new Vector2(v.y, -v.x);
     }
-
+    public static float PosifyRotation(float rotation)
+    {
+        return rotation > 0 ? rotation : rotation + Mathf.PI * 2f;
+    }
     public static float AngleBetweenVectors(Vector2 p1, Vector2 p2)
     {
         float theta = Mathf.Atan2(Mathf.Abs(p2.y - p1.y), Mathf.Abs(p2.x - p1.x));
