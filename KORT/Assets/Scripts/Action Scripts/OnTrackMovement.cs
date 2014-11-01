@@ -53,14 +53,14 @@ public class OnTrackMovement : MonoBehaviour
         foreach (ContactPoint2D contact in collision.contacts)
         {
             // tracks checker collision enter
-            if (contact.collider.tag == "track")
+            if (contact.collider.tag == "Track")
             {
                 // attach to a track if not on a track already
                 if (!on_track) AttachToNewTrack(contact);
             }
 
             // wall collision
-            else if (contact.collider.tag == "wall")
+            else if (contact.collider.tag == "Wall")
             {
                 if (on_track)
                 {
@@ -73,7 +73,7 @@ public class OnTrackMovement : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collider)
     {
         // tracks checker trigger exit
-        if (collider.tag == "track")
+        if (collider.tag == "Track")
         {
             if (!on_track) tracks_checker.enabled = true;
         }

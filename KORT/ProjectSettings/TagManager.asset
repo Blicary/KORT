@@ -4,8 +4,10 @@
 TagManager:
   tags:
   - 
-  - track
-  - wall
+  - Track
+  - Wall
+  - 
+  - Track
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -17,10 +19,10 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: Tracks
   User Layer 9: Track Collider
-  User Layer 10: 
-  User Layer 11: 
-  User Layer 12: 
-  User Layer 13: 
+  User Layer 10: Players Collider
+  User Layer 11: Enemies Collider
+  User Layer 12: Players
+  User Layer 13: Enemies
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 

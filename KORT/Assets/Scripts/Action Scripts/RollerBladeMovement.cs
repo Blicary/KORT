@@ -106,7 +106,7 @@ public class RollerBladeMovement : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.tag == "wall")
+        if (collision.collider.tag == "Wall")
         {
             if (input_fwrd) TurnAwayFromWall(collision.contacts[0]);
         }
@@ -232,5 +232,8 @@ public class RollerBladeMovement : MonoBehaviour
 
 
     // PUBLIC ACCESSORS
-
+    public Vector2 GetVelocity()
+    {
+        return rigidbody2D.velocity;
+    }
 }

@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
 
 
     // general
+    public string name = "no name";
     private bool alive = true;
     public bool weak = false; // a weak character will die in one hit (no stun)
     public bool invulnerable = false; // cannot be knocked back or stunned or killed when hit
