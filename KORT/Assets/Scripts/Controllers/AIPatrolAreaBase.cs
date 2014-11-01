@@ -49,7 +49,7 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
     
     protected virtual void StartMovement()
     {
-        Debug.Log("Start Movement");
+        //Debug.Log("Start Movement");
         
         float angle = Random.Range(0, Mathf.PI * 2f);
         destination = (Vector2)area.transform.position +
@@ -62,7 +62,7 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
     }
     protected virtual void StopMovement()
     {
-        Debug.Log("Stop Movement");
+        //Debug.Log("Stop Movement");
         wait_timer = wait_timer_max;
     }
 
