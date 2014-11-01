@@ -8,7 +8,7 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
     public CharAimInfoHub aim;
     
     private float stop_dist = 3;
-    private float rotation_allowance = 0.4f;
+    private float turn_accuracy = 0.4f; // 0 is most accurate
 
     
 
@@ -37,12 +37,13 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
             // turn
             Vector2 v = to_dest.normalized;
             float direction_rotation = Mathf.Atan2(v.y, v.x);
-            float rot_diff = Mathf.Clamp(aim.GetAimRotation(), -Mathf.PI*2f, Mathf.PI*2f) - Mathf.Clamp(direction_rotation, -Mathf.PI*2f, Mathf.PI*2f);
+            float rot_diff = Mathf.Clamp(aim.GetAimRotation(), -Mathf.PI*2f, Mathf.PI*2f)
+                - Mathf.Clamp(direction_rotation, -Mathf.PI*2f, Mathf.PI*2f);
             //Debug.Log(rot_diff);
 
-            if (rot_diff > rotation_allowance)
+            if (rot_diff > turn_accuracy)
                 movement.Turn(1);
-            else if (rot_diff < -rotation_allowance)
+            else if (rot_diff < -turn_accuracy)
                 movement.Turn(-1);
             else
                 movement.Turn(0);
