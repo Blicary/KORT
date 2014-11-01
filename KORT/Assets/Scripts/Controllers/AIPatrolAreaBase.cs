@@ -19,7 +19,7 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
 
     public void Update()
     {
-        Debug.DrawLine(transform.position, destination);
+        //Debug.DrawLine(transform.position, destination);
 
 
         // waiting

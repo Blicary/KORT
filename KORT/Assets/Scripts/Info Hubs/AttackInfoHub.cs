@@ -9,7 +9,21 @@ public class AttackInfoHub : MonoBehaviour
     public GameObject weapon_manager;
     private WeaponBase[] weapon_list;
     public int chosen_weapon = 0;
-    
+
+
+    public void Awake()
+    {
+        if (weapon_manager == null)
+        {
+            Debug.LogWarning("No weapon manager specified.");
+            weapon_list = new WeaponBase[0];
+        }
+        else
+        {
+            weapon_list = weapon_manager.GetComponents<WeaponBase>();
+        }
+    }
+
     // Weapon Relay Functions
     public void Attack()
     {
@@ -63,10 +77,5 @@ public class AttackInfoHub : MonoBehaviour
         return "NotAWeapon";
     }
 
-    // Unity Functions
-    public void Start()
-    {
-        weapon_list = weapon_manager.GetComponents<WeaponBase>();
-        // Debug.Log("Made List");
-    }
+    
 }
