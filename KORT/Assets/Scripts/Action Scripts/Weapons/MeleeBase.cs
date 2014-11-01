@@ -40,12 +40,12 @@ public class MeleeBase : WeaponBase
         /// damage thing.
         //Debug.Log("Check for Collisions");
         
-        Transform[] character_array = character_group.GetComponentsInChildren<Transform>();
-        for (int i = 0; i < character_array.Length; i++)
+        //Debug.Log(character_array);
+        foreach (Transform child in character_group.transform)
         {
-            Vector2 other_position = (Vector2) character_array[i].position;
+            Vector2 other_position = child.position;
             float distance = Vector2.Distance((Vector2)transform.position,other_position);
-            //Debug.Log(distance);
+            Debug.Log(child.name + " " + other_position);
             if (1f < distance && distance < 3f)
             {
                 //Debug.Log("Distance: "+distance);
