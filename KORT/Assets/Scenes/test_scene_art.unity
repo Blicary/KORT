@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol_script: {fileID: 15785668}
-  close_attack_script: {fileID: 15785668}
   ranged_attack_script: {fileID: 15785668}
+  close_attack_script: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
@@ -603,6 +603,7 @@ MonoBehaviour:
   animation_length: .200000003
   animation_start: 0
   animation: {fileID: 1712494104}
+  character_group: {fileID: 0}
 --- !u!1 &256958535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,8 +1457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol_script: {fileID: 516796716}
-  close_attack_script: {fileID: 516796716}
   ranged_attack_script: {fileID: 516796716}
+  close_attack_script: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
@@ -1661,8 +1662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol_script: {fileID: 722145656}
-  close_attack_script: {fileID: 722145656}
   ranged_attack_script: {fileID: 722145656}
+  close_attack_script: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
@@ -2665,8 +2666,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol_script: {fileID: 1152809432}
-  close_attack_script: {fileID: 1152809432}
   ranged_attack_script: {fileID: 1152809432}
+  close_attack_script: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
@@ -3256,8 +3257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol_script: {fileID: 1463962666}
-  close_attack_script: {fileID: 1463962666}
   ranged_attack_script: {fileID: 1463962666}
+  close_attack_script: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
@@ -3449,7 +3450,6 @@ GameObject:
   - 114: {fileID: 1547080536}
   - 114: {fileID: 1547080533}
   - 212: {fileID: 1547080541}
-  - 114: {fileID: 1547080542}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -3602,23 +3602,9 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e32c2098306cd0f498e21ec218eabf7e, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 8ca2c79cb07e2a3499d433513013daa8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &1547080542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1547080532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce9c098546a0dc541900ca8195a6575b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frames_per_second: 2
-  sprites: []
-  current_sprite: 1
 --- !u!1 &1547759061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,8 +3705,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol_script: {fileID: 1548455269}
-  close_attack_script: {fileID: 1548455269}
   ranged_attack_script: {fileID: 1548455269}
+  close_attack_script: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
@@ -4822,8 +4808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol_script: {fileID: 2055654241}
-  close_attack_script: {fileID: 2055654241}
   ranged_attack_script: {fileID: 2055654241}
+  close_attack_script: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
@@ -5082,8 +5068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol_script: {fileID: 2101776129}
-  close_attack_script: {fileID: 2101776129}
   ranged_attack_script: {fileID: 2101776129}
+  close_attack_script: {fileID: 0}
   targets_layer:
     serializedVersion: 2
     m_Bits: 4096
