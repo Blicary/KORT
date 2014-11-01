@@ -3,9 +3,10 @@ using System.Collections;
 
 public abstract class AIPatrolAreaBase : MonoBehaviour 
 {
-    public CircleCollider2D area;
-
-    
+    // circles around which to pick patrol destinations
+    // if there are multiple areas, will patrol from one to the next in order
+    public CircleCollider2D[] areas; 
+    private int current_area = 0;
 
     // waiting and moving
     public float reaction_time = 0.1f; // time between update movement calls
@@ -41,12 +42,16 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
     {
         //Debug.Log("Start Movement");
 
-        StartCoroutine("UpdateMovementRoutine");
+        // pick destination
+        current_area = (current_area + 1) % areas.Length;
 
         float angle = Random.Range(0, Mathf.PI * 2f);
-        destination = (Vector2)area.transform.position +
-            new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * area.radius;
-        
+        destination = (Vector2)areas[current_area].transform.position +
+            new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * areas[current_area].radius;
+
+
+        // start
+        StartCoroutine("UpdateMovementRoutine");
     }
     private IEnumerator UpdateMovementRoutine()
     {
