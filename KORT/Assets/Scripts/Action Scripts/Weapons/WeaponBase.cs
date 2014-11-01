@@ -8,6 +8,7 @@ public class WeaponBase : MonoBehaviour
     public float time_between_attack = 1.0f;
     public CharAimInfoHub AimScript;
     public string weapon_name = "Weapon Base";
+    public CharAimInfoHub aim_info_hub;
 
     // Time that has passed since the player last actually used 
     //  this attack.
@@ -26,7 +27,9 @@ public class WeaponBase : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-	
+        // Get us a reference to the aim info hub so we can get our direction.
+        aim_info_hub = transform.parent.GetComponentInChildren<CharAimInfoHub>();
+
 	}
 	
 	// Update is called once per frame

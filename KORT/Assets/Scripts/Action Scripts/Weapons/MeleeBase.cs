@@ -45,18 +45,19 @@ public class MeleeBase : WeaponBase
         {
             Vector2 other_position = child.position;
             float distance = Vector2.Distance((Vector2)transform.position,other_position);
-            Debug.Log(child.name + ":" + other_position + " DIS " + distance + " To Player " + (Vector2)transform.position);
-            if (1f < distance && distance < 3f)
+            //Debug.Log(child.name + ":" + other_position + " DIS " + distance + " To Player " + (Vector2)transform.position);
+            if (1f < distance && distance < 6f)
             {
                 //Debug.Log("Distance: "+distance);
-                Debug.Log("  other: " + other_position);
+                //Debug.Log("  other: " + other_position);
                 float angle = GeneralHelpers.AngleBetweenVectors((Vector2)transform.position, other_position);
                 angle = Mathf.Rad2Deg*angle;
-                //Debug.Log(angle + "-" + transform.rotation.z);
-                angle = Mathf.Abs(angle - transform.rotation.z);
+                float direction = aim_info_hub.GetAimRotation() * Mathf.Rad2Deg;
+                Debug.Log(angle + "-" + direction);
+                angle = Mathf.Abs(angle - direction);
                 if ( angle < 45)
                 {
-                    //Debug.Log("HIT "+Time.time);
+                    Debug.Log("HIT "+Time.time);
                 }
             }
         }
@@ -79,6 +80,7 @@ public class MeleeBase : WeaponBase
 	public void Start () 
     {
         weapon_name = "Weapon Melee";
+        aim_info_hub = transform.parent.GetComponentInChildren<CharAimInfoHub>();
 	}
 	
 	// Update is called once per frame
