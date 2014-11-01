@@ -45,7 +45,7 @@ public class MeleeBase : WeaponBase
         {
             Vector2 other_position = child.position;
             float distance = Vector2.Distance((Vector2)transform.position,other_position);
-            Debug.Log(child.name + " " + other_position);
+            Debug.Log(child.name + ":" + other_position + " DIS " + distance + " To Player " + (Vector2)transform.position);
             if (1f < distance && distance < 3f)
             {
                 //Debug.Log("Distance: "+distance);
