@@ -17,11 +17,6 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
     protected Vector2 destination;
 
 
-    public void Start()
-    {
-        wait_timer = Random.Range(wait_time / 2f, wait_time);
-    }
-
     public void Update()
     {
         Debug.DrawLine(transform.position, destination);
@@ -36,6 +31,14 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
         }
     }
 
+    public void OnEnable()
+    {
+        wait_timer = Random.Range(wait_time / 2f, wait_time);
+    }
+    public void OnDisable()
+    {
+        StopCoroutine("UpdateMovementRoutine");
+    }
     
     protected virtual void StartMovement()
     {

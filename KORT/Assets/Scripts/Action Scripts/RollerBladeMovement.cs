@@ -108,7 +108,7 @@ public class RollerBladeMovement : MonoBehaviour
     {
         if (collision.collider.tag == "Wall")
         {
-            if (input_fwrd) TurnAwayFromWall(collision.contacts[0]);
+            //if (input_fwrd) TurnAwayFromWall(collision.contacts[0]);
         }
         else
         {

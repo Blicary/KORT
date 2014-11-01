@@ -19,4 +19,8 @@ public class GeneralHelpers
     {
         return new Vector2(v.y, -v.x);
     }
+    public static float PosifyRotation(float rotation)
+    {
+        return rotation > 0 ? rotation : rotation + Mathf.PI * 2f;
+    }
 }
