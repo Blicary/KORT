@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MeleeBase : WeaponBase
 {
@@ -10,6 +11,8 @@ public class MeleeBase : WeaponBase
                                   //   began.
     protected bool in_animation = false;
     public SpriteRenderer animation; // the renderer with the actual animation
+    
+    public GameObject character_group; // reference to the characters object in the hierarchy that we will be get the characters from.
 
     // Override RunAttack() from WeaponBase 
     public override void RunAttack()
@@ -18,12 +21,12 @@ public class MeleeBase : WeaponBase
         //   attack with this weapon.
         if ((Time.time - last_attack) > time_between_attack)
         {
+            //Debug.Log("attack" + ((Time.time - last_attack) +">"+ time_between_attack));
             // If they have, do all the stuff that needs to happen when attack
             //   is run.
+            last_attack = Time.time;
             HandleCollision();
             HandleAnimation();
-            last_attack = Time.time;
-
             // Debug.Log("Melee Attack with " + weapon_name);
         }
     }
@@ -35,9 +38,28 @@ public class MeleeBase : WeaponBase
         /// objects have been hit by the attack and telling the objects
         /// they've been hit by the attack and should do some sort of 
         /// damage thing.
-        // Debug.Log("Check for Collisions");
-
-
+        //Debug.Log("Check for Collisions");
+        
+        Transform[] character_array = character_group.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < character_array.Length; i++)
+        {
+            Vector2 other_position = (Vector2) character_array[i].position;
+            float distance = Vector2.Distance((Vector2)transform.position,other_position);
+            //Debug.Log(distance);
+            if (1f < distance && distance < 3f)
+            {
+                //Debug.Log("Distance: "+distance);
+                Debug.Log("  other: " + other_position);
+                float angle = GeneralHelpers.AngleBetweenVectors((Vector2)transform.position, other_position);
+                angle = Mathf.Rad2Deg*angle;
+                //Debug.Log(angle + "-" + transform.rotation.z);
+                angle = Mathf.Abs(angle - transform.rotation.z);
+                if ( angle < 45)
+                {
+                    //Debug.Log("HIT "+Time.time);
+                }
+            }
+        }
 
     }
 
@@ -57,7 +79,6 @@ public class MeleeBase : WeaponBase
 	public void Start () 
     {
         weapon_name = "Weapon Melee";
-
 	}
 	
 	// Update is called once per frame
