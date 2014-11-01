@@ -80,6 +80,7 @@ public class AIController1 : MonoBehaviour
     private bool FindTarget()
     {
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, agro_radius, targets_layer);
+        
         foreach (Collider2D col in cols)
         {
             Character c = col.GetComponent<Character>();

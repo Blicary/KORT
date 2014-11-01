@@ -50,6 +50,7 @@ public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
 
 
             // move
+            movement.Break(false);
             movement.MoveForward(true);
         }
     }

@@ -110,6 +110,11 @@ public class RollerBladeMovement : MonoBehaviour
         {
             if (input_fwrd) TurnAwayFromWall(collision.contacts[0]);
         }
+        else
+        {
+            Character c = collision.collider.GetComponent<Character>();
+            if (c) TurnAwayFromCharacter(collision.contacts[0]);
+        }
     }
 
     public void OnEnable()
@@ -194,7 +199,9 @@ public class RollerBladeMovement : MonoBehaviour
         }
         else
         {
-            //something with rotation...
+            //Debug.Log("no stun kb");
+            //rotation += 5f * Time.deltaTime;
+            //SetAim(rotation);
         }
 
     }
@@ -205,16 +212,19 @@ public class RollerBladeMovement : MonoBehaviour
     private void TurnAwayFromWall(ContactPoint2D contact)
     {
         Vector2 perp = GeneralHelpers.Perpendicular(contact.normal);
-
-        /*
-        float dot = Vector2.Dot(direction, perp);
-        float turn_dir = 1;
-        turn_dir = dot == 0 ? turn_dir : dot > 0 ? 1 : -1;
-        */
  
         direction = Vector2.Lerp(direction,  contact.normal, Time.deltaTime * 4f);
         SetAim(direction);
     }
+    private void TurnAwayFromCharacter(ContactPoint2D contact)
+    {
+        Vector2 perp = GeneralHelpers.Perpendicular(contact.normal);
+        //direction = contact.normal;
+
+        direction = Vector2.Lerp(direction, contact.normal, Time.deltaTime * 15f);
+        SetAim(direction);
+    }
+
 
     // events
     private void OnSetAim(object sender, EventArgs<float> e)

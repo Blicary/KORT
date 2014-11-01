@@ -30,7 +30,6 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
         // waiting
         if (wait_timer > 0)
         {
-            Debug.Log(wait_timer);
             UpdateWhileWaiting();
             wait_timer -= Time.deltaTime;
             if (wait_timer <= 0) StartMovement();
