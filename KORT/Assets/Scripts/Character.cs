@@ -50,7 +50,7 @@ public class Character : MonoBehaviour
 
         if (alive)
         {
-            if (can_kill && stunned || weak) Kill();
+            if (can_kill && (stunned || weak)) Kill();
             else Stun();
         }
 

@@ -46,7 +46,7 @@ public class MeleeBase : WeaponBase
             Vector2 other_position = child.position;
             float distance = Vector2.Distance((Vector2)transform.position,other_position);
             //Debug.Log(child.name + ":" + other_position + " DIS " + distance + " To Player " + (Vector2)transform.position);
-            if (1f < distance && distance < 6f)
+            if (1f < distance && distance < 9f)
             {
                 //Debug.Log("Distance: "+distance);
                 //Debug.Log("  other: " + other_position);
@@ -55,9 +55,11 @@ public class MeleeBase : WeaponBase
                 float direction = aim_info_hub.GetAimRotation() * Mathf.Rad2Deg;
                 Debug.Log(angle + "-" + direction);
                 angle = Mathf.Abs(angle - direction);
-                if ( angle < 45)
+                if (angle < 45)
                 {
-                    Debug.Log("HIT "+Time.time);
+                    //Debug.Log("HIT "+Time.time);
+                    Character c = child.GetComponent<Character>();
+                    if (c) c.Hit(Vector2.zero, true);
                 }
             }
         }

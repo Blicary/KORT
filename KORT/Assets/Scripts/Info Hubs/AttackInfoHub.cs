@@ -40,7 +40,6 @@ public class AttackInfoHub : MonoBehaviour
         WeaponBase active_weapon = (WeaponBase) weapon_list[chosen_weapon];
         // Debug.Log("Attack with (" + chosen_weapon + ") " + active_weapon);
         active_weapon.RunAttack();
-
     }
 
     public void SwitchWeapon()

@@ -16,7 +16,7 @@ public class AIController1 : MonoBehaviour
     private Character target;
 
 
-    public void Start()
+    public void Awake()
     {
         close_attack_script.enabled = false;
         ranged_attack_script.enabled = false;
@@ -31,15 +31,25 @@ public class AIController1 : MonoBehaviour
         }
         else if (state == 1)
         {
-            float dist = (target.transform.position - transform.position).magnitude;
-            if (dist > de_agro_radius)
+            // target destroyed
+            if (target == null)
             {
-                //Debug.Log("Target released");
-
-                target = null;
-
                 close_attack_script.enabled = false;
                 StartPatrol();
+            }
+            else
+            {
+                // release target
+                float dist = (target.transform.position - transform.position).magnitude;
+                if (dist > de_agro_radius)
+                {
+                    //Debug.Log("Target released");
+
+                    target = null;
+
+                    close_attack_script.enabled = false;
+                    StartPatrol();
+                }
             }
         }
         else if (state == 2)

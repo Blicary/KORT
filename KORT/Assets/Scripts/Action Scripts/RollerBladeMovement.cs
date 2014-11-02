@@ -23,7 +23,7 @@ public class RollerBladeMovement : MonoBehaviour
     // the max speed at which a break turn can happen
     private float break_turn_speed_threshold = 8f;
 
-    public Vector2 direction = new Vector2();
+    public Vector2 direction;
     private Vector2 velocity_last;
 
 
@@ -45,6 +45,8 @@ public class RollerBladeMovement : MonoBehaviour
         aim_infohub.event_set_aim_with_direction += new EventHandler<EventArgs<Vector2>>(OnSetAim);
         aim_infohub.event_set_aim_with_rotation += new EventHandler<EventArgs<float>>(OnSetAim);
         move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);
+
+        SetAim(direction);
     }
 
     public void Update()
