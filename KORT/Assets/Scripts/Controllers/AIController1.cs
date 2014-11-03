@@ -6,36 +6,38 @@ public class AIController1 : MonoBehaviour
     public Behaviour patrol_script, ranged_attack_script;
     public AICloseAttackBase close_attack_script;
 
-    // 0 - patrol
-    // 1 - close attack
-    // 2 - ranged attack
-    private int state = 0;
+    private enum State { Disabled, Patrol, CloseAttack, RangedAttack }
+    private State state = State.Disabled;
+    
 
     public LayerMask targets_layer;
     public float agro_radius, de_agro_radius;
     private Character target;
 
 
-    public void Awake()
+    public void Start()
     {
         close_attack_script.enabled = false;
         ranged_attack_script.enabled = false;
-        StartPatrol();
+        ChangeState(State.Patrol);
+    }
+    public void OnDisable()
+    {
+        ChangeState(State.Disabled);
     }
 
     public void Update()
     {
-        if (state == 0)
+        if (state == State.Patrol)
         {
             
         }
-        else if (state == 1)
+        else if (state == State.CloseAttack)
         {
             // target destroyed
             if (target == null)
             {
-                close_attack_script.enabled = false;
-                StartPatrol();
+                ChangeState(State.Patrol);
             }
             else
             {
@@ -43,24 +45,36 @@ public class AIController1 : MonoBehaviour
                 float dist = (target.transform.position - transform.position).magnitude;
                 if (dist > de_agro_radius)
                 {
-                    //Debug.Log("Target released");
-
                     target = null;
 
-                    close_attack_script.enabled = false;
-                    StartPatrol();
+                    ChangeState(State.Patrol);
                 }
             }
         }
-        else if (state == 2)
+        else if (state == State.RangedAttack)
         {
 
         }
     }
 
+    private void ChangeState(State new_state)
+    {
+        if (state == State.Patrol)
+            StopPatrol();
+        else if (state == State.CloseAttack)
+            StopCloseAttack();
+
+        if (new_state == State.Patrol)
+            StartPatrol();
+        else if (new_state == State.CloseAttack)
+            StartCloseAttack();
+
+
+        this.state = new_state;
+    }
+
     private void StartPatrol()
     {
-        state = 0;
         patrol_script.enabled = true;
         StartCoroutine("UpdateTargetSearch");
     }
@@ -71,9 +85,12 @@ public class AIController1 : MonoBehaviour
     }
     private void StartCloseAttack()
     {
-        state = 1;
         close_attack_script.SetTarget(target);
         close_attack_script.enabled = true;
+    }
+    private void StopCloseAttack()
+    {
+        close_attack_script.enabled = false;
     }
 
 
@@ -83,8 +100,7 @@ public class AIController1 : MonoBehaviour
         {
             if (FindTarget())
             {
-                StopPatrol();
-                StartCloseAttack();
+                ChangeState(State.CloseAttack);
             }
             yield return new WaitForSeconds(0.5f);
         }

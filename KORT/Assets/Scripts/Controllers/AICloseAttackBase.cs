@@ -11,28 +11,23 @@ public class AICloseAttackBase : MonoBehaviour
     protected Character target;
 
 
-
-    public void SetTarget(Character target)
-    {
-        this.target = target;
-    }
-
-
-    public void Update()
-    {
-        //Debug.DrawLine(transform.position, target.transform.position, Color.red);
-    }
-
-    public void OnEnable()
-    {
-        StartCoroutine("InfrequentUpdate");
-    }
     public void OnDisable()
     {
         target = null;
         StopCoroutine("InfrequentUpdate");
     }
 
+    public void Update()
+    {
+        //Debug.DrawLine(transform.position, target.transform.position, Color.red);
+    }
+
+    public void SetTarget(Character target)
+    {
+        this.target = target;
+        StartCoroutine("InfrequentUpdate");
+    }
+    
     private IEnumerator InfrequentUpdate()
     {
         while (true)
@@ -48,7 +43,7 @@ public class AICloseAttackBase : MonoBehaviour
     }
     protected virtual void UpdateAttack()
     {
-        Debug.Log("bot attack!");
+        //Debug.Log("bot attack!");
         attack.Attack();
     }
 

@@ -11,7 +11,6 @@ public class HitOnTouch : MonoBehaviour
         Character c = collision.collider.GetComponent<Character>();
         if (!c) return;
 
-
         c.Hit(collision.relativeVelocity.normalized * knock_back, can_kill);
     }
 }

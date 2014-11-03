@@ -43,21 +43,27 @@ public class MeleeBase : WeaponBase
         //Debug.Log(character_array);
         foreach (Transform child in character_group.transform)
         {
-            Vector2 other_position = child.position;
-            float distance = Vector2.Distance((Vector2)transform.position,other_position);
+            //Vector2 other_position = child.position;
+            float distance = Vector2.Distance((Vector2)transform.position, child.position);
             //Debug.Log(child.name + ":" + other_position + " DIS " + distance + " To Player " + (Vector2)transform.position);
+
             if (1f < distance && distance < 9f)
             {
                 //Debug.Log("Distance: "+distance);
                 //Debug.Log("  other: " + other_position);
+                /*
                 float angle = GeneralHelpers.AngleBetweenVectors((Vector2)transform.position, other_position);
                 angle = Mathf.Rad2Deg*angle;
                 float direction = aim_info_hub.GetAimRotation() * Mathf.Rad2Deg;
                 Debug.Log(angle + "-" + direction);
                 angle = Mathf.Abs(angle - direction);
-                if (angle < 45)
+                 * */
+                float angle = GeneralHelpers.AngleBetweenVectors(aim_info_hub.GetAimDirection(),
+                    child.position - transform.position);
+
+
+                if (angle < Mathf.PI/2f)
                 {
-                    //Debug.Log("HIT "+Time.time);
                     Character c = child.GetComponent<Character>();
                     if (c) c.Hit(Vector2.zero, true);
                 }

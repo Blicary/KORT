@@ -48,6 +48,27 @@ public class RollerBladeMovement : MonoBehaviour
 
         SetAim(direction);
     }
+    public void OnEnable()
+    {
+        rigidbody2D.velocity = move_infohub.GetVelocity();
+
+        if (!character.IsStunned())
+        {
+            // set rotation based on movement direction coming off a track
+            rotation = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x);
+            SetAim(rotation);
+        }
+        else
+        {
+            // maintain aim direction
+            rotation = aim_infohub.GetAimRotation();
+            SetAim(rotation);
+        }
+    }
+    public void OnDisable()
+    {
+        rigidbody2D.velocity = Vector2.zero;
+    }
 
     public void Update()
     {
@@ -119,27 +140,7 @@ public class RollerBladeMovement : MonoBehaviour
         }
     }
 
-    public void OnEnable()
-    {
-        rigidbody2D.velocity = move_infohub.GetVelocity();
-
-        if (!character.IsStunned())
-        {
-            // set rotation based on movement direction coming off a track
-            rotation = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x);
-            SetAim(rotation);
-        }
-        else
-        {
-            // maintain aim direction
-            rotation = aim_infohub.GetAimRotation();
-            SetAim(rotation);
-        }
-    }
-    public void OnDisable()
-    {
-        rigidbody2D.velocity = Vector2.zero;
-    }
+    
 
     // input
     public void MoveForward(bool forward)
