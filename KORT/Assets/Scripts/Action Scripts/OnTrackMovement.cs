@@ -10,11 +10,13 @@ public class OnTrackMovement : MonoBehaviour
     public CharMoveInfoHub move_infohub;
     public LayerMask tracks_layer;          // physics layer for track raycasting
     public CircleCollider2D tracks_checker; // separate (larger) collider for colliding with tracks 
+    public bool start_on_track;
 
     // movement / physics
     public float radius = 1f;
     public float track_speed = 35f;  // constant speed along a track
     private Vector2 velocity, velocity_last;
+    private const float max_move_step = 1;
 
     // track
     private bool on_track = false;   // whether connected to a track or not
@@ -30,17 +32,41 @@ public class OnTrackMovement : MonoBehaviour
     public void Start()
     {
         move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);
+
+        if (start_on_track) AttachAtStart();
     }
+
     public void Update()
     {
         if (on_track)
         {
-            UpdateTrackAttatchment();
-
-            // move based on direction and speed
             velocity_last = velocity;
             velocity = direction * track_speed;
-            transform.Translate(velocity * Time.deltaTime);
+
+            // distance will travel this frame
+            float dist = (velocity * Time.deltaTime).magnitude;
+
+            // if travel dist is not too far for one iteration of straight movement
+            // and readjustment, do one simple movement iteration
+            if (dist < max_move_step)
+            {
+                transform.Translate(direction * dist);
+                UpdateTrackAttatchment();
+            }
+
+            // moving too far this frame for one straight line iteration, so move and adjust in steps
+            else
+            {
+                int iterations = (int)Mathf.Ceil(dist / max_move_step);
+                float last_iter_dist = dist % max_move_step;
+
+                for (int i = 0; i < iterations; ++i)
+                {
+                    float iter_dist = iterations - i > 1 ? max_move_step : last_iter_dist;
+                    transform.Translate(direction * iter_dist);
+                    UpdateTrackAttatchment();
+                }
+            }
 
             // inform infohub
             move_infohub.InformVelocityLastFrame(velocity_last);
@@ -90,6 +116,52 @@ public class OnTrackMovement : MonoBehaviour
     // PRIVATE MODIFIERS
 
     /// <summary>
+    /// Find a track(by raycasting and attach to it
+    /// </summary>
+    private void AttachAtStart()
+    {
+        int n = 8;
+        for (int i = 0; i < n; ++i)
+        {
+            float a = ((Mathf.PI * 2f) / n) * i;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(Mathf.Cos(a), Mathf.Sin(a)), radius * 2f, tracks_layer);
+
+            if (hit)
+            {
+                AttachToNewTrack(hit.collider, hit.normal, hit.point);
+                return;
+            }
+        }
+    }
+    /// <summary>
+    /// Attach to a new track (as opposed to another connected segment).
+    /// Decides track direction and insures correct positioning next to track.
+    /// Calls AttachToTrack.
+    /// </summary>
+    /// <param name="collider"></param>
+    /// <param name="normal"></param>
+    /// <param name="point"></param>
+    private void AttachToNewTrack(Collider2D collider, Vector2 normal, Vector2 point)
+    {
+        // find direction first time
+        Vector2 perp = Perpendicular(normal);
+
+        float dot = Vector2.Dot(move_infohub.GetVelocity(), perp);
+        track_direction = dot == 0 ? track_direction : dot > 0 ? 1 : -1;
+
+        direction = CalculateDirection(normal);
+
+
+        // disable tracks checker
+        tracks_checker.enabled = false;
+
+        // update position (keep next to track)
+        UpdateAttachedPosition(point, normal);
+
+        // attach
+        AttachToTrack(collider);
+    }
+    /// <summary>
     /// Attach to a new track (as opposed to another connected segment).
     /// Decides track direction and insures correct positioning next to track.
     /// Calls AttachToTrack.
@@ -97,23 +169,7 @@ public class OnTrackMovement : MonoBehaviour
     /// <param name="contact"></param>
     private void AttachToNewTrack(ContactPoint2D contact)
     {
-        // find direction first time
-        Vector2 perp = Perpendicular(contact.normal);
-
-        float dot = Vector2.Dot(move_infohub.GetVelocity(), perp);
-        track_direction = dot == 0 ? track_direction : dot > 0 ? 1 : -1;
-
-        direction = CalculateDirection(contact.normal);
-
-
-        // disable tracks checker
-        tracks_checker.enabled = false;
-
-        // update position (keep next to track)
-        UpdateAttachedPosition(contact.point, contact.normal);
-
-        // attach
-        AttachToTrack(contact.collider);
+        AttachToNewTrack(contact.collider, contact.normal, contact.point);
     }
     private void AttachToTrack(Collider2D collider)
     {
@@ -149,11 +205,13 @@ public class OnTrackMovement : MonoBehaviour
 
     private void UpdateTrackAttatchment()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -CalculateTrackNormal(), radius + 0.5f, tracks_layer);
+        Debug.DrawLine(transform.position, (Vector2)transform.position - CalculateTrackNormal() * radius * 2f, Color.white, 5f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -CalculateTrackNormal(), radius * 2f, tracks_layer);
 
         // detach
         if (hit.collider == null)
         {
+            Debug.Log("no collider detach");
             DetachFromTrack(false);
             return;
         }

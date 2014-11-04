@@ -4723,7 +4723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1470919924
 Transform:
   m_ObjectHideFlags: 0
@@ -4731,7 +4731,7 @@ Transform:
   m_PrefabInternal: {fileID: 1563126631}
   m_GameObject: {fileID: 1470919923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.9166222, y: -12.5783072, z: .00415039062}
+  m_LocalPosition: {x: -33.4904785, y: -14.6201344, z: .00415039062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1364876781}
@@ -4771,7 +4771,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   tracks_checker: {fileID: 1833299743}
-  start_on_track: 0
+  start_on_track: 1
   radius: 1
   track_speed: 40
   track_direction: 1
@@ -5025,7 +5025,7 @@ Transform:
   m_PrefabInternal: {fileID: 1554011686}
   m_GameObject: {fileID: 1547080532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.3115005, y: -31.2077675, z: .00415039062}
+  m_LocalPosition: {x: -46.8788757, y: -3.44574165, z: .00415039062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 407446228}
@@ -5327,11 +5327,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400010, guid: f57c3887c4efae44b84317c117bc92d8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -25.3115005
+      value: -46.8788757
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f57c3887c4efae44b84317c117bc92d8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -31.2077675
+      value: -3.44574165
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f57c3887c4efae44b84317c117bc92d8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5478,11 +5478,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -34.9166222
+      value: -33.4904785
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -12.5783072
+      value: -14.6201344
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5518,7 +5518,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
+      propertyPath: start_on_track
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
+      propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800004, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
@@ -6371,11 +6383,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -47.582119
+      value: -45.5531921
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -14.4579306
+      value: -14.6552515
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6408,6 +6420,10 @@ Prefab:
     - target: {fileID: 100006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
+      propertyPath: start_on_track
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
@@ -7018,7 +7034,7 @@ Transform:
   m_PrefabInternal: {fileID: 1737290739}
   m_GameObject: {fileID: 1929566576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.582119, y: -14.4579306, z: .00415039062}
+  m_LocalPosition: {x: -45.5531921, y: -14.6552515, z: .00415039062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 496236142}
@@ -7044,7 +7060,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   tracks_checker: {fileID: 1886019550}
-  start_on_track: 0
+  start_on_track: 1
   radius: 1
   track_speed: 15
   track_direction: -1
