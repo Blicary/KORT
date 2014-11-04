@@ -6419,7 +6419,7 @@ Prefab:
       objectReference: {fileID: 804769413}
     - target: {fileID: 100006, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d8cc485ebc849c7429c904664d80c5fb, type: 2}
       propertyPath: start_on_track
@@ -7026,7 +7026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1929566577
 Transform:
   m_ObjectHideFlags: 0

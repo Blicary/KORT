@@ -57,7 +57,7 @@ public class MeleeBase : WeaponBase
 
     public void Update()
     {
-        DebugDrawRayCasts();
+        //DebugDrawRayCasts();
 
         //Debug.Log("animation");
         if (in_animation && (Time.time - animation_start) > animation_length)
