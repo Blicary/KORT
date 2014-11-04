@@ -4770,7 +4770,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   tracks_checker: {fileID: 0}
-  start_on_track: 1
+  start_on_track: 0
   radius: 1
   track_speed: 40
   track_direction: 1
@@ -6833,7 +6833,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   tracks_checker: {fileID: 0}
-  start_on_track: 1
+  start_on_track: 0
   radius: 1
   track_speed: 15
   track_direction: -1

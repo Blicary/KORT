@@ -11,8 +11,6 @@ public class OnTrackMovement : MonoBehaviour
     public LayerMask tracks_layer;          // physics layer for track raycasting
     public CircleCollider2D tracks_checker; // separate (larger) collider for colliding with tracks 
 
-    public bool start_on_track;
-
 
     // Movement / physics
     public float radius = 1f;
@@ -121,6 +119,7 @@ public class OnTrackMovement : MonoBehaviour
 
     // PRIVATE MODIFIERS
 
+    /* PROBABLY UNECESSARY CODE
     /// <summary>
     /// Find a track(by raycasting and attach to it
     /// </summary>
@@ -139,6 +138,7 @@ public class OnTrackMovement : MonoBehaviour
             }
         }
     }
+     * */
     /// <summary>
     /// Attach to a new track (as opposed to another connected segment).
     /// Decides track direction and insures correct positioning next to track.

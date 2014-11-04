@@ -10,36 +10,20 @@ Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\
 Loading C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.047 seconds
+- Completed reload, in  0.063 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+dot < 0
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+dot < 0
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+dot < 0
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
 Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\System.Core.dll (this message is harmless)
-HIT Player
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT Simple Enemy
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT Simple Enemy
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT Player
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT Player
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT Player
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT Player
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
