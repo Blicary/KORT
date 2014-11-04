@@ -220,10 +220,18 @@ public class OnTrackMovement : MonoBehaviour
 
         // speed based on pushing against track, and aiming in same direction as track
         // (best speed is angled away from wall in direction of track)
-        float x = Mathf.Min(1.2f, Mathf.Max(0, Vector2.Dot(aim, direction)) + Mathf.Max(0, Vector2.Dot(aim, normal)));
+        Vector2 v = aim;
+        if (Vector2.Dot(v, normal) < 0)
+        {
+            Debug.Log("dot < 0");
+            DetachFromTrackForcefull();
+            return;
+        }
+
+        float x = Mathf.Min(1.2f, Mathf.Max(0, Vector2.Dot(v, direction)) + Mathf.Max(0, Vector2.Dot(v, normal)));
         //Debug.Log(x);
         float speed = x * track_speed;
-        velocity = aim * speed;
+        velocity = v * speed;
 
         move_infohub.InformVelocity(velocity);
         transform.Translate(normal * snap_off_radius);
