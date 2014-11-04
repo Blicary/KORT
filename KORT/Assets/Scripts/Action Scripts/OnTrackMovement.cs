@@ -35,8 +35,6 @@ public class OnTrackMovement : MonoBehaviour
     public void Start()
     {
         move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);
-
-        if (start_on_track) AttachAtStart();
     }
 
     public void Update()
