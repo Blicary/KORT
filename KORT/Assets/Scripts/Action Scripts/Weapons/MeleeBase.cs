@@ -119,7 +119,8 @@ public class MeleeBase : WeaponBase
             Character c = hit.collider.GetComponent<Character>();
             if (c)
             {
-                c.Hit(Vector2.zero, true);
+                Vector2 dir = (hit.collider.transform.position - transform.position).normalized;
+                c.Hit(dir * 30f, true);
             }
         }
         
