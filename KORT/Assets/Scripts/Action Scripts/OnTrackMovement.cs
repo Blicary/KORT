@@ -17,7 +17,7 @@ public class OnTrackMovement : MonoBehaviour
     // Movement / physics
     public float radius = 1f;
     public float track_speed = 35f;  // constant speed along a track
-    private float snap_off_radius = 2;
+    private float snap_off_radius = 1.5f;
 
     private Vector2 velocity, velocity_last;
     private const float max_move_step = 1;
@@ -43,6 +43,7 @@ public class OnTrackMovement : MonoBehaviour
 
     public void Update()
     {
+
         if (on_track)
         {
             velocity_last = velocity;
@@ -96,7 +97,7 @@ public class OnTrackMovement : MonoBehaviour
                 if (on_track)
                 {
                     // detach
-                    DetachFromTrack(false);
+                    DetachFromTrack();
                 }
             }
         }
@@ -111,10 +112,10 @@ public class OnTrackMovement : MonoBehaviour
     }
 
     //input
-    public void DetachManually()
+    public void DetachManually(Vector2 aim)
     {
         if (character.IsAlive() && !character.IsStunned())
-            DetachFromTrack(true);
+            DetachFromTrackAimed(aim);
     }
 
 
@@ -186,26 +187,48 @@ public class OnTrackMovement : MonoBehaviour
 
         SendMessage("OnTrackAttach", SendMessageOptions.DontRequireReceiver);
     }
-    private void DetachFromTrack(bool forceful)
+    private void DetachFromTrack()
     {
         if (!on_track) return;
 
         on_track = false;
         track = null;
-        
-        if (forceful)
-        {
-            // push away from the track
-            Vector2 normal = CalculateTrackNormal();
-
-            Vector2 v = (direction + normal).normalized;
-            velocity = v * track_speed;
-            move_infohub.InformVelocity(velocity);
-
-            transform.Translate(normal * snap_off_radius);
-        }
 
         SendMessage("OnTrackDetach", SendMessageOptions.DontRequireReceiver);
+    }
+    private void DetachFromTrackForcefull()
+    {
+        if (!on_track) return;
+
+        // push away from the track
+        Vector2 normal = CalculateTrackNormal();
+
+        Vector2 v = (direction + normal).normalized;
+        velocity = v * track_speed;
+        move_infohub.InformVelocity(velocity);
+
+        transform.Translate(normal * snap_off_radius);
+
+        DetachFromTrack();
+    }
+    private void DetachFromTrackAimed(Vector2 aim)
+    {
+        if (!on_track) return;
+
+        // push away from the track
+        Vector2 normal = CalculateTrackNormal();
+
+        // speed based on pushing against track, and aiming in same direction as track
+        // (best speed is angled away from wall in direction of track)
+        float x = Mathf.Min(1.2f, Mathf.Max(0, Vector2.Dot(aim, direction)) + Mathf.Max(0, Vector2.Dot(aim, normal)));
+        //Debug.Log(x);
+        float speed = x * track_speed;
+        velocity = aim * speed;
+
+        move_infohub.InformVelocity(velocity);
+        transform.Translate(normal * snap_off_radius);
+
+        DetachFromTrack();
     }
 
     private void UpdateTrackAttatchment()
@@ -216,7 +239,7 @@ public class OnTrackMovement : MonoBehaviour
         if (hit.collider == null)
         {
             Debug.Log("no collider detach");
-            DetachFromTrack(false);
+            DetachFromTrack();
             return;
         }
 
@@ -238,7 +261,7 @@ public class OnTrackMovement : MonoBehaviour
     // events 
     private void OnKnockBack(object sender, EventArgs<Vector2> e)
     {
-        if (this.enabled) DetachFromTrack(true);
+        if (this.enabled) DetachFromTrackForcefull();
     }
 
 

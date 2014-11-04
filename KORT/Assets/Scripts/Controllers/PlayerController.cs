@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     public OnTrackMovement on_track_movement;
     public RollerBladeMovement roller_blade_movement;
     public OnTrackMouseAim on_track_mouse_aim;
+
     public AttackInfoHub attack_infohub;
+    public CharAimInfoHub aim_info_hub;
     
 
     private bool break_turned = false;
@@ -29,7 +31,7 @@ public class PlayerController : MonoBehaviour
         {
             // track detach
             if (input_action)
-                on_track_movement.DetachManually();
+                on_track_movement.DetachManually(aim_info_hub.GetAimDirection());
         }
 
         // rollerblading

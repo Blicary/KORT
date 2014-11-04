@@ -5017,6 +5017,7 @@ MonoBehaviour:
   roller_blade_movement: {fileID: 1547080538}
   on_track_mouse_aim: {fileID: 1547080536}
   attack_infohub: {fileID: 504678760}
+  aim_info_hub: {fileID: 504678759}
 --- !u!4 &1547080534
 Transform:
   m_ObjectHideFlags: 0
@@ -5412,6 +5413,10 @@ Prefab:
       propertyPath: stun_duration
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: f57c3887c4efae44b84317c117bc92d8, type: 2}
+      propertyPath: aim_info_hub
+      value: 
+      objectReference: {fileID: 504678759}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f57c3887c4efae44b84317c117bc92d8, type: 2}
   m_RootGameObject: {fileID: 1547080532}

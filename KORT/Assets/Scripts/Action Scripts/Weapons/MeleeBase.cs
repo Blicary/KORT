@@ -113,7 +113,7 @@ public class MeleeBase : WeaponBase
 
         foreach (RaycastHit2D hit in all_colliders)
         {
-            Debug.Log("HIT " + hit.collider.name);
+            //Debug.Log("HIT " + hit.collider.name);
             animation.color = Color.red;
 
             Character c = hit.collider.GetComponent<Character>();
