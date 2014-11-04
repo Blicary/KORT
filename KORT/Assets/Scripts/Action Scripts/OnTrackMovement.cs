@@ -5,20 +5,25 @@ using System;
 
 public class OnTrackMovement : MonoBehaviour
 {
-    // references
+    // References
     public Character character;
     public CharMoveInfoHub move_infohub;
     public LayerMask tracks_layer;          // physics layer for track raycasting
     public CircleCollider2D tracks_checker; // separate (larger) collider for colliding with tracks 
+
     public bool start_on_track;
 
-    // movement / physics
+
+    // Movement / physics
     public float radius = 1f;
     public float track_speed = 35f;  // constant speed along a track
+    private float snap_off_radius = 2;
+
     private Vector2 velocity, velocity_last;
     private const float max_move_step = 1;
 
-    // track
+
+    // Track
     private bool on_track = false;   // whether connected to a track or not
     // track collider connected to - helps insure we do not attach to the same track segment more than once
     private Collider2D track = null; 
@@ -101,7 +106,7 @@ public class OnTrackMovement : MonoBehaviour
         // tracks checker trigger exit
         if (collider.tag == "Track")
         {
-            if (!on_track) tracks_checker.enabled = true;
+            if (!on_track && tracks_checker != null) tracks_checker.enabled = true;
         }
     }
 
@@ -153,7 +158,7 @@ public class OnTrackMovement : MonoBehaviour
 
 
         // disable tracks checker
-        tracks_checker.enabled = false;
+        if (tracks_checker) tracks_checker.enabled = false;
 
         // update position (keep next to track)
         UpdateAttachedPosition(point, normal);
@@ -197,7 +202,7 @@ public class OnTrackMovement : MonoBehaviour
             velocity = v * track_speed;
             move_infohub.InformVelocity(velocity);
 
-            transform.Translate(normal * tracks_checker.radius);
+            transform.Translate(normal * snap_off_radius);
         }
 
         SendMessage("OnTrackDetach", SendMessageOptions.DontRequireReceiver);
@@ -205,7 +210,6 @@ public class OnTrackMovement : MonoBehaviour
 
     private void UpdateTrackAttatchment()
     {
-        Debug.DrawLine(transform.position, (Vector2)transform.position - CalculateTrackNormal() * radius * 2f, Color.white, 5f);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -CalculateTrackNormal(), radius * 2f, tracks_layer);
 
         // detach
