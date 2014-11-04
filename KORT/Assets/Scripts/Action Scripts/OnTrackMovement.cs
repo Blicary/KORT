@@ -244,7 +244,6 @@ public class OnTrackMovement : MonoBehaviour
         // detach
         if (hit.collider == null)
         {
-            Debug.Log("no collider detach");
             DetachFromTrack();
             return;
         }

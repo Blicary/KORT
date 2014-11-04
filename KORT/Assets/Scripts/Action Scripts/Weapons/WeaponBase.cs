@@ -3,12 +3,14 @@ using System.Collections;
 
 public class WeaponBase : MonoBehaviour 
 {
+    public AttackInfoHub attack_info_hub;
+
     // Minimum time a player must wait between successive attacks
     //  with this weapon.
     public float time_between_attack = 1.0f;
-    public CharAimInfoHub AimScript;
-    public string weapon_name = "Weapon Base";
     public CharAimInfoHub aim_info_hub;
+    public string weapon_name = "Weapon Base";
+
 
     // Time that has passed since the player last actually used 
     //  this attack.

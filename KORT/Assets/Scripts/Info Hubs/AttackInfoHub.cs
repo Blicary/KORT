@@ -5,6 +5,9 @@ using System;
 
 public class AttackInfoHub : MonoBehaviour
 {
+    // dist from center of character at which weapon collision checking begins
+    public float weapon_start_reach = 1f; 
+
     // Weapon Relay Variables
     public GameObject weapon_manager;
     private WeaponBase[] weapon_list;

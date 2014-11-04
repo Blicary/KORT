@@ -26,7 +26,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: Weapon Manager
+  m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,15 +365,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bca14415de7364faa3a36ec12918b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack_info_hub: {fileID: 11400014}
   time_between_attack: 1
-  AimScript: {fileID: 11400012}
-  weapon_name: Weapon Base
   aim_info_hub: {fileID: 11400012}
+  weapon_name: Weapon Base
   last_attack: 0
   animation_length: .0500000007
   animation_start: 0
   animation: {fileID: 21200000}
-  character_group: {fileID: 0}
+  collision_layer:
+    serializedVersion: 2
+    m_Bits: 7424
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7736e5f176a624cb349ff0401dec67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon_start_reach: 2
   weapon_manager: {fileID: 100002}
   chosen_weapon: 0
 --- !u!114 &11400016

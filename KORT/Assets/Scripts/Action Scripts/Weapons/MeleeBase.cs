@@ -17,7 +17,7 @@ public class MeleeBase : WeaponBase
     // Collision
 
     // (Later there could be derived classes for swing / thrust weapons...) 
-    protected float swing_start_radius = 3f, swing_radius = 9.6f; 
+    protected float swing_radius = 9.26f; 
     protected float swing_angle_start = Mathf.PI / 4f, swing_angle_end = Mathf.PI * 3 / 4f;
 
     // angle between rays
@@ -64,7 +64,7 @@ public class MeleeBase : WeaponBase
         {
             in_animation = false;
             //animation.enabled = false;
-            animation.color = Color.white * 0.3f;
+            animation.color = new Color(1, 1, 1, 25f/255f);
         }
     }
 
@@ -95,51 +95,44 @@ public class MeleeBase : WeaponBase
         /// damage thing.
         //Debug.Log("Check for Collisions");
 
-        HashSet<RaycastHit2D> all_colliders = new HashSet<RaycastHit2D>();
+        HashSet<Collider2D> all_colliders = new HashSet<Collider2D>();
 
+        // Ray cast
         for (int i = 0; i < ray_cast_angles.Length; ++i)
         {
             float a = ray_cast_angles[i] + aim_info_hub.GetAimRotation();
-            Vector2 ray = new Vector2(Mathf.Cos(a), Mathf.Sin(a)).normalized;
+            Vector2 ray = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
 
-            RaycastHit2D[] cols = Physics2D.RaycastAll((Vector2)transform.position + ray * swing_start_radius,
-                ray, swing_radius, collision_layer);
+            RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + ray * attack_info_hub.weapon_start_reach,
+                ray, swing_radius - attack_info_hub.weapon_start_reach, collision_layer);
 
-            all_colliders.UnionWith(cols);
+            if (hit) all_colliders.Add(hit.collider);
         }
 
 
-        
+        // Act on hit objects
+        bool hit_character = false;
+        bool hit_terrain = false;
 
-        foreach (RaycastHit2D hit in all_colliders)
+        foreach (Collider2D col in all_colliders)
         {
-            //Debug.Log("HIT " + hit.collider.name);
-            animation.color = Color.red;
-
-            Character c = hit.collider.GetComponent<Character>();
+            Character c = col.GetComponent<Character>();
             if (c)
             {
-                Vector2 dir = (hit.collider.transform.position - transform.position).normalized;
+                hit_character = true;
+                Vector2 dir = (col.transform.position - transform.position).normalized;
                 c.Hit(dir * 30f, true);
             }
-        }
-        
-
-
-        /*
-        //Debug.Log(character_array);
-        foreach (Transform child in character_group.transform)
-        {
-            //Vector2 other_position = child.position;
-            float distance = Vector2.Distance((Vector2)transform.position, child.position);
-            //Debug.Log(child.name + ":" + other_position + " DIS " + distance + " To Player " + (Vector2)transform.position);
-
-            if (1f < distance && distance < 9f)
+            else
             {
-                
+                hit_terrain = true;
             }
         }
-         * */
+
+
+        // TEMP
+        if (hit_character) animation.color = Color.red;
+        else if (hit_terrain) animation.color = new Color(1, 0.8f, 0.1f);
 
     }
 
@@ -162,7 +155,7 @@ public class MeleeBase : WeaponBase
         {
             float a = ray_cast_angles[i] + aim_info_hub.GetAimRotation();
             Vector2 ray = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
-            Debug.DrawLine((Vector2)transform.position + ray * swing_start_radius, (Vector2)transform.position + ray * swing_radius);
+            Debug.DrawLine((Vector2)transform.position + ray * attack_info_hub.weapon_start_reach, (Vector2)transform.position + ray * swing_radius);
         }
     }
 
