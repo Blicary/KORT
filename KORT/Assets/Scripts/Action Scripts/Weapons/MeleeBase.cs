@@ -89,8 +89,6 @@ public abstract class MeleeBase : WeaponBase
     {
         base.OnAnimationEnd();
 
-        Debug.Log("anim end");
-        //animator.renderer.color = new Color(1, 1, 1, 25f / 255f);
         has_collided = false;
     }
 
@@ -146,9 +144,6 @@ public abstract class MeleeBase : WeaponBase
         // TEMP
         if (hit_character) animator.renderer.color = Color.red;
         else if (hit_terrain) animator.renderer.color = new Color(1, 0.8f, 0.1f);
-
-        Debug.Log("handle col");
-
     }
     private void HandleAnimation()
     { 
@@ -160,6 +155,7 @@ public abstract class MeleeBase : WeaponBase
 
         animator.BeginAnimation();
     }
+
 
 	private void DebugDrawRayCasts()
     {

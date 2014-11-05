@@ -214,14 +214,14 @@ public class RollerBladeMovement : MonoBehaviour
 
     private void TurnAwayFromWall(ContactPoint2D contact)
     {
-        Vector2 perp = GeneralHelpers.Perpendicular(contact.normal);
+        //Vector2 perp = GeneralHelpers.Perpendicular(contact.normal);
  
         direction = Vector2.Lerp(direction,  contact.normal, Time.deltaTime * 4f);
         SetAim(direction);
     }
     private void TurnAwayFromCharacter(ContactPoint2D contact)
     {
-        Vector2 perp = GeneralHelpers.Perpendicular(contact.normal);
+        //Vector2 perp = GeneralHelpers.Perpendicular(contact.normal);
         //direction = contact.normal;
 
         direction = Vector2.Lerp(direction, contact.normal, Time.deltaTime * 15f);

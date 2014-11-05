@@ -49,6 +49,11 @@ public abstract class WeaponBase : MonoBehaviour
     {
         if (CanAttack()) HandleAttack();
     }
+    public void InterruptAttack()
+    {
+        animator.StopAnimation();
+        OnAnimationEnd();
+    }
 
     /// <summary>
     /// Called by WeaponBase when an attack is commanded and CanAttack.

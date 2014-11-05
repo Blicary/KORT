@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Character : MonoBehaviour
 {
-    //public CharAimInfoHub info_hub_aim;
+    // references
     public CharMoveInfoHub info_hub_move;
 
+    // events
+    public event EventHandler<EventArgs> event_on_stun, event_on_unstun;
 
     // general
-    public string name = "no name";
+    public string character_name = "no name";
     private bool alive = true;
     public bool weak = false; // a weak character will die in one hit (no stun)
     public bool invulnerable = false; // cannot be knocked back or stunned or killed when hit
@@ -76,12 +79,12 @@ public class Character : MonoBehaviour
     {
         stunned = true;
         recover_timer = stun_duration;
-        SendMessage("OnStun", SendMessageOptions.DontRequireReceiver);
+        if (event_on_stun != null) event_on_stun(this, new EventArgs());
     }
     private void UnStun()
     {
         stunned = false;
-        SendMessage("OnUnStun", SendMessageOptions.DontRequireReceiver);
+        if (event_on_unstun != null) event_on_unstun(this, new EventArgs());
     }
     private void Kill()
     {

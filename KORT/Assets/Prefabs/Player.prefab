@@ -356,12 +356,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7736e5f176a624cb349ff0401dec67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 11400016}
+  aim_info_hub: {fileID: 11400004}
+  weapons_object: {fileID: 100004}
+  chosen_weapon: 0
   weapon_start_reach: 1.5
   weapon_collision_layer:
     serializedVersion: 2
     m_Bits: 7424
-  weapon_manager: {fileID: 100004}
-  chosen_weapon: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,10 +445,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info_hub_move: {fileID: 11400002}
-  name: Player1
+  character_name: no name
   weak: 0
   invulnerable: 0
-  stun_duration: .5
+  stun_duration: .75
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
