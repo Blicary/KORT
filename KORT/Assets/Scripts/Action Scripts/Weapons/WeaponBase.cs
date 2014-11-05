@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class WeaponBase : MonoBehaviour 
+public abstract class WeaponBase 
 {
     // references
+    protected Transform owner;
     protected AttackInfoHub attack_info_hub;
     protected CharAimInfoHub aim_info_hub;
 
@@ -11,10 +12,13 @@ public abstract class WeaponBase : MonoBehaviour
     // general
     public abstract string WeaponName { get; }
 
+
     // time between two attacks (time before another attack can be made) - defines weapon speed
-    protected float attack_duration = 0.5f;
+    protected abstract float AttackDuration { get; }
+
     // time of the most recent attack (when input was received)
     protected float attack_start_time = 0f;
+
 
     // animation
     public SpriteRenderer animation_renderer; // on info hub?...
@@ -22,22 +26,21 @@ public abstract class WeaponBase : MonoBehaviour
     
 
 
-    /// <summary>
-    /// Make sure to set attack_duration before calling the original function.
-    /// </summary>
-    public void Start()
+
+    public WeaponBase()
     {
-        attack_info_hub = transform.parent.GetComponentInChildren<AttackInfoHub>();
-        if (!attack_info_hub) Debug.LogWarning("Missing attack info hub");
+    }
+    public void Initialize(Transform owner, AttackInfoHub attack_info_hub, CharAimInfoHub aim_info_hub, SpriteRenderer weapon_renderer)
+    {
+        this.owner = owner;
+        this.attack_info_hub = attack_info_hub;
+        this.aim_info_hub = aim_info_hub;
+        this.animation_renderer = weapon_renderer;
 
-        aim_info_hub = transform.parent.GetComponentInChildren<CharAimInfoHub>();
-        if (!aim_info_hub) Debug.LogWarning("Missing aim info hub");
-
-
-        animator = new SpriteAnimator(animation_renderer, attack_duration);
+        animator = new SpriteAnimator(animation_renderer, AttackDuration);
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (animator.Update(Time.deltaTime)) OnAnimationEnd();
     }
@@ -71,7 +74,7 @@ public abstract class WeaponBase : MonoBehaviour
     /// <returns></returns>
     protected virtual bool CanAttack()
     {
-        return (Time.time - attack_start_time) > attack_duration;
+        return (Time.time - attack_start_time) > AttackDuration;
     }
 
     protected virtual void OnAnimationEnd() { }

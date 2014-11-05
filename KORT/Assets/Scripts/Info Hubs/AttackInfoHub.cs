@@ -3,20 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+public enum WeaponType { TestMelee, RangedMelee }
+
 public class AttackInfoHub : MonoBehaviour
 {
-    // references
+    // References
     public Character character;
     public CharAimInfoHub aim_info_hub;
-    public GameObject weapons_object;
+    public SpriteRenderer weapon_renderer;
     
 
-    // weapons
-    private WeaponBase[] weapons_list;
-    public int chosen_weapon = 0;
+    // Weapons
+    public WeaponType chosen_weapon = WeaponType.TestMelee;
     private WeaponBase active_weapon = null;
+    
 
-    // weapon collision handling
+    // Weapon collision handling
 
     // dist from center of character at which weapon collision checking begins
     public float weapon_start_reach = 1f;
@@ -27,50 +29,49 @@ public class AttackInfoHub : MonoBehaviour
 
     // PUBLIC MODIFIERS
 
-    public void Awake()
-    {
-        // setup weapons list
-        if (weapons_object == null)
-        {
-            Debug.LogWarning("No weapon manager specified.");
-            weapons_list = new WeaponBase[0];
-        }
-        else
-        {
-            weapons_list = weapons_object.GetComponents<WeaponBase>();
-        }
-    }
     public void Start()
     {
         character.event_on_stun += new EventHandler<EventArgs>(OnCharacterStun);
 
         // set initial active weapon
-        if (weapons_list.Length > 0) active_weapon = weapons_list[chosen_weapon];
+        CreateActiveWeaponInstance();
+    }
+
+    public void Update()
+    {
+        active_weapon.Update();
     }
 
     public void Attack()
     {
-        if (character.IsStunned() || !character.IsAlive() || active_weapon == null) return;
+        if (character.IsStunned() || !character.IsAlive()) return;
 
         active_weapon.Attack();
     }
     public void SwitchWeapon()
     {
-        // active weapon remains null if there are no weapons available
-        if (weapons_list.Length == 0) return;
-
-
-        chosen_weapon = (chosen_weapon + 1) % weapons_list.Length;
-        active_weapon = weapons_list[chosen_weapon];
+        int n = Enum.GetNames(typeof(WeaponType)).Length;
+        chosen_weapon = (WeaponType)(((int)chosen_weapon + 1) % n);
+        CreateActiveWeaponInstance();
     }
 
 
     // PRIVATE MODIFIERS
 
+    private void CreateActiveWeaponInstance()
+    {
+        WeaponType t = chosen_weapon; // to save space
+
+        active_weapon = 
+            t == WeaponType.TestMelee ? (WeaponBase)new TestMelee() :
+            t == WeaponType.TestMelee ? (WeaponBase)new TestRanged() :
+            null;
+
+        active_weapon.Initialize(transform, this, aim_info_hub, weapon_renderer);
+    }
+
     private void OnCharacterStun(object sender, EventArgs e)
     {
-        if (!active_weapon) return;
-
         active_weapon.InterruptAttack();
     }
 
