@@ -6,7 +6,9 @@ using System;
 public class AttackInfoHub : MonoBehaviour
 {
     // dist from center of character at which weapon collision checking begins
-    public float weapon_start_reach = 1f; 
+    public float weapon_start_reach = 1f;
+    // layers that weapons should collide with (terrain, characters...)
+    public LayerMask weapon_collision_layer; 
 
     // Weapon Relay Variables
     public GameObject weapon_manager;
@@ -42,7 +44,7 @@ public class AttackInfoHub : MonoBehaviour
         
         WeaponBase active_weapon = (WeaponBase) weapon_list[chosen_weapon];
         // Debug.Log("Attack with (" + chosen_weapon + ") " + active_weapon);
-        active_weapon.RunAttack();
+        active_weapon.Attack();
     }
 
     public void SwitchWeapon()

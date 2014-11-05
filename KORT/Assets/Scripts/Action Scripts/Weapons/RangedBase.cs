@@ -1,29 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RangedBase : WeaponBase 
+public abstract class RangedBase : WeaponBase 
 {
     // Combat variables
     private GameObject bolt;
     // Override RunAttack() from WeaponBase
-    public override void RunAttack()
-    { 
-        // Check if the player has waited long enough wince their last
-        //   attack with this weapon.
 
-        // Debug.Log("RunAttack with " + weapon_name);
-        // Debug.Log("Attack Logic: (" + Time.time + "-" + last_attack+") > "+time_between_attack);
-        if ((Time.time - last_attack) > time_between_attack)
-        { 
-            // If they have, do all the stuff that needs to happen when attack 
-            //   is run.
-            HandleBoltInstantiation();
-            HandleAnimation();
-            last_attack = Time.time;
-
-            // Debug.Log("Ranged Attack with " + weapon_name);
-        }
-    }
 
     // Helper functions for run attack
     private void HandleBoltInstantiation()
@@ -47,7 +30,7 @@ public class RangedBase : WeaponBase
 	// Use this for initialization
 	void Start () 
     {
-        weapon_name = "Weapon Ranged";
+        base.Start();
 	}
 	
 	// Update is called once per frame

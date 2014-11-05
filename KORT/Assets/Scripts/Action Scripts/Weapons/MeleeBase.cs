@@ -2,19 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class MeleeBase : WeaponBase
+public abstract class MeleeBase : WeaponBase
 {
-    // Animation
-
-    // the time in seconds it takes for the attack animation to complete
-    public float animation_length = 0.2f; 
-    // the time in seconds when the animation begin
-    public float animation_start;        
-    protected bool in_animation = false;
-    public SpriteRenderer animation;
-
-
     // Collision
+
+    // time (into the animation) at which collision detection happens (when damage is done)
+    protected float time_of_collision = 0;
+    // whether collision handling has yet been done for the current attack
+    protected bool has_collided = false; 
 
     // (Later there could be derived classes for swing / thrust weapons...) 
     protected float swing_radius = 9.26f; 
@@ -24,29 +19,64 @@ public class MeleeBase : WeaponBase
     private float ray_precision = Mathf.PI / 16f;
     protected float[] ray_cast_angles; // references angles (character aiming to the right)
     
-    // layer specifying which objects can be hit by this weapon (maybe have it on the infohub...)
-    public LayerMask collision_layer; 
-    //public GameObject character_group; // reference to the characters object in the hierarchy that we will be get the characters from.
 
 
 
-    public void Start()
+    // PUBLIC MODIFIERS
+
+    public new void Start()
     {
-        weapon_name = "Weapon Melee";
-        aim_info_hub = transform.parent.GetComponentInChildren<CharAimInfoHub>();
-
+        base.Start();
 
         // collision physics preperations
         PrepareRaycastDirections();
-        
     }
+    
+    public new void Update()
+    {
+        base.Update();
+        //DebugDrawRayCasts();
+
+        // collision handling midway through attack animation
+        if (base.animator.GetCurrentAnimationTime() >= time_of_collision && !has_collided)
+        {
+            HandleCollision();
+            has_collided = true;
+        }
+
+        // TEMP
+        if (animator.IsAnimating())
+        {
+            if (base.animator.GetCurrentAnimationTime() < time_of_collision)
+            {
+                float a = base.animator.GetCurrentAnimationTime() / time_of_collision;
+                animator.renderer.color = new Color(1, 1, 1, a / 4f);
+            }
+            else if (base.animator.GetCurrentAnimationTime() < time_of_collision + 0.1f)
+            {
+                Color c = animator.renderer.color;
+                animator.renderer.color = new Color(c.r, c.g, c.b, 1);
+            }
+            else
+            {
+                float a = 1 - (base.animator.GetCurrentAnimationTime() - time_of_collision) / (base.animator.GetDuration() - time_of_collision);
+                Color c = animator.renderer.color;
+                animator.renderer.color = new Color(c.r, c.g, c.b, a / 4f);
+            }
+            
+        }
+    }
+
+    
+    // PRIVATE / PROTECTED MODIFIERS
+
     private void PrepareRaycastDirections()
     {
         float total_swing_angle = swing_angle_end - swing_angle_start;
         int n = (int)Mathf.Ceil(total_swing_angle / ray_precision);
 
         ray_cast_angles = new float[n];
-        float inter_angle = total_swing_angle / (n-1);
+        float inter_angle = total_swing_angle / (n - 1);
 
         for (int i = 0; i < n; ++i)
         {
@@ -55,38 +85,21 @@ public class MeleeBase : WeaponBase
         }
     }
 
-    public void Update()
+    protected override void OnAnimationEnd()
     {
-        //DebugDrawRayCasts();
+        base.OnAnimationEnd();
 
-        //Debug.Log("animation");
-        if (in_animation && (Time.time - animation_start) > animation_length)
-        {
-            in_animation = false;
-            //animation.enabled = false;
-            animation.color = new Color(1, 1, 1, 25f/255f);
-        }
+        Debug.Log("anim end");
+        //animator.renderer.color = new Color(1, 1, 1, 25f / 255f);
+        has_collided = false;
     }
 
-    // Override RunAttack() from WeaponBase 
-    public override void RunAttack()
+    protected override void HandleAttack()
     {
-        // Check if the player has waited long enough wince their last
-        //   attack with this weapon.
-        if ((Time.time - last_attack) > time_between_attack)
-        {
-            //Debug.Log("attack" + ((Time.time - last_attack) +">"+ time_between_attack));
-            // If they have, do all the stuff that needs to happen when attack
-            //   is run.
-            last_attack = Time.time;
-            HandleAnimation();
-            HandleCollision();
-            
-            // Debug.Log("Melee Attack with " + weapon_name);
-        }
-    }
+        base.HandleAttack();
 
-    // Helper functions for run attack
+        HandleAnimation();
+    }
     private void HandleCollision()
     { 
         /// This is the function that is responsible for determining what
@@ -104,7 +117,7 @@ public class MeleeBase : WeaponBase
             Vector2 ray = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
 
             RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + ray * attack_info_hub.weapon_start_reach,
-                ray, swing_radius - attack_info_hub.weapon_start_reach, collision_layer);
+                ray, swing_radius - attack_info_hub.weapon_start_reach, attack_info_hub.weapon_collision_layer);
 
             if (hit) all_colliders.Add(hit.collider);
         }
@@ -131,11 +144,12 @@ public class MeleeBase : WeaponBase
 
 
         // TEMP
-        if (hit_character) animation.color = Color.red;
-        else if (hit_terrain) animation.color = new Color(1, 0.8f, 0.1f);
+        if (hit_character) animator.renderer.color = Color.red;
+        else if (hit_terrain) animator.renderer.color = new Color(1, 0.8f, 0.1f);
+
+        Debug.Log("handle col");
 
     }
-
     private void HandleAnimation()
     { 
         /// This is the function responcible for initiating the weapon 
@@ -143,10 +157,8 @@ public class MeleeBase : WeaponBase
         /// The animation is ended by the update function when it determines
         /// that the animation is over.
         // Debug.Log("Animate Melee");
-        animation.enabled = true;
-        in_animation = true;
-        animation_start = Time.time;
-        animation.color = Color.white;
+
+        animator.BeginAnimation();
     }
 
 	private void DebugDrawRayCasts()

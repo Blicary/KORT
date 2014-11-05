@@ -1,42 +1,74 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WeaponBase : MonoBehaviour 
+public abstract class WeaponBase : MonoBehaviour 
 {
-    public AttackInfoHub attack_info_hub;
-
-    // Minimum time a player must wait between successive attacks
-    //  with this weapon.
-    public float time_between_attack = 1.0f;
-    public CharAimInfoHub aim_info_hub;
-    public string weapon_name = "Weapon Base";
+    // references
+    protected AttackInfoHub attack_info_hub;
+    protected CharAimInfoHub aim_info_hub;
 
 
-    // Time that has passed since the player last actually used 
-    //  this attack.
-    public float last_attack = 0f;
+    // general
+    public abstract string WeaponName { get; }
 
-    // Run Attack
-    virtual public void RunAttack()
+    // time between two attacks (time before another attack can be made) - defines weapon speed
+    protected float attack_duration = 0.5f;
+    // time of the most recent attack (when input was received)
+    protected float attack_start_time = 0f;
+
+    // animation
+    public SpriteRenderer animation_renderer; // on info hub?...
+    protected SpriteAnimator animator;
+    
+
+
+    /// <summary>
+    /// Make sure to set attack_duration before calling the original function.
+    /// </summary>
+    public void Start()
     {
-        /// This method should ALWAYS be overrided by a child class
-        /// in implementation.
-        /// 
-        // Debug.Log("weapon base runattack");
+        attack_info_hub = transform.parent.GetComponentInChildren<AttackInfoHub>();
+        if (!attack_info_hub) Debug.LogWarning("Missing attack info hub");
+
+        aim_info_hub = transform.parent.GetComponentInChildren<CharAimInfoHub>();
+        if (!aim_info_hub) Debug.LogWarning("Missing aim info hub");
+
+
+        animator = new SpriteAnimator(animation_renderer, attack_duration);
     }
 
-
-	// Use this for initialization
-	void Start () 
+    public void Update()
     {
-        // Get us a reference to the aim info hub so we can get our direction.
-        aim_info_hub = transform.parent.GetComponentInChildren<CharAimInfoHub>();
+        if (animator.Update(Time.deltaTime)) OnAnimationEnd();
+    }
 
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    /// <summary>
+    /// Will attack if allowed.
+    /// </summary>
+    public void Attack()
     {
-	
-	}
+        if (CanAttack()) HandleAttack();
+    }
+
+    /// <summary>
+    /// Called by WeaponBase when an attack is commanded and CanAttack.
+    /// When overiding, be sure the call the original.
+    /// </summary>
+    protected virtual void HandleAttack()
+    {
+        attack_start_time = Time.time;
+    }
+
+    /// <summary>
+    /// Has there been enough time since the last attack, etc.
+    /// If overiding, be sure to use the return of the original.
+    /// </summary>
+    /// <returns></returns>
+    protected virtual bool CanAttack()
+    {
+        return (Time.time - attack_start_time) > attack_duration;
+    }
+
+    protected virtual void OnAnimationEnd() { }
+
 }

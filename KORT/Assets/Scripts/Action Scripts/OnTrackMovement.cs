@@ -221,7 +221,6 @@ public class OnTrackMovement : MonoBehaviour
         Vector2 v = aim;
         if (Vector2.Dot(v, normal) < 0)
         {
-            Debug.Log("dot < 0");
             DetachFromTrackForcefull();
             return;
         }
