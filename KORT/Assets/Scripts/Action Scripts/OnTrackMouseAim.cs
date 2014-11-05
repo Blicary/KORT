@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Character))]
+[RequireComponent(typeof(CharAimInfoHub))]
+
 public class OnTrackMouseAim : MonoBehaviour 
 {
     // references
-    public Character character;
-    public CharAimInfoHub aim_infohub;
-    public OnTrackMovement on_track_movement;
+    private Character character;
+    private CharAimInfoHub aim_infohub;
     public Transform graphics_object;
 
     // general
@@ -14,6 +16,13 @@ public class OnTrackMouseAim : MonoBehaviour
 
 
     // PUBLIC MODIFIERS
+
+    public void Awake()
+    {
+        // get references
+        character = GetComponent<Character>();
+        aim_infohub = GetComponentInChildren<CharAimInfoHub>();
+    }
 
     public void Update()
     {

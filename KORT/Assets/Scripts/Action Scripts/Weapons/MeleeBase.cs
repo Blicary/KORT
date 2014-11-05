@@ -7,7 +7,8 @@ public abstract class MeleeBase : WeaponBase
     // Collision
 
     // time (into the animation) at which collision detection happens (when damage is done)
-    protected float time_of_collision = 0;
+    protected abstract float TimeOfCollision { get; }
+
     // whether collision handling has yet been done for the current attack
     protected bool has_collided = false; 
 
@@ -24,21 +25,20 @@ public abstract class MeleeBase : WeaponBase
 
     // PUBLIC MODIFIERS
 
-    public new void Start()
+    public MeleeBase() : base()
     {
-        base.Start();
-
+        
         // collision physics preperations
         PrepareRaycastDirections();
     }
     
-    public new void Update()
+    public override void Update()
     {
         base.Update();
         //DebugDrawRayCasts();
 
         // collision handling midway through attack animation
-        if (base.animator.GetCurrentAnimationTime() >= time_of_collision && !has_collided)
+        if (base.animator.GetCurrentAnimationTime() >= TimeOfCollision && !has_collided)
         {
             HandleCollision();
             has_collided = true;
@@ -47,19 +47,19 @@ public abstract class MeleeBase : WeaponBase
         // TEMP
         if (animator.IsAnimating())
         {
-            if (base.animator.GetCurrentAnimationTime() < time_of_collision)
+            if (base.animator.GetCurrentAnimationTime() < TimeOfCollision)
             {
-                float a = base.animator.GetCurrentAnimationTime() / time_of_collision;
+                float a = base.animator.GetCurrentAnimationTime() / TimeOfCollision;
                 animator.renderer.color = new Color(1, 1, 1, a / 4f);
             }
-            else if (base.animator.GetCurrentAnimationTime() < time_of_collision + 0.1f)
+            else if (base.animator.GetCurrentAnimationTime() < TimeOfCollision + 0.1f)
             {
                 Color c = animator.renderer.color;
                 animator.renderer.color = new Color(c.r, c.g, c.b, 1);
             }
             else
             {
-                float a = 1 - (base.animator.GetCurrentAnimationTime() - time_of_collision) / (base.animator.GetDuration() - time_of_collision);
+                float a = 1 - (base.animator.GetCurrentAnimationTime() - TimeOfCollision) / (base.animator.GetDuration() - TimeOfCollision);
                 Color c = animator.renderer.color;
                 animator.renderer.color = new Color(c.r, c.g, c.b, a / 4f);
             }
@@ -114,7 +114,7 @@ public abstract class MeleeBase : WeaponBase
             float a = ray_cast_angles[i] + aim_info_hub.GetAimRotation();
             Vector2 ray = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
 
-            RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + ray * attack_info_hub.weapon_start_reach,
+            RaycastHit2D hit = Physics2D.Raycast((Vector2)owner.position + ray * attack_info_hub.weapon_start_reach,
                 ray, swing_radius - attack_info_hub.weapon_start_reach, attack_info_hub.weapon_collision_layer);
 
             if (hit) all_colliders.Add(hit.collider);
@@ -131,7 +131,7 @@ public abstract class MeleeBase : WeaponBase
             if (c)
             {
                 hit_character = true;
-                Vector2 dir = (col.transform.position - transform.position).normalized;
+                Vector2 dir = (col.transform.position - owner.position).normalized;
                 c.Hit(dir * 30f, true);
             }
             else
@@ -163,7 +163,7 @@ public abstract class MeleeBase : WeaponBase
         {
             float a = ray_cast_angles[i] + aim_info_hub.GetAimRotation();
             Vector2 ray = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
-            Debug.DrawLine((Vector2)transform.position + ray * attack_info_hub.weapon_start_reach, (Vector2)transform.position + ray * swing_radius);
+            Debug.DrawLine((Vector2)owner.position + ray * attack_info_hub.weapon_start_reach, (Vector2)owner.position + ray * swing_radius);
         }
     }
 

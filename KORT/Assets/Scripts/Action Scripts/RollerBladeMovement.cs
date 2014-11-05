@@ -3,12 +3,18 @@ using System.Collections;
 using System;
 
 
+[RequireComponent(typeof(Character))]
+[RequireComponent(typeof(CharMoveInfoHub))]
+[RequireComponent(typeof(CharAimInfoHub))]
+[RequireComponent(typeof(Rigidbody2D))]
+
+
 public class RollerBladeMovement : MonoBehaviour
 {
     // references
-    public Character character;
-    public CharMoveInfoHub move_infohub;
-    public CharAimInfoHub aim_infohub;
+    private Character character;
+    private CharMoveInfoHub move_infohub;
+    private CharAimInfoHub aim_infohub;
     public Transform graphics_object;
 
 
@@ -37,10 +43,18 @@ public class RollerBladeMovement : MonoBehaviour
 
     // PUBLIC MODIFIERS
 
+    public void Awake()
+    {
+        // get references
+        character = GetComponent<Character>();
+        move_infohub = GetComponentInChildren<CharMoveInfoHub>();
+        aim_infohub = GetComponentInChildren<CharAimInfoHub>();
+
+        if (!graphics_object) Debug.LogWarning("No graphics object specified");
+    }
     public void Start()
     {
-        if (!graphics_object) Debug.LogWarning("No graphics object specified");
-
+        
         // events
         aim_infohub.event_set_aim_with_direction += new EventHandler<EventArgs<Vector2>>(OnSetAim);
         aim_infohub.event_set_aim_with_rotation += new EventHandler<EventArgs<float>>(OnSetAim);

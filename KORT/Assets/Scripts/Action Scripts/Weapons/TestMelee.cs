@@ -5,13 +5,13 @@ public class TestMelee : MeleeBase
 {
     public override string WeaponName { get { return "Test Melee"; } }
 
+    protected override float AttackDuration { get { return 0.75f; } }
+    protected override float TimeOfCollision { get { return 0.15f; } }
 
-    public new void Start()
+
+    public TestMelee() : base()
     {
-        base.attack_duration = 0.5f;
-        base.time_of_collision = 0.25f;
-        
-        base.Start();
+ 
     }
 	
 }

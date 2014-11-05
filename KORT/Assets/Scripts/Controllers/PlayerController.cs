@@ -1,18 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+[RequireComponent(typeof(OnTrackMovement))]
+[RequireComponent(typeof(RollerBladeMovement))]
+[RequireComponent(typeof(OnTrackMouseAim))]
+[RequireComponent(typeof(CharAimInfoHub))]
+
 public class PlayerController : MonoBehaviour
 {
     // references
-    public OnTrackMovement on_track_movement;
-    public RollerBladeMovement roller_blade_movement;
-    public OnTrackMouseAim on_track_mouse_aim;
+    private OnTrackMovement on_track_movement;
+    private RollerBladeMovement roller_blade_movement;
+    private OnTrackMouseAim on_track_mouse_aim;
 
-    public AttackInfoHub attack_infohub;
-    public CharAimInfoHub aim_info_hub;
+    private AttackInfoHub attack_infohub;
+    private CharAimInfoHub aim_info_hub;
     
 
     private bool break_turned = false;
+
+
+    public void Awake()
+    {
+        on_track_movement = GetComponent<OnTrackMovement>();
+        roller_blade_movement = GetComponent<RollerBladeMovement>();
+        on_track_mouse_aim = GetComponentInChildren<OnTrackMouseAim>();
+        attack_infohub = GetComponentInChildren<AttackInfoHub>();
+        aim_info_hub = GetComponentInChildren<CharAimInfoHub>();
+    }
 
     public void Update()
     {

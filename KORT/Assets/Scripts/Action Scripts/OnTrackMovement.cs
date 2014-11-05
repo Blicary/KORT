@@ -3,11 +3,15 @@ using System.Collections;
 using System;
 
 
+[RequireComponent(typeof(Character))]
+[RequireComponent(typeof(CharMoveInfoHub))]
+
 public class OnTrackMovement : MonoBehaviour
 {
     // References
-    public Character character;
-    public CharMoveInfoHub move_infohub;
+    private Character character;
+    private CharMoveInfoHub move_infohub;
+
     public LayerMask tracks_layer;          // physics layer for track raycasting
     public CircleCollider2D tracks_checker; // separate (larger) collider for colliding with tracks 
 
@@ -32,6 +36,12 @@ public class OnTrackMovement : MonoBehaviour
 
     // PUBLIC MODIFIERS
 
+    public void Awake()
+    {
+        // get references
+        character = GetComponent<Character>();
+        move_infohub = GetComponentInChildren<CharMoveInfoHub>();
+    }
     public void Start()
     {
         move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);

@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(RollerBladeMovement))]
+[RequireComponent(typeof(CharAimInfoHub))]
+
 public class AIPatrolAreaRollerBlade : AIPatrolAreaBase
 {
     // references
-    public RollerBladeMovement movement;
-    public CharAimInfoHub aim;
+    private RollerBladeMovement movement;
+    private CharAimInfoHub aim;
     
     private float stop_dist = 3;
     private float turn_accuracy = 0.4f; // 0 is most accurate
-    
 
+
+    public void Awake()
+    {
+        movement = GetComponent<RollerBladeMovement>();
+        aim = GetComponentInChildren<CharAimInfoHub>();
+    }
 
     protected override void UpdateMovement()
     {

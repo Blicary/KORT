@@ -3,6 +3,7 @@ using System.Collections;
 
 public abstract class RangedBase : WeaponBase 
 {
+    /*
     // Combat variables
     private GameObject bolt;
     // Override RunAttack() from WeaponBase
@@ -38,4 +39,5 @@ public abstract class RangedBase : WeaponBase
     {
 	
 	}
+     * */
 }

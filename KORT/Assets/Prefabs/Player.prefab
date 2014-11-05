@@ -33,22 +33,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100004
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400004}
-  - 114: {fileID: 11400000}
-  m_Layer: 0
-  m_Name: Weapons
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100006
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,18 +146,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400012}
   m_RootOrder: 1
---- !u!4 &400004
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400012}
-  m_RootOrder: 3
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -211,7 +183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400012}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &400012
 Transform:
   m_ObjectHideFlags: 1
@@ -225,7 +197,6 @@ Transform:
   - {fileID: 400006}
   - {fileID: 400002}
   - {fileID: 400008}
-  - {fileID: 400004}
   - {fileID: 400010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -311,18 +282,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: 1
   m_Center: {x: 0, y: 0}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3bca14415de7364faa3a36ec12918b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animation_renderer: {fileID: 21200004}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,9 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7736e5f176a624cb349ff0401dec67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400016}
-  aim_info_hub: {fileID: 11400004}
-  weapons_object: {fileID: 100004}
+  weapon_renderer: {fileID: 21200004}
   chosen_weapon: 0
   weapon_start_reach: 1.5
   weapon_collision_layer:
@@ -375,11 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8e58b6a604aa24ba8130eda2f15d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on_track_movement: {fileID: 11400014}
-  roller_blade_movement: {fileID: 11400012}
-  on_track_mouse_aim: {fileID: 11400010}
-  attack_infohub: {fileID: 11400006}
-  aim_info_hub: {fileID: 11400004}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,9 +343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea88ee8a43bdc446a09cd509ca4ed09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400016}
-  aim_infohub: {fileID: 11400004}
-  on_track_movement: {fileID: 11400014}
   graphics_object: {fileID: 400006}
 --- !u!114 &11400012
 MonoBehaviour:
@@ -406,9 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1481976d52b09c449b1663f549d98623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400016}
-  move_infohub: {fileID: 11400002}
-  aim_infohub: {fileID: 11400004}
   graphics_object: {fileID: 400006}
   speed: 20
   rotate_speed: 5
@@ -424,8 +370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d26dfc24e56b9544b66467e3390e0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400016}
-  move_infohub: {fileID: 11400002}
   tracks_layer:
     serializedVersion: 2
     m_Bits: 256
@@ -444,8 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13c089ae33386b4d9143430076496a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info_hub_move: {fileID: 11400002}
-  character_name: no name
+  character_name: Player
   weak: 0
   invulnerable: 0
   stun_duration: .75

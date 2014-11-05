@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+[RequireComponent(typeof(RollerBladeMovement))]
+[RequireComponent(typeof(CharAimInfoHub))]
+
 public class AICloseAttackRollerBlade : AICloseAttackBase 
 {
     // references
@@ -9,6 +13,14 @@ public class AICloseAttackRollerBlade : AICloseAttackBase
     
     private float turn_accuracy = 0.4f; // 0 is most accurate
 
+
+    public new void Awake()
+    {
+        base.Awake();
+
+        movement = GetComponent<RollerBladeMovement>();
+        aim = GetComponentInChildren<CharAimInfoHub>();
+    }
 
     protected override void UpdateMovement()
     {

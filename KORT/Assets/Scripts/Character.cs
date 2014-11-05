@@ -5,7 +5,7 @@ using System;
 public class Character : MonoBehaviour
 {
     // references
-    public CharMoveInfoHub info_hub_move;
+    private CharMoveInfoHub move_info_hub;
 
     // events
     public event EventHandler<EventArgs> event_on_stun, event_on_unstun;
@@ -23,6 +23,12 @@ public class Character : MonoBehaviour
 
 
     // PUBLIC MODIFIERS
+
+    public void Awake()
+    {
+        move_info_hub = GetComponentInChildren<CharMoveInfoHub>();
+        if (!move_info_hub) Debug.LogError("Missing CharMoveInfoHub component");
+    }
 
     public void Update()
     {
@@ -57,7 +63,7 @@ public class Character : MonoBehaviour
             else Stun();
         }
 
-        info_hub_move.KnockBack(force);
+        move_info_hub.KnockBack(force);
     }
     /// <summary>
     /// Instantly kill, no stun
@@ -69,7 +75,7 @@ public class Character : MonoBehaviour
 
         if (alive) Kill();
 
-        info_hub_move.KnockBack(force);
+        move_info_hub.KnockBack(force);
     }
 
 

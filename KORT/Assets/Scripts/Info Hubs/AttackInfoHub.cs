@@ -5,11 +5,14 @@ using System;
 
 public enum WeaponType { TestMelee, RangedMelee }
 
+[RequireComponent(typeof(Character))]
+[RequireComponent(typeof(CharAimInfoHub))]
+
 public class AttackInfoHub : MonoBehaviour
 {
     // References
-    public Character character;
-    public CharAimInfoHub aim_info_hub;
+    private Character character;
+    private CharAimInfoHub aim_info_hub;
     public SpriteRenderer weapon_renderer;
     
 
@@ -29,8 +32,15 @@ public class AttackInfoHub : MonoBehaviour
 
     // PUBLIC MODIFIERS
 
+    public void Awake()
+    {
+        // get references
+        character = transform.parent.GetComponent<Character>();
+        aim_info_hub = GetComponent<CharAimInfoHub>();
+    }
     public void Start()
     {
+        // character stun event
         character.event_on_stun += new EventHandler<EventArgs>(OnCharacterStun);
 
         // set initial active weapon

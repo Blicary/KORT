@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+[RequireComponent(typeof(AttackInfoHub))]
+
 public class AICloseAttackBase : MonoBehaviour
 {
     // references
-    public AttackInfoHub attack;
+    private AttackInfoHub attack;
 
     // waiting and moving
     public float reaction_time = 0.1f; // time between update movement calls
     protected Character target;
 
-
+    public void Awake()
+    {
+        attack = GetComponentInChildren<AttackInfoHub>();
+    }
     public void OnDisable()
     {
         target = null;
