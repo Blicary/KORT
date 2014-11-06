@@ -24,12 +24,12 @@ public class RollerBladeMovement : MonoBehaviour
     public float rotate_speed = 5f;
     private float rotation = 0; // radians
 
-    private float drag = 0.5f, stunned_drag = 4f;
+    private float drag = 0.2f, stunned_drag = 4f;
     private float break_drag = 6.5f; // amount of drag when breaking
     // the max speed at which a break turn can happen
     private float break_turn_speed_threshold = 8f;
 
-    public Vector2 direction;
+    private Vector2 direction;
     private Vector2 velocity_last;
 
 
@@ -60,7 +60,10 @@ public class RollerBladeMovement : MonoBehaviour
         aim_infohub.event_set_aim_with_rotation += new EventHandler<EventArgs<float>>(OnSetAim);
         move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);
 
-        SetAim(direction);
+        // set aim from transform rotation
+        rotation = Mathf.Deg2Rad * (transform.rotation.eulerAngles.z + 90);
+        transform.rotation = Quaternion.identity;
+        SetAim(rotation);
     }
     public void OnEnable()
     {
