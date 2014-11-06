@@ -9,7 +9,8 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
     private int current_area = 0;
 
     // waiting and moving
-    public float reaction_time = 0.1f; // time between update movement calls
+
+    public float input_reaction_time = 0.1f; // time between update movement calls
     public float wait_time = 1;
     private float wait_timer = 0;
 
@@ -60,7 +61,7 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
         while (true)
         {
             UpdateMovement();
-            yield return new WaitForSeconds(reaction_time);
+            yield return new WaitForSeconds(input_reaction_time);
         }
     }
     protected virtual void UpdateMovement()

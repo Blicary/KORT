@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/test_scene.unity
   - enabled: 1
     path: Assets/Scenes/test_scene2.unity
+  - enabled: 1
+    path: Assets/Scenes/transition_scene.unity

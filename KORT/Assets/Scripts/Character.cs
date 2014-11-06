@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public event EventHandler<EventArgs> event_on_stun, event_on_unstun;
 
     // general
-    public string character_name = "no name";
+    //public string character_name = "no name";
     private bool alive = true;
     public bool weak = false; // a weak character will die in one hit (no stun)
     public bool invulnerable = false; // cannot be knocked back or stunned or killed when hit

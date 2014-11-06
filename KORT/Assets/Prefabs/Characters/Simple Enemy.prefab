@@ -271,7 +271,7 @@ MonoBehaviour:
   targets_layer:
     serializedVersion: 2
     m_Bits: 1024
-  agro_radius: 17
+  agro_radius: 10
   de_agro_radius: 25
 --- !u!114 &11400002
 MonoBehaviour:
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b929eb438ffba0d4299231d0a87d45c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reaction_time: .100000001
+  input_reaction_time: .100000001
   movement: {fileID: 11400006}
   aim: {fileID: 11400014}
 --- !u!114 &11400004
@@ -303,7 +303,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  reaction_time: .100000001
+  input_reaction_time: .100000001
   wait_time: .5
 --- !u!114 &11400006
 MonoBehaviour:
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character_name: Simple Enemy
-  weak: 0
+  weak: 1
   invulnerable: 0
   stun_duration: 1
 --- !u!114 &11400012

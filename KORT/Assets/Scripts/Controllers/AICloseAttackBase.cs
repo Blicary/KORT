@@ -10,7 +10,7 @@ public class AICloseAttackBase : MonoBehaviour
     private AttackInfoHub attack;
 
     // waiting and moving
-    public float reaction_time = 0.1f; // time between update movement calls
+    public float input_reaction_time = 0.1f; // time between update movement calls
     protected Character target;
 
     public void Awake()
@@ -40,7 +40,7 @@ public class AICloseAttackBase : MonoBehaviour
         {
             UpdateMovement();
             UpdateAttack();
-            yield return new WaitForSeconds(reaction_time);
+            yield return new WaitForSeconds(input_reaction_time);
         }
     }
     protected virtual void UpdateMovement()
