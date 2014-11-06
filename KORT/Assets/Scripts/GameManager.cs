@@ -20,9 +20,14 @@ public class GameManager : MonoBehaviour
     }
 
     // scene management
-    private static string[] arena_sequence = { "test_scene2", "test_scene2" };
+    private static string[] arena_sequence = { "test_scene", "test_scene" };
     private static string transition_scene = "transition_scene";
-    private static string game_over_scene = "test_scene2";
+    private static string game_over_scene = "game_over_scene";
+    private static string victory_scene = "victory_scene";
+
+    private static int current_arena = 0;
+    private static bool in_transition_scene = false;
+
 
 
     public void Awake()
@@ -41,18 +46,42 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-            ClearArena();
+        if (Input.GetKeyDown(KeyCode.R))
+            RestartGame();
     }
 
     public static void ClearArena()
     {
-        Application.LoadLevel(transition_scene);
+        if (!in_transition_scene)
+        {
+            current_arena += 1;
+            if (current_arena < arena_sequence.Length)
+            {
+                in_transition_scene = true;
+                Application.LoadLevel(transition_scene);
+            }
+            else
+            {
+                Application.LoadLevel(victory_scene);
+            }
+        }
+        else
+        {
+            in_transition_scene = false;
+            Application.LoadLevel(arena_sequence[current_arena]);
+        }
     }
     public static void GameOver()
     {
         Application.LoadLevel(game_over_scene);
+    }
+    public static void RestartGame()
+    {
+        current_arena = 0;
+        in_transition_scene = false;
+        Application.LoadLevel(arena_sequence[0]);
     }
 }
