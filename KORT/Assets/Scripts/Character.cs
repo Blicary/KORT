@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
 
     // general
     //public string character_name = "no name";
+    public bool player_controlled = false;
     private bool alive = true;
     public bool weak = false; // a weak character will die in one hit (no stun)
     public bool invulnerable = false; // cannot be knocked back or stunned or killed when hit
@@ -96,6 +97,8 @@ public class Character : MonoBehaviour
     {
         stunned = false;
         alive = false;
+
+        if (player_controlled) GameManager.GameOver();
     }
 
 
