@@ -35,13 +35,13 @@ public class AttackInfoHub : MonoBehaviour
     public void Awake()
     {
         // get references
-        character = transform.parent.GetComponent<Character>();
+        character = GetComponent<Character>();
         aim_info_hub = GetComponent<CharAimInfoHub>();
     }
     public void Start()
     {
         // character stun event
-        character.event_on_stun += new EventHandler<EventArgs>(OnCharacterStun);
+        character.event_stun += new EventHandler<EventArgs<Vector2>>(OnCharacterStun);
 
         // set initial active weapon
         CreateActiveWeaponInstance();
@@ -77,10 +77,10 @@ public class AttackInfoHub : MonoBehaviour
             t == WeaponType.TestMelee ? (WeaponBase)new TestRanged() :
             null;
 
-        active_weapon.Initialize(transform, this, aim_info_hub, weapon_renderer);
+        active_weapon.Initialize(character, this, aim_info_hub, weapon_renderer);
     }
 
-    private void OnCharacterStun(object sender, EventArgs e)
+    private void OnCharacterStun(object sender, EventArgs<Vector2> e)
     {
         active_weapon.InterruptAttack();
     }

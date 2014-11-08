@@ -51,6 +51,16 @@ public class SpriteAnimator
         current_anim_time = 0;
         renderer.enabled = false;
     }
+    public void SetTime(float time)
+    {
+        if (animating)
+            current_anim_time = time;
+        else
+        {
+            BeginAnimation();
+            current_anim_time = time;
+        }
+    }
 
     public float GetCurrentAnimationTime()
     {

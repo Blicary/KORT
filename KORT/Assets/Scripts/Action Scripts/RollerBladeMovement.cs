@@ -47,8 +47,8 @@ public class RollerBladeMovement : MonoBehaviour
     {
         // get references
         character = GetComponent<Character>();
-        move_infohub = GetComponentInChildren<CharMoveInfoHub>();
-        aim_infohub = GetComponentInChildren<CharAimInfoHub>();
+        move_infohub = GetComponent<CharMoveInfoHub>();
+        aim_infohub = GetComponent<CharAimInfoHub>();
 
         if (!graphics_object) Debug.LogWarning("No graphics object specified");
     }
@@ -58,7 +58,7 @@ public class RollerBladeMovement : MonoBehaviour
         // events
         aim_infohub.event_set_aim_with_direction += new EventHandler<EventArgs<Vector2>>(OnSetAim);
         aim_infohub.event_set_aim_with_rotation += new EventHandler<EventArgs<float>>(OnSetAim);
-        move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);
+        character.event_stun += new EventHandler<EventArgs<Vector2>>(OnStun);
 
         // set aim from transform rotation
         rotation = Mathf.Deg2Rad * (transform.rotation.eulerAngles.z + 90);
@@ -208,24 +208,6 @@ public class RollerBladeMovement : MonoBehaviour
         aim_infohub.InformAimDirection(direction);
     }
 
-    // other
-    public void KnockBack(Vector2 force)
-    {
-        if (character.IsStunned())
-        {
-            //rigidbody2D.velocity = force.normalized * Mathf.Min(force.magnitude, speed);
-            rigidbody2D.AddForce(force, ForceMode2D.Impulse);
-            move_infohub.InformVelocity(rigidbody2D.velocity);
-        }
-        else
-        {
-            //Debug.Log("no stun kb");
-            //rotation += 5f * Time.deltaTime;
-            //SetAim(rotation);
-        }
-
-    }
-
 
     // PRIVATE MODIFIERS
 
@@ -255,9 +237,12 @@ public class RollerBladeMovement : MonoBehaviour
     {
         if (this.enabled) SetAim(e.Value);
     }
-    private void OnKnockBack(object sender, EventArgs<Vector2> e)
+    private void OnStun(object sender, EventArgs<Vector2> e)
     {
-        if (this.enabled) KnockBack(e.Value);
+        if (!this.enabled) return;
+
+        rigidbody2D.AddForce(e.Value, ForceMode2D.Impulse);
+        move_infohub.InformVelocity(rigidbody2D.velocity);
     }
 
 

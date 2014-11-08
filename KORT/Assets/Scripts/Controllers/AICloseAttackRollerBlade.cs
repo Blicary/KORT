@@ -19,7 +19,7 @@ public class AICloseAttackRollerBlade : AICloseAttackBase
         base.Awake();
 
         movement = GetComponent<RollerBladeMovement>();
-        aim = GetComponentInChildren<CharAimInfoHub>();
+        aim = GetComponent<CharAimInfoHub>();
     }
 
     protected override void UpdateMovement()

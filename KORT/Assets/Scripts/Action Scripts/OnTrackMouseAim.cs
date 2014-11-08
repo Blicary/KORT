@@ -21,7 +21,7 @@ public class OnTrackMouseAim : MonoBehaviour
     {
         // get references
         character = GetComponent<Character>();
-        aim_infohub = GetComponentInChildren<CharAimInfoHub>();
+        aim_infohub = GetComponent<CharAimInfoHub>();
     }
 
     public void Update()

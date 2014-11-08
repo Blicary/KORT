@@ -25,9 +25,9 @@ public class PlayerController : MonoBehaviour
     {
         on_track_movement = GetComponent<OnTrackMovement>();
         roller_blade_movement = GetComponent<RollerBladeMovement>();
-        on_track_mouse_aim = GetComponentInChildren<OnTrackMouseAim>();
-        attack_infohub = GetComponentInChildren<AttackInfoHub>();
-        aim_info_hub = GetComponentInChildren<CharAimInfoHub>();
+        on_track_mouse_aim = GetComponent<OnTrackMouseAim>();
+        attack_infohub = GetComponent<AttackInfoHub>();
+        aim_info_hub = GetComponent<CharAimInfoHub>();
     }
 
     public void Update()

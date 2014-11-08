@@ -5,7 +5,7 @@ using System.Collections;
 public abstract class WeaponBase 
 {
     // references
-    protected Transform owner;
+    protected Character owner;
     protected AttackInfoHub attack_info_hub;
     protected CharAimInfoHub aim_info_hub;
 
@@ -17,8 +17,17 @@ public abstract class WeaponBase
     // time between two attacks (time before another attack can be made) - defines weapon speed
     protected abstract float AttackDuration { get; }
 
-    // time of the most recent attack (when input was received)
-    protected float attack_start_time = 0f;
+    // timer for attack time (time left before the attack is over)
+    private float attack_time_left = 0;
+    protected float AttackTimeLeft 
+    {
+        get { return attack_time_left; }
+        set
+        {
+            attack_time_left = value;
+            animator.SetTime(AttackDuration - attack_time_left);
+        }
+    }
 
 
     // animation
@@ -31,7 +40,7 @@ public abstract class WeaponBase
     public WeaponBase()
     {
     }
-    public void Initialize(Transform owner, AttackInfoHub attack_info_hub, CharAimInfoHub aim_info_hub, SpriteRenderer weapon_renderer)
+    public void Initialize(Character owner, AttackInfoHub attack_info_hub, CharAimInfoHub aim_info_hub, SpriteRenderer weapon_renderer)
     {
         this.owner = owner;
         this.attack_info_hub = attack_info_hub;
@@ -43,7 +52,14 @@ public abstract class WeaponBase
 
     public virtual void Update()
     {
-        if (animator.Update(Time.deltaTime)) OnAnimationEnd();
+        if (attack_time_left > 0)
+        {
+            attack_time_left -= Time.deltaTime;
+        }
+        if (animator.Update(Time.deltaTime))
+        {
+            OnAnimationEnd();
+        }
     }
 
     /// <summary>
@@ -53,7 +69,7 @@ public abstract class WeaponBase
     {
         if (CanAttack()) HandleAttack();
     }
-    public void InterruptAttack()
+    public virtual void InterruptAttack()
     {
         animator.StopAnimation();
         OnAnimationEnd();
@@ -65,7 +81,7 @@ public abstract class WeaponBase
     /// </summary>
     protected virtual void HandleAttack()
     {
-        attack_start_time = Time.time;
+        attack_time_left = AttackDuration;
     }
 
     /// <summary>
@@ -75,9 +91,14 @@ public abstract class WeaponBase
     /// <returns></returns>
     protected virtual bool CanAttack()
     {
-        return (Time.time - attack_start_time) > AttackDuration;
+        return !IsAttacking();
     }
 
     protected virtual void OnAnimationEnd() { }
+
+    public bool IsAttacking()
+    {
+        return attack_time_left > 0;
+    }
 
 }

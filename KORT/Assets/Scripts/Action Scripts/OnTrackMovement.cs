@@ -40,11 +40,11 @@ public class OnTrackMovement : MonoBehaviour
     {
         // get references
         character = GetComponent<Character>();
-        move_infohub = GetComponentInChildren<CharMoveInfoHub>();
+        move_infohub = GetComponent<CharMoveInfoHub>();
     }
     public void Start()
     {
-        move_infohub.event_knockback += new EventHandler<EventArgs<Vector2>>(OnKnockBack);
+        character.event_stun += new EventHandler<EventArgs<Vector2>>(OnStun);
     }
 
     public void Update()
@@ -273,7 +273,7 @@ public class OnTrackMovement : MonoBehaviour
     }
 
     // events 
-    private void OnKnockBack(object sender, EventArgs<Vector2> e)
+    private void OnStun(object sender, EventArgs<Vector2> e)
     {
         if (this.enabled) DetachFromTrackForcefull();
     }

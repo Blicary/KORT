@@ -15,7 +15,7 @@ public class AICloseAttackBase : MonoBehaviour
 
     public void Awake()
     {
-        attack = GetComponentInChildren<AttackInfoHub>();
+        attack = GetComponent<AttackInfoHub>();
     }
     public void OnDisable()
     {

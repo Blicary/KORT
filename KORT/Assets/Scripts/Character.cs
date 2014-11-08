@@ -2,34 +2,33 @@
 using System.Collections;
 using System;
 
+[RequireComponent(typeof(CharMoveInfoHub))]
+
 public class Character : MonoBehaviour
 {
-    // references
-    private CharMoveInfoHub move_info_hub;
-
     // events
-    public event EventHandler<EventArgs> event_on_stun, event_on_unstun;
+    public event EventHandler<EventArgs<Vector2>> event_stun;
+    public event EventHandler<EventArgs> event_on_unstun;
 
     // general
-    //public string character_name = "no name";
     public bool player_controlled = false;
-    private bool alive = true;
     public bool weak = false; // a weak character will die in one hit (no stun)
     public bool invulnerable = false; // cannot be knocked back or stunned or killed when hit
+    public bool can_block = false;
+
+    private bool alive = true;
+
 
     // damage
+    private float stun_duration = 0.5f; // seconds duration of being stunned
+    private float mini_stun_duration = 0.25f;
     private bool stunned = false;
-    public float stun_duration = 0.5f; // seconds duration of being stunned
+
     private float recover_timer = 0; // seconds time before recover from stun
 
 
-    // PUBLIC MODIFIERS
 
-    public void Awake()
-    {
-        move_info_hub = GetComponentInChildren<CharMoveInfoHub>();
-        if (!move_info_hub) Debug.LogError("Missing CharMoveInfoHub component");
-    }
+    // PUBLIC MODIFIERS
 
     public void Update()
     {
@@ -49,11 +48,6 @@ public class Character : MonoBehaviour
         
     }
 
-    /// <summary>
-    /// Stun a non stunned character,
-    /// Kill a stunned or weak character
-    /// </summary>
-    /// <param name="force"></param>
     public void Hit(Vector2 force, bool can_kill)
     {
         if (invulnerable) return;
@@ -61,32 +55,36 @@ public class Character : MonoBehaviour
         if (alive)
         {
             if (can_kill && (stunned || weak)) Kill();
-            else Stun();
+            else Stun(force);
         }
-
-        move_info_hub.KnockBack(force);
     }
-    /// <summary>
-    /// Instantly kill, no stun
-    /// </summary>
-    /// <param name="force"></param>
+    public void MiniHit(Vector2 force)
+    {
+        if (invulnerable) return;
+
+        MiniStun(force);
+    }
     public void HitPowerful(Vector2 force)
     {
         if (invulnerable) return;
 
         if (alive) Kill();
-
-        move_info_hub.KnockBack(force);
     }
 
 
     // PRIVATE MODIFIERS
 
-    private void Stun()
+    private void Stun(Vector2 force)
     {
         stunned = true;
         recover_timer = stun_duration;
-        if (event_on_stun != null) event_on_stun(this, new EventArgs());
+        if (event_stun != null) event_stun(this, new EventArgs<Vector2>(force));
+    }
+    private void MiniStun(Vector2 force)
+    {
+        stunned = true;
+        recover_timer = mini_stun_duration;
+        if (event_stun != null) event_stun(this, new EventArgs<Vector2>(force));
     }
     private void UnStun()
     {
