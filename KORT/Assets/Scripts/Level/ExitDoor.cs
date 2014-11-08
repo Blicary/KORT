@@ -7,6 +7,7 @@ public class ExitDoor : MonoBehaviour
 {
     public bool start_open = false;
     private bool open;
+    public bool open_to_all = false;
     private SpriteRenderer sprite_renderer;
 
 
@@ -22,7 +23,7 @@ public class ExitDoor : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Combatant c = collision.collider.GetComponent<Combatant>();
-        if (c != null && this == HouseManager.GetHouseDoor(c.house_name))
+        if (c != null && (this == HouseManager.GetHouseDoor(c.house_name)) || open_to_all)
         {
             if (c.player_controlled)
             {

@@ -673,8 +673,8 @@ GameObject:
   - 50: {fileID: 976222589}
   - 114: {fileID: 2135909138}
   - 114: {fileID: 976222587}
-  - 114: {fileID: 976222586}
   - 114: {fileID: 976222585}
+  - 114: {fileID: 976222586}
   - 114: {fileID: 976222584}
   - 114: {fileID: 2135909140}
   - 114: {fileID: 2135909139}
@@ -845,6 +845,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: c2dd00ea389b2e34db8b3ec8fbbbb6d6, type: 2}
       propertyPath: start_open
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: c2dd00ea389b2e34db8b3ec8fbbbb6d6, type: 2}
+      propertyPath: open_to_all
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1081,6 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start_open: 1
+  open_to_all: 1
 --- !u!1001 &1422599881
 Prefab:
   m_ObjectHideFlags: 0
@@ -1414,6 +1419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start_open: 0
+  open_to_all: 0
 --- !u!1001 &2100540466
 Prefab:
   m_ObjectHideFlags: 0
