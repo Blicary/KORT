@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum SceneType { Arena, InterArenaCorridor, VictoryRoom }
+public enum SceneState { Arena, DeadScreen, GameOverScreen, InterArenaCorridor, VictoryRoom }
 
 public class GameManager : MonoBehaviour 
 {
@@ -23,13 +23,12 @@ public class GameManager : MonoBehaviour
 
     // scene management
     private static string[] arena_sequence = { "test_scene", "test_scene" };
-    private static string transition_scene = "transition_scene";
-    private static string dead_scene = "game_over_scene";
+    private static string inter_arena_scene = "transition_scene";
     private static string game_over_scene = "game_over_scene";
     private static string victory_scene = "victory_scene";
 
     private static int current_arena = 0;
-    public static SceneType Scene { get; private set; }
+    public static SceneState Scenestate { get; private set; }
 
 
 
@@ -50,43 +49,49 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {
-        Scene = SceneType.Arena;
+        Scenestate = SceneState.Arena;
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Scenestate == SceneState.DeadScreen && Input.GetKeyDown(KeyCode.Space))
+        {
             NextCombatant();
+            Scenestate = SceneState.Arena;
+        }
+            
     }
 
     public static void ClearArena()
     {
-        if (Scene == SceneType.Arena)
+        if (Scenestate == SceneState.Arena)
         {
             current_arena += 1;
             if (current_arena < arena_sequence.Length)
             {
-                Scene = SceneType.InterArenaCorridor;
-                Application.LoadLevel(transition_scene);
+                Scenestate = SceneState.InterArenaCorridor;
+                Application.LoadLevel(inter_arena_scene);
             }
             else
             {
                 Application.LoadLevel(victory_scene);
             }
         }
-        else if (Scene == SceneType.InterArenaCorridor)
+        else if (Scenestate == SceneState.InterArenaCorridor)
         {
-            Scene = SceneType.Arena;
+            Scenestate = SceneState.Arena;
             Application.LoadLevel(arena_sequence[current_arena]);
         }
     }
     public static void DeadScreen()
     {
         Debug.Log("dead screen");
+        Scenestate = SceneState.DeadScreen;
         //Application.LoadLevel(dead_scene);
     }
     public static void GameOverScreen()
     {
+        Scenestate = SceneState.GameOverScreen;
         Application.LoadLevel(game_over_scene);
     }
     public static void NextCombatant()

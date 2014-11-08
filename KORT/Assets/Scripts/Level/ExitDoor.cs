@@ -7,7 +7,7 @@ public class ExitDoor : MonoBehaviour
 {
     public bool start_open = false;
     private bool open;
-    private SpriteRenderer renderer;
+    private SpriteRenderer sprite_renderer;
 
 
     public void Start()
@@ -15,7 +15,8 @@ public class ExitDoor : MonoBehaviour
         open = start_open;
 
         // TEMP
-        renderer = GetComponent<SpriteRenderer>();
+        sprite_renderer = GetComponent<SpriteRenderer>();
+        if (open) sprite_renderer.color = Color.black;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -30,7 +31,7 @@ public class ExitDoor : MonoBehaviour
     public void Open()
     {
         open = true;
-        //renderer.color = Color.black;
+        sprite_renderer.color = Color.black;
     }
     public void Close()
     {

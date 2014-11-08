@@ -102,7 +102,7 @@ public class HouseManager : MonoBehaviour
 
     private static void SetupInNewArena()
     {
-        if (GameManager.Scene == SceneType.Arena)
+        if (GameManager.Scenestate == SceneState.Arena)
         {
             FindDoors();
             ResetCurrentArenaKills();
