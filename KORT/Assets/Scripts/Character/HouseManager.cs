@@ -100,6 +100,12 @@ public class HouseManager : MonoBehaviour
         cam.FindPlayer();
     }
 
+
+    public static ExitDoor GetHouseDoor(HouseName house_name)
+    {
+        return doors[house_name];
+    }
+
     private static void SetupInNewArena()
     {
         if (GameManager.Scenestate == SceneState.Arena)
@@ -114,6 +120,10 @@ public class HouseManager : MonoBehaviour
 
         if (doors_array.Length < _instance.houses_in_play.Length)
             Debug.LogError("Not enough exit doors in scene.");
+
+        // assign a door randomly to each house
+        doors_array = GeneralHelpers.ShuffleArray<ExitDoor>(doors_array);
+
 
         for (int i = 0; i < _instance.houses_in_play.Length; ++i)
         {

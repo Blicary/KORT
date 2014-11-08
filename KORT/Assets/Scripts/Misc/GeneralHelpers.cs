@@ -50,4 +50,16 @@ public class GeneralHelpers
             }
         }
     }
+
+    public static T[] ShuffleArray<T>(T[] array)
+    {
+        for (int i = 0; i < array.Length; ++i)
+        {
+            int r = UnityEngine.Random.Range(0, array.Length-1);
+            T temp = array[r];
+            array[r] = array[i];
+            array[i] = temp;
+        }
+        return array;
+    }
 }

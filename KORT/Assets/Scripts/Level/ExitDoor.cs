@@ -22,9 +22,16 @@ public class ExitDoor : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Combatant c = collision.collider.GetComponent<Combatant>();
-        if (c != null && c.player_controlled)
+        if (c != null && this == HouseManager.GetHouseDoor(c.house_name))
         {
-            if (open) GameManager.ClearArena();
+            if (c.player_controlled)
+            {
+                if (open) GameManager.ClearArena();
+            }
+            else
+            {
+                // ai exit
+            }
         }
     }
 
