@@ -151,8 +151,8 @@ public abstract class MeleeBase : WeaponBase
 
                             // stun
                             Vector2 dir = (col.transform.position - owner.transform.position).normalized;
-                            c.MiniHit(dir * 5f);
-                            owner.MiniHit(-dir * 5f);
+                            c.MiniStun(dir * 5f);
+                            owner.MiniStun(-dir * 5f);
 
                             return; // don't hit anything else, there was a block
                         }

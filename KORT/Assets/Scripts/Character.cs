@@ -12,14 +12,16 @@ public class Character : MonoBehaviour
 
     // general
     public bool player_controlled = false;
-    public bool weak = false; // a weak character will die in one hit (no stun)
     public bool invulnerable = false; // cannot be knocked back or stunned or killed when hit
     public bool can_block = false;
 
     private bool alive = true;
 
 
-    // damage
+    // health
+    public int hit_points = 3;
+
+    // stun
     private float stun_duration = 0.5f; // seconds duration of being stunned
     private float mini_stun_duration = 0.25f;
     private bool stunned = false;
@@ -48,39 +50,34 @@ public class Character : MonoBehaviour
         
     }
 
-    public void Hit(Vector2 force, bool can_kill)
+    public void Hit(Vector2 force, bool can_damage)
     {
         if (invulnerable) return;
 
         if (alive)
         {
-            if (can_kill && (stunned || weak)) Kill();
-            else Stun(force);
+            if (can_damage)
+            {
+                hit_points -= 1;
+
+                if (hit_points == 0)
+                    Kill();
+            }
+
+            Stun(force);
         }
-    }
-    public void MiniHit(Vector2 force)
-    {
-        if (invulnerable) return;
-
-        MiniStun(force);
-    }
-    public void HitPowerful(Vector2 force)
-    {
-        if (invulnerable) return;
-
-        if (alive) Kill();
     }
 
 
     // PRIVATE MODIFIERS
 
-    private void Stun(Vector2 force)
+    public void Stun(Vector2 force)
     {
         stunned = true;
         recover_timer = stun_duration;
         if (event_stun != null) event_stun(this, new EventArgs<Vector2>(force));
     }
-    private void MiniStun(Vector2 force)
+    public void MiniStun(Vector2 force)
     {
         stunned = true;
         recover_timer = mini_stun_duration;

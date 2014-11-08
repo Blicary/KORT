@@ -130,9 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_controlled: 0
-  weak: 0
   invulnerable: 1
-  stun_duration: 5
+  can_block: 0
+  hit_points: 3
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knock_back: 60
-  can_kill: 0
+  can_damage: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
