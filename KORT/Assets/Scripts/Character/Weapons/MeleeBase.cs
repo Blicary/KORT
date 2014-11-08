@@ -162,7 +162,7 @@ public abstract class MeleeBase : WeaponBase
                 // hit
                 hit_character = true;
                 Vector2 dir2 = (col.transform.position - owner.transform.position).normalized;
-                c.Hit(dir2 * 30f, true);
+                c.Hit(dir2 * 30f, true, owner);
             }
             else
             {

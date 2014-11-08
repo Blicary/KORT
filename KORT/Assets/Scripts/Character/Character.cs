@@ -11,7 +11,6 @@ public class Character : MonoBehaviour
     public event EventHandler<EventArgs> event_on_unstun;
 
     // general
-    public bool player_controlled = false;
     public bool invulnerable = false; // cannot be knocked back or stunned or killed when hit
     public bool can_block = false;
 
@@ -19,11 +18,12 @@ public class Character : MonoBehaviour
 
 
     // health
-    public int hit_points = 3;
+    public int max_hit_points = 3;
+    private int hit_points;
 
     // stun
-    private float stun_duration = 0.5f; // seconds duration of being stunned
-    private float mini_stun_duration = 0.25f;
+    private const float stun_duration = 0.5f; // seconds duration of being stunned
+    private const float mini_stun_duration = 0.25f;
     private bool stunned = false;
 
     private float recover_timer = 0; // seconds time before recover from stun
@@ -32,6 +32,12 @@ public class Character : MonoBehaviour
 
     // PUBLIC MODIFIERS
 
+    public void Start()
+    {
+        hit_points = max_hit_points;
+        stunned = false;
+        alive = true;
+    }
     public void Update()
     {
         // stunned
@@ -67,7 +73,28 @@ public class Character : MonoBehaviour
             Stun(force);
         }
     }
+    public void Hit(Vector2 force, bool can_damage, Character agressor)
+    {
+        if (invulnerable) return;
 
+        if (alive)
+        {
+            if (can_damage)
+            {
+                hit_points -= 1;
+
+                if (hit_points == 0)
+                {
+                    Combatant com = agressor as Combatant;
+                    if (com != null)
+                        com.RecordKill();
+                    Kill();
+                }
+            }
+
+            Stun(force);
+        }
+    }
 
     // PRIVATE MODIFIERS
 
@@ -88,12 +115,10 @@ public class Character : MonoBehaviour
         stunned = false;
         if (event_on_unstun != null) event_on_unstun(this, new EventArgs());
     }
-    private void Kill()
+    protected virtual void Kill()
     {
         stunned = false;
         alive = false;
-
-        if (player_controlled) GameManager.GameOver();
     }
 
 

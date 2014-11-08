@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum SceneType { Arena, InterArenaCorridor, VictoryRoom }
+
 public class GameManager : MonoBehaviour 
 {
     private static GameManager _instance;
@@ -22,11 +24,12 @@ public class GameManager : MonoBehaviour
     // scene management
     private static string[] arena_sequence = { "test_scene", "test_scene" };
     private static string transition_scene = "transition_scene";
+    private static string dead_scene = "game_over_scene";
     private static string game_over_scene = "game_over_scene";
     private static string victory_scene = "victory_scene";
 
     private static int current_arena = 0;
-    private static bool in_transition_scene = false;
+    public static SceneType Scene { get; private set; }
 
 
 
@@ -45,22 +48,25 @@ public class GameManager : MonoBehaviour
                 Destroy(this.gameObject);
         }
     }
-
+    public void Start()
+    {
+        Scene = SceneType.Arena;
+    }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-            RestartGame();
+            NextCombatant();
     }
 
     public static void ClearArena()
     {
-        if (!in_transition_scene)
+        if (Scene == SceneType.Arena)
         {
             current_arena += 1;
             if (current_arena < arena_sequence.Length)
             {
-                in_transition_scene = true;
+                Scene = SceneType.InterArenaCorridor;
                 Application.LoadLevel(transition_scene);
             }
             else
@@ -68,20 +74,29 @@ public class GameManager : MonoBehaviour
                 Application.LoadLevel(victory_scene);
             }
         }
-        else
+        else if (Scene == SceneType.InterArenaCorridor)
         {
-            in_transition_scene = false;
+            Scene = SceneType.Arena;
             Application.LoadLevel(arena_sequence[current_arena]);
         }
     }
-    public static void GameOver()
+    public static void DeadScreen()
+    {
+        Debug.Log("dead screen");
+        //Application.LoadLevel(dead_scene);
+    }
+    public static void GameOverScreen()
     {
         Application.LoadLevel(game_over_scene);
     }
-    public static void RestartGame()
+    public static void NextCombatant()
     {
-        current_arena = 0;
-        in_transition_scene = false;
-        Application.LoadLevel(arena_sequence[0]);
+        HouseManager.NextCombatant();
+
+        //Application.LoadLevel(arena_sequence[current_arena]);
     }
+
+    // PUBLIC ACCESSORS
+
+
 }
