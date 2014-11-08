@@ -13,7 +13,7 @@ public class HouseManager : MonoBehaviour
             {
                 _instance = GameObject.FindObjectOfType<HouseManager>();
 
-                if (_instance == null) Debug.LogError("Missing GameManger");
+                if (_instance == null) Debug.LogError("Missing HouseManager");
                 else DontDestroyOnLoad(_instance);
             }
             return _instance;
