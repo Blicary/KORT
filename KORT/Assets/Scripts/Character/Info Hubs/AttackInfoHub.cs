@@ -37,14 +37,14 @@ public class AttackInfoHub : MonoBehaviour
         // get references
         character = GetComponent<Character>();
         aim_info_hub = GetComponent<CharAimInfoHub>();
+
+        // set initial active weapon
+        CreateActiveWeaponInstance();
     }
     public void Start()
     {
         // character stun event
         character.event_stun += new EventHandler<EventArgs<Vector2>>(OnCharacterStun);
-
-        // set initial active weapon
-        CreateActiveWeaponInstance();
     }
 
     public void Update()

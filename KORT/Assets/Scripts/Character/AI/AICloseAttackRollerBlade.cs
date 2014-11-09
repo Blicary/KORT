@@ -8,8 +8,8 @@ using System.Collections;
 public class AICloseAttackRollerBlade : AICloseAttackBase 
 {
     // references
-    public RollerBladeMovement movement;
-    public CharAimInfoHub aim;
+    private RollerBladeMovement movement;
+    private CharAimInfoHub aim;
     
     private float turn_accuracy = 0.4f; // 0 is most accurate
 

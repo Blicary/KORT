@@ -20,6 +20,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     private static Portcullis[] ports;
+    
 
 
     public void Awake()
@@ -39,7 +40,7 @@ public class SpawnManager : MonoBehaviour
     }
     public void Start()
     {
-
+        FindPortcullises();
     }
 
     public void OnLevelWasLoaded(int level)
@@ -47,11 +48,14 @@ public class SpawnManager : MonoBehaviour
         if (this != _instance) return;
         
     }
+    
 
     private static void FindPortcullises()
     {
         Portcullis[] found_ports = FindObjectsOfType<Portcullis>();
         ports = found_ports;
+
+        //Debug.Log(ports.Length + "ports found");
     }
     
 }

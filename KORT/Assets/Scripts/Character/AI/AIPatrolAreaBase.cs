@@ -18,6 +18,24 @@ public abstract class AIPatrolAreaBase : MonoBehaviour
     protected Vector2 destination;
 
 
+    public void Start()
+    {
+        // check that areas are specified
+        if (areas.Length == 0)
+        {
+            Debug.LogError("Missing patrol zone references.");
+        }
+        foreach (CircleCollider2D cc in areas)
+        {
+            if (cc == null)
+            {
+                Debug.LogError("Missing patrol zone references.");
+                return;
+            }
+        }
+    }
+
+
     public void OnEnable()
     {
         wait_timer = Random.Range(wait_time / 2f, wait_time);
