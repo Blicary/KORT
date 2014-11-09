@@ -125,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.133495808, y: -23.6518898, z: .00414999994}
+  m_LocalPosition: {x: 22.0448322, y: -43.8104515, z: .00414999994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -151,7 +151,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.29999995, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -180,7 +180,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: 1
+  m_Radius: .5
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800002
 CircleCollider2D:
@@ -243,8 +243,8 @@ MonoBehaviour:
   targets_layer:
     serializedVersion: 2
     m_Bits: 1024
-  agro_radius: 10
-  de_agro_radius: 25
+  agro_radius: 5
+  de_agro_radius: 10
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,8 +257,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input_reaction_time: .100000001
-  movement: {fileID: 11400006}
-  aim: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,8 +287,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphics_object: {fileID: 400000}
-  speed: 10
+  speed: 4
   rotate_speed: 5
+  drag: .200000003
+  stunned_drag: 4
+  break_drag: 4
+  break_turn_speed_threshold: 4
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,7 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 21200002}
   chosen_weapon: 0
-  weapon_start_reach: 2
+  weapon_start_reach: .800000012
   weapon_collision_layer:
     serializedVersion: 2
     m_Bits: 7424

@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     }
     public static void DeadScreen()
     {
-        Debug.Log("dead screen");
+        //Debug.Log("dead screen");
         Scenestate = SceneState.DeadScreen;
         //Application.LoadLevel(dead_scene);
     }
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
     }
     public static void NextCombatant()
     {
-        HouseManager.NextCombatant();
+        HouseManager.CreateNewPlayerCombatant();
 
         //Application.LoadLevel(arena_sequence[current_arena]);
     }

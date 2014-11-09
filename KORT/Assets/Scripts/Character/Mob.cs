@@ -7,8 +7,9 @@ public class Mob : Character
     public Portcullis associated_port;
 
 
-    protected override void Kill()
+    protected override void Kill(Combatant killer)
     {
+        // only record the mob death if killed by a combatant
         associated_port.RecordMobDeath();
         base.Kill();
     }

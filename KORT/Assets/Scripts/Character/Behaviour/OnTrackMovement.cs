@@ -235,13 +235,13 @@ public class OnTrackMovement : MonoBehaviour
             return;
         }
 
-        float x = Mathf.Min(1.2f, Mathf.Max(0, Vector2.Dot(v, direction)) + Mathf.Max(0, Vector2.Dot(v, normal)));
+        float x = Mathf.Min(1, Mathf.Max(0, Vector2.Dot(v, direction)) + Mathf.Max(0, Vector2.Dot(v, normal)));
         //Debug.Log(x);
         float speed = x * track_speed;
         velocity = v * speed;
 
         move_infohub.InformVelocity(velocity);
-        transform.Translate(normal * snap_off_radius);
+        transform.Translate(v * snap_off_radius);
 
         DetachFromTrack();
     }

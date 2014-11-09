@@ -10,7 +10,7 @@ public class Portcullis : MonoBehaviour
     public CircleCollider2D[] mob_patrol_path;
 
     private float progress_to_spawn; // a mob will spawn for every 1
-    private float progress_per_death = 1.1f;
+    private float progress_per_death = 1.3f;
 
 
 

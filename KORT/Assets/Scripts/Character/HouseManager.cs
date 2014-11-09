@@ -49,7 +49,7 @@ public class HouseManager : MonoBehaviour
         doors = new Dictionary<HouseName, ExitDoor>();
         for (int i = 0; i < houses_in_play.Length; ++i)
         {
-            houses[houses_in_play[i]] = new House(houses_in_play[i], 20);
+            houses[houses_in_play[i]] = new House(houses_in_play[i], ArenaDetails.GetNumCombatantsPerHouse());
         }
         SetupInNewArena();
     }
@@ -65,7 +65,7 @@ public class HouseManager : MonoBehaviour
         houses[house_name].RecordKill();
         //Debug.Log("House " + house_name + " has " + houses[house_name].KillsCurrentArena + " kills in this arena.");
 
-        if (houses[house_name].KillsCurrentArena >= 1 && !doors[house_name].IsOpen())
+        if (houses[house_name].KillsCurrentArena >= ArenaDetails.GetRequiredKills() && !doors[house_name].IsOpen())
         {
             // open the door for this house
             doors[house_name].Open();
@@ -93,7 +93,7 @@ public class HouseManager : MonoBehaviour
         }
     }
 
-    public static void NextCombatant()
+    public static void CreateNewPlayerCombatant()
     {
         Instantiate(_instance.combatant_prefab);
         PlayerCam cam = Camera.main.GetComponent<PlayerCam>();

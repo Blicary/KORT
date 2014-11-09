@@ -19,15 +19,15 @@ public class RollerBladeMovement : MonoBehaviour
 
 
     // movement
-    public float speed = 20f;
+    public float speed = 11f;
 
     public float rotate_speed = 5f;
     private float rotation = 0; // radians
 
-    private float drag = 0.2f, stunned_drag = 4f;
-    private float break_drag = 6.5f; // amount of drag when breaking
+    public float drag = 0.2f, stunned_drag = 4f;
+    public float break_drag = 4f; // amount of drag when breaking
     // the max speed at which a break turn can happen
-    private float break_turn_speed_threshold = 8f;
+    public float break_turn_speed_threshold = 4f;
 
     private Vector2 direction;
     private Vector2 velocity_last;

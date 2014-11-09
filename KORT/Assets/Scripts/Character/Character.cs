@@ -56,24 +56,7 @@ public class Character : MonoBehaviour
         
     }
 
-    public void Hit(Vector2 force, bool can_damage)
-    {
-        if (invulnerable) return;
-
-        if (alive)
-        {
-            if (can_damage)
-            {
-                hit_points -= 1;
-
-                if (hit_points == 0)
-                    Kill();
-            }
-
-            Stun(force);
-        }
-    }
-    public void Hit(Vector2 force, bool can_damage, Character agressor)
+    public void Hit(Vector2 force, bool can_damage, Transform attacker)
     {
         if (invulnerable) return;
 
@@ -85,10 +68,14 @@ public class Character : MonoBehaviour
 
                 if (hit_points == 0)
                 {
-                    Combatant com = agressor as Combatant;
+
+                    Combatant com = attacker.GetComponent<Combatant>();
                     if (com != null)
+                    {
                         com.RecordKill();
-                    Kill();
+                        Kill(com);
+                    }
+                    else Kill();
                 }
             }
 
@@ -119,6 +106,10 @@ public class Character : MonoBehaviour
     {
         stunned = false;
         alive = false;
+    }
+    protected virtual void Kill(Combatant killer)
+    {
+        Kill();
     }
 
 

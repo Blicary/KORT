@@ -36,7 +36,7 @@ public class House
     }
     public int CombatantsLeft()
     {
-        return combatant_stats.Length - current_combatant;
+        return combatant_stats.Length - current_combatant - 1;
     }
     public void RecordKill()
     {

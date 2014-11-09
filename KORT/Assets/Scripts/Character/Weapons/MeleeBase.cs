@@ -14,7 +14,7 @@ public abstract class MeleeBase : WeaponBase
     private bool hit_character = false, hit_terrain = false;
 
     // (Later there could be derived classes for swing / thrust weapons...) 
-    protected float swing_radius = 9.26f; 
+    protected float swing_radius = 3.66f; 
     protected float swing_angle_start = Mathf.PI / 4f, swing_angle_end = Mathf.PI * 3 / 4f;
 
     // angle between rays
@@ -24,6 +24,10 @@ public abstract class MeleeBase : WeaponBase
     // blocking
     private bool is_blocking = false;
     protected float block_duration = 0.3f;
+
+    // knockback
+    protected float block_knock_back = 3;
+    protected float hit_knock_back = 18;
 
 
 
@@ -151,8 +155,8 @@ public abstract class MeleeBase : WeaponBase
 
                             // stun
                             Vector2 dir = (col.transform.position - owner.transform.position).normalized;
-                            c.MiniStun(dir * 5f);
-                            owner.MiniStun(-dir * 5f);
+                            c.MiniStun(dir * block_knock_back);
+                            owner.MiniStun(-dir * block_knock_back);
 
                             return; // don't hit anything else, there was a block
                         }
@@ -162,7 +166,7 @@ public abstract class MeleeBase : WeaponBase
                 // hit
                 hit_character = true;
                 Vector2 dir2 = (col.transform.position - owner.transform.position).normalized;
-                c.Hit(dir2 * 30f, true, owner);
+                c.Hit(dir2 * hit_knock_back, true, owner.transform);
             }
             else
             {

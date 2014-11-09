@@ -20,9 +20,9 @@ public class ExitDoor : MonoBehaviour
         if (open) sprite_renderer.color = Color.black;
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        Combatant c = collision.collider.GetComponent<Combatant>();
+        Combatant c = collider.GetComponent<Combatant>();
         if (c != null && (this == HouseManager.GetHouseDoor(c.house_name)) || open_to_all)
         {
             if (c.player_controlled)
