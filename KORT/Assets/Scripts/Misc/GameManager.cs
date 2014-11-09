@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                Scenestate = SceneState.VictoryRoom;
                 Application.LoadLevel(victory_scene);
             }
         }

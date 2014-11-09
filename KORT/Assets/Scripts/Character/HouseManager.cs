@@ -34,7 +34,6 @@ public class HouseManager : MonoBehaviour
         // if this is the first instance, make this the singleton
         if (_instance == null)
         {
-            Debug.Log("here");
             _instance = this;
             DontDestroyOnLoad(_instance);
         }
@@ -44,13 +43,11 @@ public class HouseManager : MonoBehaviour
             if (this != _instance)
                 Destroy(this.gameObject);
         }
-
-
-        houses = new Dictionary<HouseName, House>();
-        doors = new Dictionary<HouseName, ExitDoor>();
     }
     public void Start()
     {
+        houses = new Dictionary<HouseName, House>();
+        doors = new Dictionary<HouseName, ExitDoor>();
         for (int i = 0; i < houses_in_play.Length; ++i)
         {
             houses[houses_in_play[i]] = new House(houses_in_play[i], ArenaDetails.GetNumCombatantsPerHouse());
