@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private static int current_arena = 0;
     public static SceneState Scenestate { get; private set; }
 
+    public SceneState initial_scene_state = SceneState.Arena;
 
 
     public void Awake()
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {
-        Scenestate = SceneState.Arena;
+        Scenestate = initial_scene_state;
     }
 
     public void Update()

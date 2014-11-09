@@ -23,17 +23,28 @@ public class ExitDoor : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider)
     {
         Combatant c = collider.GetComponent<Combatant>();
-        if (c != null && (this == HouseManager.GetHouseDoor(c.house_name)) || open_to_all)
+        if (!c) return; // only let combatants through
+
+        if (GameManager.Scenestate == SceneState.Arena)
         {
-            if (c.player_controlled)
+            // only let the combatant through if this is their door
+            if (c != null && (this == HouseManager.GetHouseDoor(c.house_name)) || open_to_all)
             {
-                if (open) GameManager.ClearArena();
-            }
-            else
-            {
-                // ai exit
+                if (c.player_controlled)
+                {
+                    if (open) GameManager.ClearArena();
+                }
+                else
+                {
+                    // ai exit
+                }
             }
         }
+        else
+        {
+            GameManager.ClearArena();
+        }
+        
     }
 
     public void Open()
