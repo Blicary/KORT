@@ -28,7 +28,7 @@ public class MenuHelper : MonoBehaviour
     {
         SetGUIAlpha(t);
         GUILayout.Label(header_text);
-        GUILayout.Space(25);
+        GUILayout.Space(50);
         SetGUIAlpha(1);
     }
     public static bool GUINextButton(string text, float x, float width)

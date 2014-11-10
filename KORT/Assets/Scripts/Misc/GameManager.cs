@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum SceneState { Arena, DeadScreen, GameOverScreen, InterArenaCorridor, VictoryRoom }
+public enum SceneState { Menu, Arena, DeadScreen, GameOverScreen, InterArenaCorridor, VictoryRoom }
 
 public class GameManager : MonoBehaviour 
 {
@@ -22,10 +22,10 @@ public class GameManager : MonoBehaviour
     }
 
     // scene management
-    private static string[] arena_sequence = { "test_scene", "test_scene" };
-    private static string inter_arena_scene = "transition_scene";
+    public static string[] arena_sequence = { "test_scene", "test_scene" };
+    public static string inter_arena_scene = "transition_scene";
     private static string game_over_scene = "game_over_scene";
-    private static string victory_scene = "victory_scene";
+    public static string victory_scene = "victory_scene";
 
     private static int current_arena = 0;
     public static SceneState Scenestate { get; private set; }
@@ -84,6 +84,13 @@ public class GameManager : MonoBehaviour
             Scenestate = SceneState.Arena;
             Application.LoadLevel(arena_sequence[current_arena]);
         }
+    }
+    public static void StartGame()
+    {
+        if (arena_sequence.Length == 0) Debug.LogError("Cannot start game, arena sequence not specified.");
+
+        Scenestate = SceneState.Arena;
+        Application.LoadLevel(arena_sequence[current_arena]);
     }
     public static void DeadScreen()
     {

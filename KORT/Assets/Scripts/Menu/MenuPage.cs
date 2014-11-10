@@ -146,7 +146,6 @@ public class MenuPage : MonoBehaviour
             }
 
             // initialize the node dictionary
-            Debug.Log("initializing dict");
             kb_node_by_name = new Dictionary<string, KeyboardControlNode>();
         }
 

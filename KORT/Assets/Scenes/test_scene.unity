@@ -2969,11 +2969,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 4e368245ddc05314ba8eadcc14b0283b, type: 2}
       propertyPath: required_kills
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 4e368245ddc05314ba8eadcc14b0283b, type: 2}
       propertyPath: num_combatants_per_house
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e368245ddc05314ba8eadcc14b0283b, type: 2}
@@ -4556,6 +4556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48179375aff58644b971ae86b95e718b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initial_scene_state: 1
 --- !u!1001 &964164319
 Prefab:
   m_ObjectHideFlags: 0
@@ -7860,8 +7861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5079a93e1e15043bf2d0d69669b95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  required_kills: 1
-  num_combatants_per_house: 5
+  required_kills: 10
+  num_combatants_per_house: 3
 --- !u!4 &1824008618
 Transform:
   m_ObjectHideFlags: 0

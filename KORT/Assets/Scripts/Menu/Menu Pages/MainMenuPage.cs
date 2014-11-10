@@ -15,7 +15,7 @@ public class MainMenuPage : MenuPage
         float t = TransitionPow();
 
         GiveControlToPopups(new MenuPage[] { yes_no_pu });
-        GUILayout.BeginArea(new Rect(50, 230, 500, 800));
+        GUILayout.BeginArea(new Rect(0, 230, 1920, 800));
         GUILayout.BeginVertical();
 
         // header
@@ -23,7 +23,7 @@ public class MainMenuPage : MenuPage
         
         // buttons
         NextVerticalKeyboardControl("START");
-        if (GUILayout.Button("START", GUILayout.Width(400 * t)) || KBControlPressed("START"))
+        if (GUILayout.Button("START", GUILayout.Width(800 * t)) || KBControlPressed("START"))
         {
             if (!briefing_page) return; 
             TransitionOut(null);
@@ -31,7 +31,7 @@ public class MainMenuPage : MenuPage
         }
         if (LastControlHover("START")) { SetKeyBoardFocus("START"); }
         NextVerticalKeyboardControl("EXIT");
-        if (GUILayout.Button("EXIT", GUILayout.Width(400 * t)) || KBControlPressed("EXIT"))
+        if (GUILayout.Button("EXIT", GUILayout.Width(800 * t)) || KBControlPressed("EXIT"))
         {
             if (!yes_no_pu) return;
             yes_no_pu.question_text = "Are you sure you want to exit?";
