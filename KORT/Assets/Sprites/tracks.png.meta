@@ -5,6 +5,10 @@ TextureImporter:
     21300000: tracks_2
     21300002: tracks_3
     21300004: tracks_5
+    21300006: tracks_3
+    21300008: tracks_4
+    21300010: tracks_5
+    21300012: tracks_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,7 +31,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -50,18 +54,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 256
-        height: 256
+        y: 257
+        width: 255
+        height: 255
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: tracks_3
       rect:
         serializedVersion: 2
-        x: 256
+        x: 257
         y: 256
-        width: 512
+        width: 511
         height: 256
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -73,6 +77,46 @@ TextureImporter:
         y: 0
         width: 768
         height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tracks_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 513
+        width: 513
+        height: 513
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tracks_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1056
+        width: 256
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tracks_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1110
+        width: 512
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tracks_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1181
+        width: 768
+        height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
