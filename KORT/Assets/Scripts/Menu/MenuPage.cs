@@ -11,7 +11,7 @@ public class MenuPage : MonoBehaviour
     public static Rect default_screen = new Rect(0, 0, 1920, 1080);
 
     // transitions
-    protected float transition_seconds = 0.2f;
+    protected float transition_seconds = 0.4f;
     protected float transition = 0; // 0 is out, 1 is in
     protected TransitionState tran_state { get; private set; }
     private System.Action on_in, on_out;

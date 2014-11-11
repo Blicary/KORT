@@ -3,6 +3,8 @@ using System.Collections;
 
 public enum SceneState { Menu, Arena, DeadScreen, GameOverScreen, InterArenaCorridor, VictoryRoom }
 
+[RequireComponent(typeof(ScreenFadeInOut))]
+
 public class GameManager : MonoBehaviour 
 {
     private static GameManager _instance;
@@ -29,8 +31,9 @@ public class GameManager : MonoBehaviour
 
     private static int current_arena = 0;
     public static SceneState Scenestate { get; private set; }
-
     public SceneState initial_scene_state = SceneState.Arena;
+
+    public static ScreenFadeInOut screen_fade;
 
 
     public void Awake()
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {
+        screen_fade = GetComponent<ScreenFadeInOut>();
         Scenestate = initial_scene_state;
     }
 
@@ -91,12 +95,13 @@ public class GameManager : MonoBehaviour
 
         Scenestate = SceneState.Arena;
         Application.LoadLevel(arena_sequence[current_arena]);
+        screen_fade.InstantBlack();
+        screen_fade.FadeToClear();
     }
     public static void DeadScreen()
     {
-        //Debug.Log("dead screen");
+        screen_fade.InstantBlack();
         Scenestate = SceneState.DeadScreen;
-        //Application.LoadLevel(dead_scene);
     }
     public static void GameOverScreen()
     {
@@ -106,7 +111,7 @@ public class GameManager : MonoBehaviour
     public static void NextCombatant()
     {
         HouseManager.CreateNewPlayerCombatant();
-
+        screen_fade.FadeToClear();
         //Application.LoadLevel(arena_sequence[current_arena]);
     }
 
