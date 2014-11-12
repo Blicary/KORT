@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     // menu
     private static bool loading_game = false;
-    public MenuPage dead_screen, start_screen, gg_page; // in-game menus
+    public MenuPage dead_screen, start_screen, gg_page, victory_page; // in-game menus
 
 
     public void Awake()
@@ -106,6 +106,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (Scenestate == SceneState.VictoryRoom)
+        {
+            if (Input.GetButtonDown("Submit"))
+            {
+                Time.timeScale = 0;
+                victory_page.TransitionIn(null);
+            }
+        }
+    }
     
     public static void LoadGame()
     {

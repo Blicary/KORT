@@ -28,6 +28,8 @@ public class HouseManager : MonoBehaviour
     private static Dictionary<HouseName, House> houses;
     private static Dictionary<HouseName, ExitDoor> doors;
 
+    public int num_combatants_per_house = 5;
+
 
 
     // PUBLIC MODIFIERS
@@ -53,7 +55,7 @@ public class HouseManager : MonoBehaviour
         doors = new Dictionary<HouseName, ExitDoor>();
         for (int i = 0; i < houses_in_play.Length; ++i)
         {
-            houses[houses_in_play[i]] = new House(houses_in_play[i], ArenaDetails.GetNumCombatantsPerHouse());
+            houses[houses_in_play[i]] = new House(houses_in_play[i], num_combatants_per_house);
         }
         SetupInNewArena();
 

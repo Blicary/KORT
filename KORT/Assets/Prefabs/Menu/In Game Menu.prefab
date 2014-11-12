@@ -150,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3247032, y: 0, z: 0}
+  m_LocalPosition: {x: 10.3247032, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
@@ -187,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3247032, y: 0, z: 0}
+  m_LocalPosition: {x: 10.3247032, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400014}
@@ -212,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3247032, y: 0, z: 0}
+  m_LocalPosition: {x: 10.3247032, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heading_skin: {fileID: 11400000, guid: dec1b4c7926551b4c84cc5b3cbef8d54, type: 2}
-  small_skin: {fileID: 11400000, guid: b2a38e0acf272ab4c875a407c33fb989, type: 2}
+  small_skin: {fileID: 11400000, guid: 860d34bc483898147834e95adaeff2b2, type: 2}
   player: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
