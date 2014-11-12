@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DeadScreenPage : MenuPage 
+
+class StartPage : MenuPage
 {
     public GUISkin heading_skin;
     public GUISkin small_skin;
@@ -12,18 +13,10 @@ public class DeadScreenPage : MenuPage
     public void OnGUI()
     {
         //if (name == "Briefing Page") Debug.Log(base.tran_state);
-
-
+        
         EnableGUIScale();
         float t = TransitionPow();
 
-        GUILayout.BeginArea(new Rect(120, 120, 1000, 800));
-
-        // header
-        GUI.skin = heading_skin;
-        MenuHelper.GUILayoutHeader("DEAD", t);
-
-        GUILayout.EndArea();
         GUILayout.BeginArea(new Rect(120 + (-1100 * (1 - t)), 120, 1000, 800));
         GUILayout.BeginVertical();
         GUILayout.Space(150);
@@ -36,13 +29,13 @@ public class DeadScreenPage : MenuPage
         GUILayout.EndArea();
 
         GUILayout.BeginArea(new Rect(0 + (-1100 * (1 - t)), 800, 1000, 200));
-        NextVerticalKeyboardControl("CONTINUE");
-        if (GUILayout.Button("CONTINUE", GUILayout.Width(800)) || KBControlPressed("CONTINUE"))
+        NextVerticalKeyboardControl("COMMENCE");
+        if (GUILayout.Button("COMMENCE", GUILayout.Width(800)) || KBControlPressed("COMMENCE"))
         {
             GameManager.screen_fade.FadeToBlack(transition_seconds);
-            this.TransitionOut(() => GameManager.NextCombatant());
+            this.TransitionOut(() => GameManager.BeginGame());
         }
-        if (LastControlHover("CONTINUE")) { SetKeyBoardFocus("CONTINUE"); }
+        if (LastControlHover("COMMENCE")) { SetKeyBoardFocus("COMMENCE"); }
         GUILayout.EndArea();
 
         EndKeyboardControlSetup();
@@ -55,12 +48,9 @@ public class DeadScreenPage : MenuPage
         CombatantStats dead_stats = house.GetLastCombatantStats();
         CombatantStats stats = house.GetCurrentCombatantStats();
 
-        string text = dead_stats.name + " lost his life after " + dead_stats.time_alive + " seconds in the arena. \n";
-        text += house.CombatantsLeft() + " combatants remain from House " + house.Name + ". \n";
-        text += "\n";
+        string text = house.Name + " is " + house.CombatantsLeft() + " combatants strong. \n";
         text += stats.name + " prepares to take up the fight...";
 
         return text;
     }
-
 }

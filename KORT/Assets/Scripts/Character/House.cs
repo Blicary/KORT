@@ -22,13 +22,13 @@ public class House
     public House(HouseName name, int num_combatants)
     {
         combatant_stats = new CombatantStats[num_combatants];
-        InitNewCombatant();
+        CreateNewCombatant();
     }
 
     public void NextCombatant()
     {
         ++current_combatant;
-        InitNewCombatant();
+        CreateNewCombatant();
     }
     public void ResetArenaKills()
     {
@@ -47,10 +47,23 @@ public class House
 
     // PRIVATE MODIFIERS
 
-    private void InitNewCombatant()
+    private void CreateNewCombatant()
     {
         combatant_stats[current_combatant] = new CombatantStats();
-        combatant_stats[current_combatant].name = "";
+        combatant_stats[current_combatant].name = "No Name";
+    }
+
+
+    // PUBLIC ACCESSORS
+
+    public CombatantStats GetCurrentCombatantStats()
+    {
+        return combatant_stats[current_combatant];
+    }
+    public CombatantStats GetLastCombatantStats()
+    {
+        if (current_combatant == 0) return null;
+        return combatant_stats[current_combatant-1];
     }
 }
 

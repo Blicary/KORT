@@ -57,6 +57,21 @@ public class MenuPage : MonoBehaviour
         tran_state = TransitionState.GoingOut;
         has_control = false;
     }
+    public void SetIn()
+    {
+        gameObject.SetActive(true);
+        transition = 1;
+        tran_state = TransitionState.In;
+        kb_current_node = kb_head_node;
+        has_control = true;
+    }
+    public void SetOut()
+    {
+        gameObject.SetActive(false);
+        transition = 0;
+        tran_state = TransitionState.Out;
+        has_control = false;
+    }
 
 
     // PRIVATE MODIFIERS
@@ -64,7 +79,7 @@ public class MenuPage : MonoBehaviour
     {
         if (tran_state == TransitionState.GoingIn)
         {
-            transition += Time.deltaTime / transition_seconds;
+            transition += Time.unscaledDeltaTime / transition_seconds;
             if (transition >= 1)
             {
                 if (on_in != null) on_in();
@@ -74,7 +89,7 @@ public class MenuPage : MonoBehaviour
         }
         else if (tran_state == TransitionState.GoingOut)
         {
-            transition -= Time.deltaTime / transition_seconds;
+            transition -= Time.unscaledDeltaTime / transition_seconds;
             if (transition <= 0)
             {
                 if (on_out != null) on_out();
@@ -92,13 +107,13 @@ public class MenuPage : MonoBehaviour
         {
             if (kb_current_node.down != null) kb_current_node = kb_current_node.down;
             //GUI.FocusControl(kb_current_node.name);
-            Debug.Log("menu down to " + kb_current_node.name);
+            //Debug.Log("menu down to " + kb_current_node.name);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (kb_current_node.up != null) kb_current_node = kb_current_node.up;
             //GUI.FocusControl(kb_current_node.name);
-            Debug.Log("menu up to " + kb_current_node.name);
+            //Debug.Log("menu up to " + kb_current_node.name);
         }
 
         
@@ -193,7 +208,7 @@ public class MenuPage : MonoBehaviour
     // PRIVATE / PROTECTED ACCESSORS
     protected bool KBControlPressed(string name)
     {
-        return kb_current_node != null && kb_current_node.name == name && Input.GetKeyDown(KeyCode.Return);
+        return kb_current_node != null && kb_current_node.name == name && Input.GetButtonDown("Submit"); ;
     }
     protected bool LastControlHover(string name)
     {

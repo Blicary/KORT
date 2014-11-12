@@ -18,7 +18,7 @@ public class ScreenFadeInOut : MonoBehaviour
     {
         while (true)
         {
-            current_fade_time += Time.deltaTime;
+            current_fade_time += Time.unscaledDeltaTime;
 
             // Lerp the colour of the texture between itself and black.
             guiTexture.color = Color.Lerp(guiTexture.color, Color.black, current_fade_time / fade_seconds);
@@ -33,7 +33,7 @@ public class ScreenFadeInOut : MonoBehaviour
     {
         while (true)
         {
-            current_fade_time += Time.deltaTime;
+            current_fade_time += Time.unscaledDeltaTime;
 
             // Lerp the colour of the texture between itself and transparent.
             guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, current_fade_time / fade_seconds);
@@ -82,6 +82,7 @@ public class ScreenFadeInOut : MonoBehaviour
     public void InstantClear()
     {
         guiTexture.enabled = false;
+        guiTexture.color = Color.clear;
         StopAllCoroutines();
     }
 }

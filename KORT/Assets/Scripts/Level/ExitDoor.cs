@@ -25,6 +25,7 @@ public class ExitDoor : MonoBehaviour
         Combatant c = collider.GetComponent<Combatant>();
         if (!c) return; // only let combatants through
 
+
         if (GameManager.Scenestate == SceneState.Arena)
         {
             // only let the combatant through if this is their door

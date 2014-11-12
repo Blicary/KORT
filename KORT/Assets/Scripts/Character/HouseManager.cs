@@ -29,6 +29,9 @@ public class HouseManager : MonoBehaviour
     private static Dictionary<HouseName, ExitDoor> doors;
 
 
+
+    // PUBLIC MODIFIERS
+
     public void Awake()
     {
         // if this is the first instance, make this the singleton
@@ -81,14 +84,14 @@ public class HouseManager : MonoBehaviour
         {
             houses[house_name].NextCombatant();
 
-            Debug.Log("House " + house_name + " has " + houses[house_name].CombatantsLeft() + " remaining combatants.");
+            //Debug.Log("House " + house_name + " has " + houses[house_name].CombatantsLeft() + " remaining combatants.");
          
             GameManager.DeadScreen();
         }
         else
         {
             // death of house
-            Debug.Log("House " + house_name + " has perished.");
+            //Debug.Log("House " + house_name + " has perished.");
             if (combatant.player_controlled)
             {
                 GameManager.GameOverScreen();
@@ -96,18 +99,19 @@ public class HouseManager : MonoBehaviour
         }
     }
 
-    public static void CreateNewPlayerCombatant()
+    public static void CreatePlayerCombatantObject()
     {
+        // create new player
         Instantiate(_instance.combatant_prefab);
-        PlayerCam cam = Camera.main.GetComponent<PlayerCam>();
+
+        // connect new player to the main cam
+        PlayerCam cam = GameManager.GetCamMain().GetComponent<PlayerCam>();
+        if (!cam) Debug.LogError("Missing PlayerCam on main camera");
         cam.FindPlayer();
     }
 
 
-    public static ExitDoor GetHouseDoor(HouseName house_name)
-    {
-        return doors[house_name];
-    }
+    // PRIVATE MODIFIERS
 
     private static void SetupInNewArena()
     {
@@ -140,5 +144,17 @@ public class HouseManager : MonoBehaviour
             houses[house_name].ResetArenaKills();
             //Debug.Log("House " + house_name + " has " + houses[house_name].KillsCurrentArena + " kills in this arena.");
         }
+    }
+
+
+    // PUBLIC MODIFIERS
+
+    public static ExitDoor GetHouseDoor(HouseName house_name)
+    {
+        return doors[house_name];
+    }
+    public static House GetHouse(HouseName house_name)
+    {
+        return houses[house_name];
     }
 }

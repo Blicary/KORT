@@ -43,7 +43,7 @@ public class BriefingPage : MenuPage
         {
             if (!main_menu_page) return;
             GameManager.screen_fade.FadeToBlack(transition_seconds);
-            this.TransitionOut(() => GameManager.StartGame());
+            this.TransitionOut(() => GameManager.LoadGame());
         }
         if (LastControlHover("READY")) { SetKeyBoardFocus("READY"); }
         NextVerticalKeyboardControl("BACK");
@@ -58,10 +58,5 @@ public class BriefingPage : MenuPage
 
         EndKeyboardControlSetup();
         
-    }
-    public new void Update()
-    {
-        base.Update();
-
     }
 }

@@ -33,7 +33,13 @@ public class GameManager : MonoBehaviour
     public static SceneState Scenestate { get; private set; }
     public SceneState initial_scene_state = SceneState.Arena;
 
+    // camera
     public static ScreenFadeInOut screen_fade;
+    public Camera cam_in_game_menu, cam_main;
+
+    // menu
+    private static bool loading_game = false;
+    public MenuPage dead_screen, start_screen;
 
 
     public void Awake()
@@ -43,9 +49,20 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(_instance);
+
+            Scenestate = initial_scene_state;
         }
         else
         {
+            // keep cam variables
+            _instance.cam_main = cam_main;
+            _instance.cam_in_game_menu = cam_in_game_menu;
+            _instance.dead_screen = dead_screen;
+            _instance.start_screen = start_screen;  
+            if (cam_main == null) Debug.LogError("Missing main camera in new scene.");
+            if (cam_in_game_menu == null) Debug.LogError("Missing in game menu camera in new scene.");
+
+
             // destroy other instances that are not the already existing singleton
             if (this != _instance)
                 Destroy(this.gameObject);
@@ -54,19 +71,61 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         screen_fade = GetComponent<ScreenFadeInOut>();
-        Scenestate = initial_scene_state;
     }
 
-    public void Update()
+    public void OnLevelWasLoaded(int level)
     {
-        if (Scenestate == SceneState.DeadScreen && Input.GetKeyDown(KeyCode.Space))
+        if (this != _instance) return;
+
+        // start page
+        if (loading_game)
         {
-            NextCombatant();
-            Scenestate = SceneState.Arena;
+            loading_game = false;
+
+            _instance.cam_main.gameObject.SetActive(false);
+            _instance.cam_in_game_menu.gameObject.SetActive(true);
+
+            Time.timeScale = 0;
+            _instance.start_screen.TransitionIn(null);
+
+            screen_fade.InstantBlack();
+            screen_fade.FadeToClear();
         }
-            
+        else if (Scenestate == SceneState.Arena)
+        {
+            _instance.cam_in_game_menu.gameObject.SetActive(false);
+            _instance.cam_main.gameObject.SetActive(true);
+            start_screen.SetOut();
+        }
     }
 
+    
+    public static void LoadGame()
+    {
+        if (arena_sequence.Length == 0) Debug.LogError("Cannot start game, arena sequence not specified.");
+
+        loading_game = true;
+        Scenestate = SceneState.Arena;
+        Application.LoadLevel(arena_sequence[current_arena]); 
+    }
+    public static void BeginGame()
+    {
+        Time.timeScale = 1;
+        screen_fade.InstantBlack();
+        screen_fade.FadeToClear();
+
+        _instance.cam_in_game_menu.gameObject.SetActive(false);
+        _instance.cam_main.gameObject.SetActive(true);
+    }
+    public static void DeadScreen()
+    {
+        Scenestate = SceneState.DeadScreen;
+        screen_fade.InstantClear();
+        _instance.cam_main.gameObject.SetActive(false);
+        _instance.cam_in_game_menu.gameObject.SetActive(true);
+
+        _instance.dead_screen.SetIn();
+    }
     public static void ClearArena()
     {
         if (Scenestate == SceneState.Arena)
@@ -89,20 +148,6 @@ public class GameManager : MonoBehaviour
             Application.LoadLevel(arena_sequence[current_arena]);
         }
     }
-    public static void StartGame()
-    {
-        if (arena_sequence.Length == 0) Debug.LogError("Cannot start game, arena sequence not specified.");
-
-        Scenestate = SceneState.Arena;
-        Application.LoadLevel(arena_sequence[current_arena]);
-        screen_fade.InstantBlack();
-        screen_fade.FadeToClear();
-    }
-    public static void DeadScreen()
-    {
-        screen_fade.InstantBlack();
-        Scenestate = SceneState.DeadScreen;
-    }
     public static void GameOverScreen()
     {
         Scenestate = SceneState.GameOverScreen;
@@ -110,12 +155,23 @@ public class GameManager : MonoBehaviour
     }
     public static void NextCombatant()
     {
-        HouseManager.CreateNewPlayerCombatant();
+        Scenestate = SceneState.Arena;
+        _instance.cam_in_game_menu.gameObject.SetActive(false);
+        _instance.cam_main.gameObject.SetActive(true);
+        screen_fade.InstantBlack();
         screen_fade.FadeToClear();
-        //Application.LoadLevel(arena_sequence[current_arena]);
+
+        HouseManager.CreatePlayerCombatantObject();
     }
 
     // PUBLIC ACCESSORS
 
-
+    public static Camera GetCamMain()
+    {
+        return _instance.cam_main;
+    }
+    public static Camera GetCamInGameMenu()
+    {
+        return _instance.cam_in_game_menu;
+    }
 }
