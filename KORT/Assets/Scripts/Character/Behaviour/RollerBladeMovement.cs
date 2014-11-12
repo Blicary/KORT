@@ -21,7 +21,7 @@ public class RollerBladeMovement : MonoBehaviour
     // movement
     public float speed = 11f;
 
-    public float rotate_speed = 5f;
+    public float rotate_speed = 5f, break_rotate_speed = 10f;
     private float rotation = 0; // radians
 
     public float drag = 0.2f, stunned_drag = 4f;
@@ -93,7 +93,7 @@ public class RollerBladeMovement : MonoBehaviour
 
 
         // rotation
-        rotation -= input_turn * rotate_speed * Time.deltaTime;
+        rotation -= input_turn * (input_break ? break_rotate_speed : rotate_speed) * Time.deltaTime;
         graphics_object.localEulerAngles = new Vector3(0, 0, (rotation * Mathf.Rad2Deg) - 90);
         direction = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
 
@@ -175,6 +175,7 @@ public class RollerBladeMovement : MonoBehaviour
     }
     public bool BreakTurn()
     {
+        return false;
         if (character.IsStunned()) return false;
 
         // only turn once and when moving slow enough
