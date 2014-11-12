@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-class StartPage : MenuPage
+public class GGPage : MenuPage 
 {
     public GUISkin heading_skin;
     public GUISkin small_skin;
@@ -13,10 +12,19 @@ class StartPage : MenuPage
     public void OnGUI()
     {
         //if (name == "Briefing Page") Debug.Log(base.tran_state);
-        
+
+
         EnableGUIScale();
         float t = TransitionPow();
 
+        GUILayout.BeginArea(new Rect(120, 120, 1000, 800));
+
+        // header
+        GUI.skin = heading_skin;
+        House house = HouseManager.GetHouse(player.house_name);
+        MenuHelper.GUILayoutHeader("House " + house.Name + " has perished", t);
+
+        GUILayout.EndArea();
         GUILayout.BeginArea(new Rect(120 + (-1100 * (1 - t)), 120, 1000, 800));
         GUILayout.BeginVertical();
         GUILayout.Space(150);
@@ -29,13 +37,12 @@ class StartPage : MenuPage
         GUILayout.EndArea();
 
         GUILayout.BeginArea(new Rect(0 + (-1100 * (1 - t)), 800, 1000, 200));
-        NextVerticalKeyboardControl("COMMENCE");
-        if (GUILayout.Button("COMMENCE", GUILayout.Width(800)) || KBControlPressed("COMMENCE"))
+        NextVerticalKeyboardControl("MAIN MENU");
+        if (GUILayout.Button("MAIN MENU", GUILayout.Width(800)) || KBControlPressed("MAIN MENU"))
         {
-            GameManager.screen_fade.FadeToBlack(transition_seconds);
-            this.TransitionOut(() => GameManager.BeginGame());
+            GameManager.LoadMainMenu();
         }
-        if (LastControlHover("COMMENCE")) { SetKeyBoardFocus("COMMENCE"); }
+        if (LastControlHover("MAIN MENU")) { SetKeyBoardFocus("MAIN MENU"); }
         GUILayout.EndArea();
 
         EndKeyboardControlSetup();
@@ -45,12 +52,11 @@ class StartPage : MenuPage
     private string ConstructInfoText()
     {
         House house = HouseManager.GetHouse(player.house_name);
-        CombatantStats dead_stats = house.GetLastCombatantStats();
-        CombatantStats stats = house.GetCurrentCombatantStats();
+        CombatantStats dead_stats = house.GetCurrentCombatantStats();
 
-        string text = house.Name + " is " + (house.CombatantsLeft() + 1) + " combatants strong. \n";
-        text += stats.name + " prepares to take up the fight...";
+        string text = dead_stats.name + " lost his life after " + dead_stats.time_alive + " seconds in the arena. \n";
 
         return text;
     }
+
 }

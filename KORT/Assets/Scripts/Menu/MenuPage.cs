@@ -208,7 +208,7 @@ public class MenuPage : MonoBehaviour
     // PRIVATE / PROTECTED ACCESSORS
     protected bool KBControlPressed(string name)
     {
-        return kb_current_node != null && kb_current_node.name == name && Input.GetButtonDown("Submit"); ;
+        return kb_current_node != null && kb_current_node.name == name && Input.GetButtonDown("Submit");
     }
     protected bool LastControlHover(string name)
     {

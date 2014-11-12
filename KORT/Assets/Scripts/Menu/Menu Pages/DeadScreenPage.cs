@@ -56,7 +56,7 @@ public class DeadScreenPage : MenuPage
         CombatantStats stats = house.GetCurrentCombatantStats();
 
         string text = dead_stats.name + " lost his life after " + dead_stats.time_alive + " seconds in the arena. \n";
-        text += house.CombatantsLeft() + " combatants remain from House " + house.Name + ". \n";
+        text += (house.CombatantsLeft() + 1) + " combatants remain from House " + house.Name + ". \n";
         text += "\n";
         text += stats.name + " prepares to take up the fight...";
 

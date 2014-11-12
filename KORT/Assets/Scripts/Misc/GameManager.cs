@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     // scene management
     public static string[] arena_sequence = { "test_scene", "test_scene" };
     public static string inter_arena_scene = "transition_scene";
-    private static string game_over_scene = "game_over_scene";
     public static string victory_scene = "victory_scene";
+    private static string main_menu_scene = "main_menu";
 
     private static int current_arena = 0;
     public static SceneState Scenestate { get; private set; }
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     // menu
     private static bool loading_game = false;
-    public MenuPage dead_screen, start_screen;
+    public MenuPage dead_screen, start_screen, gg_page; // in-game menus
 
 
     public void Awake()
@@ -54,13 +54,15 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // keep cam variables
+            // get new instance variables
             _instance.cam_main = cam_main;
             _instance.cam_in_game_menu = cam_in_game_menu;
             _instance.dead_screen = dead_screen;
-            _instance.start_screen = start_screen;  
+            _instance.start_screen = start_screen;
+            _instance.gg_page = gg_page;
+
             if (cam_main == null) Debug.LogError("Missing main camera in new scene.");
-            if (cam_in_game_menu == null) Debug.LogError("Missing in game menu camera in new scene.");
+            if (Scenestate != SceneState.Menu && cam_in_game_menu == null) Debug.LogError("Missing in game menu camera in new scene.");
 
 
             // destroy other instances that are not the already existing singleton
@@ -96,6 +98,11 @@ public class GameManager : MonoBehaviour
             _instance.cam_in_game_menu.gameObject.SetActive(false);
             _instance.cam_main.gameObject.SetActive(true);
             start_screen.SetOut();
+        }
+        else if (Scenestate == SceneState.Menu)
+        {
+            screen_fade.InstantBlack();
+            screen_fade.FadeToClear();
         }
     }
 
@@ -151,7 +158,16 @@ public class GameManager : MonoBehaviour
     public static void GameOverScreen()
     {
         Scenestate = SceneState.GameOverScreen;
-        Application.LoadLevel(game_over_scene);
+        screen_fade.InstantClear();
+        _instance.cam_main.gameObject.SetActive(false);
+        _instance.cam_in_game_menu.gameObject.SetActive(true);
+
+        _instance.gg_page.SetIn();
+    }
+    public static void LoadMainMenu()
+    {
+        Scenestate = SceneState.Menu;
+        Application.LoadLevel(main_menu_scene);
     }
     public static void NextCombatant()
     {

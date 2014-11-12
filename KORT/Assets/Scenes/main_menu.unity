@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heading_skin: {fileID: 11400000, guid: dec1b4c7926551b4c84cc5b3cbef8d54, type: 2}
-  small_skin: {fileID: 11400000, guid: b2a38e0acf272ab4c875a407c33fb989, type: 2}
+  small_skin: {fileID: 11400000, guid: 860d34bc483898147834e95adaeff2b2, type: 2}
   main_menu_page: {fileID: 1232444382}
 --- !u!1 &1204324768
 GameObject:
@@ -418,6 +418,7 @@ MonoBehaviour:
   cam_main: {fileID: 1685955086}
   dead_screen: {fileID: 0}
   start_screen: {fileID: 0}
+  gg_page: {fileID: 0}
 --- !u!4 &1204324770
 Transform:
   m_ObjectHideFlags: 0
