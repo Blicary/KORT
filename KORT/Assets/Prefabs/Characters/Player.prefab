@@ -345,10 +345,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphics_object: {fileID: 400006}
   speed: 11
-  rotate_speed: 5
+  rotate_speed: 4
+  break_rotate_speed: 8
   drag: .200000003
   stunned_drag: 4
-  break_drag: 5
+  break_drag: 2
   break_turn_speed_threshold: 4
 --- !u!114 &11400014
 MonoBehaviour:

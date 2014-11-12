@@ -10,49 +10,41 @@ Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\
 Loading C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.064 seconds
+- Completed reload, in  0.046 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build1_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 0.315682 ms
+UnloadTime: 0.309666 ms
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 638.
-Total: 0.673125 ms (FindLiveObjects: 0.038575 ms CreateObjectMapping: 0.008493 ms MarkObjects: 0.162088 ms  DeleteObjects: 0.013094 ms)
-
-House Stark has 1 remaining combatants.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 692.
+Total: 0.869188 ms (FindLiveObjects: 0.044945 ms CreateObjectMapping: 0.012740 ms MarkObjects: 0.215527 ms  DeleteObjects: 0.015571 ms)
 
 The door for house Stark is now open.
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 0.624286 ms
+UnloadTime: 1.142402 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 289.
+Total: 1.538421 ms (FindLiveObjects: 0.027958 ms CreateObjectMapping: 0.027958 ms MarkObjects: 0.350365 ms  DeleteObjects: 0.070780 ms)
+
+UnloadTime: 0.641628 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 244.
-Total: 0.676664 ms (FindLiveObjects: 0.010263 ms CreateObjectMapping: 0.010263 ms MarkObjects: 0.138376 ms  DeleteObjects: 0.025127 ms)
-
-UnloadTime: 0.539703 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 640.
-Total: 1.360761 ms (FindLiveObjects: 0.036098 ms CreateObjectMapping: 0.014510 ms MarkObjects: 0.278168 ms  DeleteObjects: 0.008139 ms)
-
-House Stark has 0 remaining combatants.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 684.
+Total: 1.552577 ms (FindLiveObjects: 0.056978 ms CreateObjectMapping: 0.024419 ms MarkObjects: 0.427162 ms  DeleteObjects: 0.012386 ms)
 
 The door for house Stark is now open.
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 0.642335 ms
+UnloadTime: 1.094271 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 243.
-Total: 0.827427 ms (FindLiveObjects: 0.016279 ms CreateObjectMapping: 0.014510 ms MarkObjects: 0.232868 ms  DeleteObjects: 0.033974 ms)
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 222.
+Total: 1.478965 ms (FindLiveObjects: 0.024419 ms CreateObjectMapping: 0.025481 ms MarkObjects: 0.357797 ms  DeleteObjects: 0.070426 ms)
 
