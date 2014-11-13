@@ -50,6 +50,14 @@ public class HouseManager : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+        if (GameManager.Scenestate == SceneState.Arena)
+        {
+            Initialize();
+        }
+    }
+
     public static void Initialize()
     {
         houses = new Dictionary<HouseName, House>();
