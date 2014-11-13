@@ -124,8 +124,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.0448322, y: -43.8104515, z: .00414999994}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
+  m_LocalPosition: {x: -25.8502235, y: 22.0388222, z: .00414999994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -151,8 +151,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0
@@ -180,7 +180,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .5
+  m_Radius: 1
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800002
 CircleCollider2D:
@@ -191,7 +191,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: 3
+  m_Radius: 1.32000005
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800004
 CircleCollider2D:
@@ -202,7 +202,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: 9
+  m_Radius: 7.38999987
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800006
 CircleCollider2D:
@@ -270,9 +270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areas:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   input_reaction_time: .100000001
   wait_time: .5
 --- !u!114 &11400006
@@ -287,8 +284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphics_object: {fileID: 400000}
-  speed: 4
+  speed: 10
   rotate_speed: 5
+  break_rotate_speed: 10
   drag: .200000003
   stunned_drag: 4
   break_drag: 4
@@ -317,7 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 21200002}
   chosen_weapon: 0
-  weapon_start_reach: .800000012
+  weapon_start_reach: 1.32000005
   weapon_collision_layer:
     serializedVersion: 2
     m_Bits: 7424

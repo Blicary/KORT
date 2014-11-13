@@ -60,9 +60,12 @@ public class GameManager : MonoBehaviour
             _instance.dead_screen = dead_screen;
             _instance.start_screen = start_screen;
             _instance.gg_page = gg_page;
+            _instance.victory_page = victory_page;
+
 
             if (cam_main == null) Debug.LogError("Missing main camera in new scene.");
-            if (Scenestate != SceneState.Menu && cam_in_game_menu == null) Debug.LogError("Missing in game menu camera in new scene.");
+            if (Scenestate != SceneState.Menu && Scenestate != SceneState.VictoryRoom && cam_in_game_menu == null)
+                Debug.LogError("Missing in game menu camera in new scene.");
 
 
             // destroy other instances that are not the already existing singleton
@@ -83,6 +86,10 @@ public class GameManager : MonoBehaviour
         if (loading_game)
         {
             loading_game = false;
+
+            HouseManager.Initialize();
+
+            Debug.Log(_instance.cam_in_game_menu);  
 
             _instance.cam_main.gameObject.SetActive(false);
             _instance.cam_in_game_menu.gameObject.SetActive(true);
@@ -123,8 +130,9 @@ public class GameManager : MonoBehaviour
         if (arena_sequence.Length == 0) Debug.LogError("Cannot start game, arena sequence not specified.");
 
         loading_game = true;
+        current_arena = 0;
         Scenestate = SceneState.Arena;
-        Application.LoadLevel(arena_sequence[current_arena]); 
+        Application.LoadLevel(arena_sequence[current_arena]);
     }
     public static void BeginGame()
     {

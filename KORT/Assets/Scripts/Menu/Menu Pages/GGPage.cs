@@ -40,7 +40,7 @@ public class GGPage : MenuPage
         NextVerticalKeyboardControl("MAIN MENU");
         if (GUILayout.Button("MAIN MENU", GUILayout.Width(800)) || KBControlPressed("MAIN MENU"))
         {
-            GameManager.LoadMainMenu();
+            TransitionOut(() => GameManager.LoadMainMenu());
         }
         if (LastControlHover("MAIN MENU")) { SetKeyBoardFocus("MAIN MENU"); }
         GUILayout.EndArea();

@@ -28,7 +28,7 @@ public class HouseManager : MonoBehaviour
     private static Dictionary<HouseName, House> houses;
     private static Dictionary<HouseName, ExitDoor> doors;
 
-    public int num_combatants_per_house = 5;
+    private static int num_combatants_per_house = 2;
 
 
 
@@ -49,13 +49,14 @@ public class HouseManager : MonoBehaviour
                 Destroy(this.gameObject);
         }
     }
-    public void Start()
+
+    public static void Initialize()
     {
         houses = new Dictionary<HouseName, House>();
         doors = new Dictionary<HouseName, ExitDoor>();
-        for (int i = 0; i < houses_in_play.Length; ++i)
+        for (int i = 0; i < _instance.houses_in_play.Length; ++i)
         {
-            houses[houses_in_play[i]] = new House(houses_in_play[i], num_combatants_per_house);
+            houses[_instance.houses_in_play[i]] = new House(_instance.houses_in_play[i], num_combatants_per_house);
         }
         SetupInNewArena();
 

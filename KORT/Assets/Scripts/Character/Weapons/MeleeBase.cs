@@ -14,7 +14,7 @@ public abstract class MeleeBase : WeaponBase
     private bool hit_character = false, hit_terrain = false;
 
     // (Later there could be derived classes for swing / thrust weapons...) 
-    protected float swing_radius = 3.66f; 
+    protected float swing_radius = 7.39f; 
     protected float swing_angle_start = Mathf.PI / 4f, swing_angle_end = Mathf.PI * 3 / 4f;
 
     // angle between rays

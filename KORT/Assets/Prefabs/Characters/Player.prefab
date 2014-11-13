@@ -32,7 +32,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100006
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,8 +114,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 0
@@ -164,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.9207544, y: -17.9311447, z: 0}
+  m_LocalPosition: {x: -.0381851196, y: -27.8691769, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -208,7 +208,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .699999988
+  m_Radius: 1.29999995
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800002
 CircleCollider2D:
@@ -219,7 +219,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: .800000012
+  m_Radius: 1.39999998
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800004
 CircleCollider2D:
@@ -230,7 +230,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: 3.66000009
+  m_Radius: 7.38999987
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800006
 CircleCollider2D:
@@ -241,7 +241,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .800000012
+  m_Radius: 1.32000005
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800008
 CircleCollider2D:
@@ -252,7 +252,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .5
+  m_Radius: 1
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 21200004}
   chosen_weapon: 0
-  weapon_start_reach: .800000012
+  weapon_start_reach: 1.32000005
   weapon_collision_layer:
     serializedVersion: 2
     m_Bits: 7424
@@ -344,12 +344,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphics_object: {fileID: 400006}
-  speed: 11
+  speed: 20
   rotate_speed: 4
   break_rotate_speed: 8
   drag: .200000003
   stunned_drag: 4
-  break_drag: 2
+  break_drag: 4
   break_turn_speed_threshold: 4
 --- !u!114 &11400014
 MonoBehaviour:
@@ -366,8 +366,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   tracks_checker: {fileID: 5800000}
-  radius: .5
-  track_speed: 19
+  radius: 1
+  track_speed: 35
   track_direction: 1
 --- !u!212 &21200000
 SpriteRenderer:

@@ -48,13 +48,15 @@ public class VictoryPage : MenuPage
         NextVerticalKeyboardControl("RETRY");
         if (GUILayout.Button("RETRY", GUILayout.Width(800)) || KBControlPressed("RETRY"))
         {
-            GameManager.LoadGame();
+            GameManager.screen_fade.FadeToBlack();
+            TransitionOut(() => GameManager.LoadGame());
         }
         if (LastControlHover("RETRY")) { SetKeyBoardFocus("RETRY"); }
         NextVerticalKeyboardControl("MAIN MENU");
         if (GUILayout.Button("MAIN MENU", GUILayout.Width(800)) || KBControlPressed("MAIN MENU"))
         {
-            GameManager.LoadMainMenu();
+            GameManager.screen_fade.FadeToBlack();
+            TransitionOut(() => GameManager.LoadMainMenu());
         }
         if (LastControlHover("MAIN MENU")) { SetKeyBoardFocus("MAIN MENU"); }
         GUILayout.EndArea();

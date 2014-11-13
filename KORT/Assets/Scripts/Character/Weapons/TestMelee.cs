@@ -11,7 +11,7 @@ public class TestMelee : MeleeBase
 
     public TestMelee() : base()
     {
- 
+        base.swing_radius = 7.39f;
     }
 	
 }

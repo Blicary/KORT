@@ -19,7 +19,7 @@ public class RollerBladeMovement : MonoBehaviour
 
 
     // movement
-    public float speed = 11f;
+    public float speed = 20f;
 
     public float rotate_speed = 5f, break_rotate_speed = 10f;
     private float rotation = 0; // radians
