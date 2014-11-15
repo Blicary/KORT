@@ -512,7 +512,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 286546650}
   - 212: {fileID: 286546653}
-  - 61: {fileID: 286546652}
   - 114: {fileID: 286546651}
   m_Layer: 0
   m_Name: Portcullis 2
@@ -549,18 +548,6 @@ MonoBehaviour:
   mob_prefab: {fileID: 400004, guid: 36f187dca49771d489d212c963a321c2, type: 2}
   spawn_direction: {x: -1, y: 0}
   mob_patrol_path: []
---- !u!61 &286546652
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6100000, guid: 38fe8875cf9b0834cb808ecd19f1063e,
-    type: 2}
-  m_PrefabInternal: {fileID: 2112176651}
-  m_GameObject: {fileID: 286546649}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
 --- !u!212 &286546653
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -834,7 +821,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   houses_in_play: 00000000
   combatant_prefab: {fileID: 11400006, guid: ba172e948d1b1ae42b5d02817ec1f0c5, type: 2}
-  num_combatants_per_house: 5
 --- !u!1 &407446227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1636,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 725407216}
   - 212: {fileID: 725407219}
-  - 61: {fileID: 725407218}
   - 114: {fileID: 725407217}
   m_Layer: 0
   m_Name: Portcullis 1
@@ -1688,18 +1673,6 @@ MonoBehaviour:
   spawn_direction: {x: -1, y: 0}
   mob_patrol_path:
   - {fileID: 249119258}
---- !u!61 &725407218
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6100000, guid: 38fe8875cf9b0834cb808ecd19f1063e,
-    type: 2}
-  m_PrefabInternal: {fileID: 945838339}
-  m_GameObject: {fileID: 725407215}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
 --- !u!212 &725407219
 SpriteRenderer:
   m_ObjectHideFlags: 0
