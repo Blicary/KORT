@@ -1,19 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+[RequireComponent(typeof(CharAimInfoHub))]
+
 public class RollerbladeTrail : MonoBehaviour
 {
+    private CharAimInfoHub aim;
     public ParticleSystem psystem;
     public float character_radius;
-    public CharAimInfoHub aim;
+    
     public Color color_bloody;
     public Color color_normal;
+
+    private const float fade_speed = 2f;
 
     private Color color;
 
 
     public void Start()
     {
+        aim = GetComponent<CharAimInfoHub>();
+
         color = color_normal;
         psystem.startColor = color;
     }
@@ -43,7 +51,7 @@ public class RollerbladeTrail : MonoBehaviour
         }
         else
         {
-            a = Mathf.Lerp(a, color_normal.a, Time.deltaTime * 0.75f);
+            a = Mathf.Lerp(a, color_normal.a, Time.deltaTime * fade_speed);
             color = new Color(color.r, color.g, color.b, a);
         }
 
