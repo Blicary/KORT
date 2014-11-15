@@ -19,7 +19,6 @@ public class HouseManager : MonoBehaviour
             return _instance;
         }
     }
-    private static bool is_initialized = false; // whether start has been called
 
     //[System.NonSerialized]
     public HouseName[] houses_in_play;
@@ -52,10 +51,8 @@ public class HouseManager : MonoBehaviour
 
     public void Start()
     {
-        if (GameManager.Scenestate == SceneState.Arena)
-        {
+        if (this == _instance)
             Initialize();
-        }
     }
 
     public static void Initialize()
@@ -67,13 +64,11 @@ public class HouseManager : MonoBehaviour
             houses[_instance.houses_in_play[i]] = new House(_instance.houses_in_play[i], num_combatants_per_house);
         }
         SetupInNewArena();
-
-        is_initialized = true;
     }
 
     public void OnLevelWasLoaded(int level)
     {
-        if (this != _instance || !is_initialized) return;
+        if (this != _instance) return;
         SetupInNewArena();
     }
 
