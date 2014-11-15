@@ -5,6 +5,7 @@ TagManager:
   tags:
   - Wall
   - Track
+  - Blood
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -46,6 +47,10 @@ TagManager:
   - name: Terrain
     userID: 2
     uniqueID: 3610840603
+    locked: 0
+  - name: Decals
+    userID: 4
+    uniqueID: 2480515347
     locked: 0
   - name: Default
     userID: 0

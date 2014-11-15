@@ -202,7 +202,7 @@ public class OnTrackMovement : MonoBehaviour
         on_track = false;
         track = null;
 
-        SendMessage("OnTrackDetach", SendMessageOptions.DontRequireReceiver);
+        SendMessage("OnTrackDettach", SendMessageOptions.DontRequireReceiver);
     }
     private void DetachFromTrackForcefull()
     {

@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         on_track_movement.enabled = true;
         on_track_mouse_aim.enabled = true;
     }
-    public void OnTrackDetach()
+    public void OnTrackDettach()
     {
         roller_blade_movement.enabled = true;
         on_track_movement.enabled = false;
