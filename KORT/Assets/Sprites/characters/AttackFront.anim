@@ -28,7 +28,7 @@ AnimationClip:
         value: {x: 0, y: 0, z: -.378618598, w: .925552785}
         inSlope: {x: 0, y: 0, z: 3.04861259, w: 1.24502587}
         outSlope: {x: 0, y: 0, z: 3.04861259, w: 1.24502587}
-        tangentMode: 727282176
+        tangentMode: 120269568
       - time: .0500000045
         value: {x: 0, y: 0, z: -.326697588, w: .945128918}
         inSlope: {x: 0, y: 0, z: 3.15386724, w: 1.08966517}
@@ -98,7 +98,7 @@ AnimationClip:
         value: {x: 0, y: 0, z: .187101185, w: .982340634}
         inSlope: {x: 0, y: 0, z: 1.34447443, w: -.254954487}
         outSlope: {x: 0, y: 0, z: 1.34447443, w: -.254954487}
-        tangentMode: -1040273664
+        tangentMode: -1040117248
       - time: .283333361
         value: {x: 0, y: 0, z: .208671317, w: .977985859}
         inSlope: {x: 0, y: 0, z: 1.25065136, w: -.265942574}
@@ -113,62 +113,62 @@ AnimationClip:
         value: {x: 0, y: 0, z: .247678533, w: .968842268}
         inSlope: {x: 0, y: 0, z: 1.10306382, w: -.281433225}
         outSlope: {x: 0, y: 0, z: 1.10306382, w: -.281433225}
-        tangentMode: 0
+        tangentMode: -1082130432
       - time: .333333403
         value: {x: 0, y: 0, z: .265558422, w: .964094758}
         inSlope: {x: 0, y: 0, z: 1.04904914, w: -.288546443}
         outSlope: {x: 0, y: 0, z: 1.04904914, w: -.288546443}
-        tangentMode: 591003684
+        tangentMode: 1050253722
       - time: .350000083
         value: {x: 0, y: 0, z: .282646865, w: .959224045}
         inSlope: {x: 0, y: 0, z: 1.00799298, w: -.296736121}
         outSlope: {x: 0, y: 0, z: 1.00799298, w: -.296736121}
-        tangentMode: 1095761920
+        tangentMode: 1053045552
       - time: .366666764
         value: {x: 0, y: 0, z: .299158216, w: .954203546}
         inSlope: {x: 0, y: 0, z: .979690313, w: -.3069911}
         outSlope: {x: 0, y: 0, z: .979690313, w: -.3069911}
-        tangentMode: 1095761920
+        tangentMode: 0
       - time: .383333445
         value: {x: 0, y: 0, z: .315303236, w: .948991001}
         inSlope: {x: 0, y: 0, z: .963909149, w: -.320221514}
         outSlope: {x: 0, y: 0, z: .963909149, w: -.320221514}
-        tangentMode: 1095761920
+        tangentMode: 2139095040
       - time: .400000125
         value: {x: 0, y: 0, z: .331288546, w: .943529487}
         inSlope: {x: 0, y: 0, z: .960391879, w: -.337289274}
         outSlope: {x: 0, y: 0, z: .960391879, w: -.337289274}
-        tangentMode: 33452
+        tangentMode: 57
       - time: .416666806
         value: {x: 0, y: 0, z: .347316325, w: .937748015}
         inSlope: {x: 0, y: 0, z: .968850613, w: -.359036624}
         outSlope: {x: 0, y: 0, z: .968850613, w: -.359036624}
-        tangentMode: 1090519040
+        tangentMode: 117521664
       - time: .433333486
         value: {x: 0, y: 0, z: .363583595, w: .931561589}
         inSlope: {x: 0, y: 0, z: .98894304, w: -.386311114}
         outSlope: {x: 0, y: 0, z: .98894304, w: -.386311114}
-        tangentMode: 1111228416
+        tangentMode: 0
       - time: .450000167
         value: {x: 0, y: 0, z: .380281121, w: .924870968}
         inSlope: {x: 0, y: 0, z: 1.02028286, w: -.419992447}
         outSlope: {x: 0, y: 0, z: 1.02028286, w: -.419992447}
-        tangentMode: 1119485952
+        tangentMode: 2
       - time: .466666847
         value: {x: 0, y: 0, z: .397593051, w: .917561829}
         inSlope: {x: 0, y: 0, z: 1.06241047, w: -.461003393}
         outSlope: {x: 0, y: 0, z: 1.06241047, w: -.461003393}
-        tangentMode: 1124466688
+        tangentMode: 0
       - time: .483333528
         value: {x: 0, y: 0, z: .415694833, w: .909504175}
         inSlope: {x: 0, y: 0, z: 1.11476898, w: -.510348618}
         outSlope: {x: 0, y: 0, z: 1.11476898, w: -.510348618}
-        tangentMode: 1127219200
+        tangentMode: 0
       - time: .5
         value: {x: 0, y: 0, z: .434751809, w: .900550306}
         inSlope: {x: 0, y: 0, z: 1.1434319, w: -.537238419}
         outSlope: {x: 0, y: 0, z: 1.1434319, w: -.537238419}
-        tangentMode: 1129578496
+        tangentMode: -1
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: WeaponArc/Sword
@@ -191,7 +191,7 @@ AnimationClip:
         value: {x: -.0790365115, y: -.314646661, z: -.00854492188}
         inSlope: {x: .332805663, y: -.399365693, z: 0}
         outSlope: {x: .332805663, y: -.399365693, z: 0}
-        tangentMode: 725311480
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: WeaponArc/Left hand
@@ -202,20 +202,36 @@ AnimationClip:
         value: {x: -.226692066, y: -.0225971565, z: 0}
         inSlope: {x: 1.08733761, y: -.421414942, z: 0}
         outSlope: {x: 1.08733761, y: -.421414942, z: 0}
-        tangentMode: 0
+        tangentMode: 111345700
       - time: .166666672
         value: {x: -.0454691127, y: -.0928329825, z: 0}
         inSlope: {x: .543914616, y: -.210499302, z: 0}
         outSlope: {x: .543914616, y: -.210499302, z: 0}
-        tangentMode: 725620288
+        tangentMode: 0
       - time: .5
         value: {x: -.0453052483, y: -.0926942006, z: 0}
         inSlope: {x: .000491593091, y: .000416345923, z: 0}
         outSlope: {x: .000491593091, y: .000416345923, z: 0}
-        tangentMode: 3145985
+        tangentMode: -1
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: WeaponArc/Sword
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: .00299116573, y: -.370294333, z: -.00854500011}
+        inSlope: {x: .104642637, y: .296488553, z: 0}
+        outSlope: {x: .104642637, y: .296488553, z: 0}
+        tangentMode: 111345700
+      - time: .5
+        value: {x: .0553124845, y: -.222050056, z: -.00854500011}
+        inSlope: {x: .104642637, y: .296488553, z: 0}
+        outSlope: {x: .104642637, y: .296488553, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    path: WeaponArc/Right hand
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -229,12 +245,12 @@ AnimationClip:
         value: {x: .300000012, y: .300000012, z: 1}
         inSlope: {x: .149999991, y: .149999991, z: 0}
         outSlope: {x: .149999991, y: .149999991, z: 0}
-        tangentMode: 725620288
+        tangentMode: 32
       - time: .5
         value: {x: .200000003, y: .200000003, z: 1}
         inSlope: {x: -.300000042, y: -.300000042, z: 0}
         outSlope: {x: -.300000042, y: -.300000042, z: 0}
-        tangentMode: 3145985
+        tangentMode: 1095761920
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: WeaponArc/Left hand
@@ -250,15 +266,31 @@ AnimationClip:
         value: {x: .5, y: .5, z: 1}
         inSlope: {x: .149999887, y: .149999976, z: 0}
         outSlope: {x: .149999887, y: .149999976, z: 0}
-        tangentMode: 0
+        tangentMode: 32
       - time: .5
         value: {x: .400000006, y: .400000006, z: 1}
         inSlope: {x: -.300000012, y: -.300000012, z: 0}
         outSlope: {x: -.300000012, y: -.300000012, z: 0}
-        tangentMode: 0
+        tangentMode: 3
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: WeaponArc/Sword
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: .200000003, y: .200000003, z: 1}
+        inSlope: {x: -.200000003, y: -.200000003, z: 0}
+        outSlope: {x: -.200000003, y: -.200000003, z: 0}
+        tangentMode: 0
+      - time: .5
+        value: {x: .100000001, y: .100000001, z: 1}
+        inSlope: {x: -.200000003, y: -.200000003, z: 0}
+        outSlope: {x: -.200000003, y: -.200000003, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    path: WeaponArc/Right hand
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -1229,6 +1261,120 @@ AnimationClip:
       m_PostInfinity: 2
     attribute: m_LocalRotation.w
     path: WeaponArc/Sword
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .00299116573
+        inSlope: .104642637
+        outSlope: .104642637
+        tangentMode: 10
+      - time: .5
+        value: .0553124845
+        inSlope: .104642637
+        outSlope: .104642637
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.x
+    path: WeaponArc/Right hand
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -.370294333
+        inSlope: .296488553
+        outSlope: .296488553
+        tangentMode: 10
+      - time: .5
+        value: -.222050056
+        inSlope: .296488553
+        outSlope: .296488553
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.y
+    path: WeaponArc/Right hand
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -.00854500011
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .5
+        value: -.00854500011
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.z
+    path: WeaponArc/Right hand
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .200000003
+        inSlope: -.200000003
+        outSlope: -.200000003
+        tangentMode: 10
+      - time: .5
+        value: .100000001
+        inSlope: -.200000003
+        outSlope: -.200000003
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.x
+    path: WeaponArc/Right hand
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .200000003
+        inSlope: -.200000003
+        outSlope: -.200000003
+        tangentMode: 10
+      - time: .5
+        value: .100000001
+        inSlope: -.200000003
+        outSlope: -.200000003
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.y
+    path: WeaponArc/Right hand
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.z
+    path: WeaponArc/Right hand
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
