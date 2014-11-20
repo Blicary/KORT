@@ -3,26 +3,31 @@ using System.Collections;
 
 public class Portcullis : MonoBehaviour
 {
+    public bool combatant_entrance = false;
+    public bool spawner = true;
+
     public Transform mob_prefab;
     public Vector2 spawn_direction;
-    private Vector3 spawn_point;
+    private Transform spawn_point;
 
     public CircleCollider2D[] mob_patrol_path;
 
     private float progress_to_spawn; // a mob will spawn for every 1
     private float progress_per_death = 1.3f;
 
-
+    
 
     public void Start()
     {
         Transform t = transform.GetChild(0);
         if (!t) Debug.LogError("No spawn point object found");
-        else spawn_point = t.position;
+        else spawn_point = t;
     }
 
     public void RecordMobDeath()
     {
+        if (!spawner) return;
+
         progress_to_spawn += progress_per_death;
         
         // spawn mobs
@@ -38,7 +43,7 @@ public class Portcullis : MonoBehaviour
     private void SpawnMob()
     {
         Transform mob_obj = (Transform)Instantiate(mob_prefab);
-        mob_obj.transform.position = spawn_point;
+        mob_obj.transform.position = spawn_point.position;
         mob_obj.transform.rotation = Quaternion.Euler(spawn_direction);
 
         // patrol zones 
@@ -61,7 +66,7 @@ public class Portcullis : MonoBehaviour
         }
     }
 
-    public Vector3 GetSpawnPoint()
+    public Transform GetSpawnPoint()
     {
         return spawn_point;
     }

@@ -26,6 +26,7 @@ public class HouseManager : MonoBehaviour
 
     private static Dictionary<HouseName, House> houses;
     private static Dictionary<HouseName, ExitDoor> doors;
+    private static Dictionary<HouseName, Transform> entrance_points;
 
     private static int num_combatants_per_house = 2;
 
@@ -43,6 +44,9 @@ public class HouseManager : MonoBehaviour
         }
         else
         {
+            // keep new public instance vars
+            _instance.combatant_prefab = this.combatant_prefab;
+
             // destroy other instances that are not the already existing singleton
             if (this != _instance)
                 Destroy(this.gameObject);
@@ -59,6 +63,7 @@ public class HouseManager : MonoBehaviour
     {
         houses = new Dictionary<HouseName, House>();
         doors = new Dictionary<HouseName, ExitDoor>();
+        entrance_points = new Dictionary<HouseName, Transform>();
         for (int i = 0; i < _instance.houses_in_play.Length; ++i)
         {
             houses[_instance.houses_in_play[i]] = new House(_instance.houses_in_play[i], num_combatants_per_house);
@@ -108,7 +113,7 @@ public class HouseManager : MonoBehaviour
     public static void CreatePlayerCombatantObject()
     {
         // create new player
-        Instantiate(_instance.combatant_prefab);
+        Instantiate(_instance.combatant_prefab, entrance_points[_instance.combatant_prefab.house_name].position, entrance_points[_instance.combatant_prefab.house_name].rotation);
 
         // connect new player to the main cam
         PlayerCam cam = GameManager.GetCamMain().GetComponent<PlayerCam>();
@@ -129,18 +134,36 @@ public class HouseManager : MonoBehaviour
     }
     private static void FindDoors()
     {
+        // get exit doors
         ExitDoor[] doors_array = FindObjectsOfType<ExitDoor>();
-
         if (doors_array.Length < _instance.houses_in_play.Length)
             Debug.LogError("Not enough exit doors in scene.");
+
+        // get entrance doors
+        Portcullis[] port_array = FindObjectsOfType<Portcullis>();
+
+        // assign a door randomly to each house
+        doors_array = GeneralHelpers.ShuffleArray<ExitDoor>(doors_array);
+
+        List<Portcullis> entry_ports = new List<Portcullis>();
+        for (int i = 0; i < port_array.Length; ++i)
+        {
+            if (port_array[i].combatant_entrance)
+                entry_ports.Add(port_array[i]);
+        }
+        if (doors_array.Length < _instance.houses_in_play.Length)
+            Debug.LogError("Not enough entrance ports in scene.");
+
 
         // assign a door randomly to each house
         doors_array = GeneralHelpers.ShuffleArray<ExitDoor>(doors_array);
 
 
+        // save exit doors and entrance transforms
         for (int i = 0; i < _instance.houses_in_play.Length; ++i)
         {
             doors[_instance.houses_in_play[i]] = doors_array[i];
+            entrance_points[_instance.houses_in_play[i]] = entry_ports[i].GetSpawnPoint();
         }
     }
     private static void ResetCurrentArenaKills()

@@ -60,7 +60,6 @@ public class RollerbladeTrail : MonoBehaviour
 
     public void OnTrackAttach()
     {
-        Debug.Log("here");
         psystem.enableEmission = false;
     }
     public void OnTrackDettach()

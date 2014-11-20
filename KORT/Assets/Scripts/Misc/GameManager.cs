@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
 
     // scene management
-    public static string[] arena_sequence = { "test_scene", "test_scene" };
+    public static string[] arena_sequence = { "level_1", "level_1" };
     public static string inter_arena_scene = "transition_scene";
     public static string victory_scene = "victory_scene";
     private static string main_menu_scene = "main_menu";
