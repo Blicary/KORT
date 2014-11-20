@@ -413,7 +413,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   psystem: {fileID: 19800000}
   character_radius: 1
-  aim: {fileID: 11400002}
   color_bloody: {r: .801470578, g: 0, b: 0, a: .784313738}
   color_normal: {r: 1, g: 1, b: 1, a: .0392156877}
 --- !u!198 &19800000
