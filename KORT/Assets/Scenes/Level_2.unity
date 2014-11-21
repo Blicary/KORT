@@ -1924,6 +1924,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &24602892
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -10389,6 +10391,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &134647878
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -12024,6 +12028,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &196371644
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -13522,6 +13528,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 187665268}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &211027706
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -13865,6 +13873,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &216696021
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -15852,6 +15862,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &263519766
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -16915,6 +16927,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &284688352
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -20358,6 +20372,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &379810859
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -20566,6 +20582,9 @@ MonoBehaviour:
   background_music:
   - {fileID: 382118233}
   play_on_awake: 1
+  as_sword_kill: {fileID: 8200000, guid: 75fb8792b4499564da6f2dbfd7da0032, type: 2}
+  as_sword_hit: {fileID: 8200000, guid: 3fa2a3588ebf2784b9e6d00177114d9b, type: 2}
+  as_sword_miss: {fileID: 8200000, guid: f4a291b2ee4858442ab1f7b136f95fa4, type: 2}
 --- !u!4 &382118235
 Transform:
   m_ObjectHideFlags: 0
@@ -22274,6 +22293,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &412663205
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -23664,6 +23685,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &413485517
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -26143,6 +26166,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &488914917
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -31410,6 +31435,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 187665268}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &575986748
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -33192,6 +33219,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &643994453
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -37608,6 +37637,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &676645705
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -42170,6 +42201,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &767417672
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -42699,6 +42732,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &783273431
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -43630,6 +43665,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &804469725
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -44844,6 +44881,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &830738727
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -48384,6 +48423,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &871242616
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -50826,6 +50867,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &973956759
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -51192,6 +51235,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &979834485
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -53136,6 +53181,8 @@ MonoBehaviour:
   max_hit_points: 3
   player_controlled: 1
   house_name: 0
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1003306099
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -59233,6 +59280,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 187665268}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1149399649
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -61679,6 +61728,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1199079791
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -65360,6 +65411,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1260867490
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -69564,6 +69617,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1345690121
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -70164,6 +70219,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1370582956
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -70637,6 +70694,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 187665268}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1377176477
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -73302,6 +73361,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1390148486
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -73577,6 +73638,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1392144262
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -74040,6 +74103,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 187665268}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1397912337
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -77506,6 +77571,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1478860614
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -82423,6 +82490,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1609087929
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -82836,6 +82905,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1618559725
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -84918,6 +84989,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 187665268}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1649253571
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -90243,6 +90316,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1721694519
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -90474,6 +90549,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1723906627
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -91019,6 +91096,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1949711006}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1741924822
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -91443,6 +91522,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 187665268}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1745705514
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -95679,6 +95760,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1817591223
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -98460,6 +98543,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1889756021
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -103396,6 +103481,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 187665268}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1987102361
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -104701,6 +104788,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &2026549365
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -105111,6 +105200,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 2017727452}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &2031122591
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -106514,6 +106605,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 625229124}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &2094148949
 Rigidbody2D:
   m_ObjectHideFlags: 0

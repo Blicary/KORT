@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
     private static int track = 0;
 
     public AudioSource as_sword_kill;
+    public AudioSource as_sword_hit;
     public AudioSource as_sword_miss;
 
 
@@ -104,6 +105,13 @@ public class SoundManager : MonoBehaviour
     {
         Instantiate(_instance.as_sword_kill, pos, Quaternion.identity);
     }
-
+    public static void MakeSoundSwordHit(Vector3 pos)
+    {
+        Instantiate(_instance.as_sword_hit, pos, Quaternion.identity);
+    }
+    public static void MakeSoundSwordMiss(Vector3 pos)
+    {
+        Instantiate(_instance.as_sword_miss, pos, Quaternion.identity);
+    }
 
 }
