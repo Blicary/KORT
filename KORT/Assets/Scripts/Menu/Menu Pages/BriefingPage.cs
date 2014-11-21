@@ -29,7 +29,8 @@ public class BriefingPage : MenuPage
 
         // text
         GUI.skin = small_skin;
-        string text = "Kill stuff and win!!! \n";
+        string text = 
+            "Controls: \n   W: Move Foward\n   S: Brake\n   A: Turn Left\n   D: Turn Right\n   Attack: Left Click\n\n\nGoal: Through an open door. (Black Rectangle)\n   Some levels will require you to kill a number of enemies before you can progress.";
         text +=       "\n";
 
         GUILayout.Label(text, GUILayout.Width(1000));
