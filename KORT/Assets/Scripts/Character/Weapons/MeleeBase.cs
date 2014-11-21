@@ -46,7 +46,7 @@ public abstract class MeleeBase : WeaponBase
         //DebugDrawRayCasts();
 
         // collision handling midway through attack animation
-        if (!has_checked_collision && base.animator.GetCurrentAnimationTime() >= TimeOfCollision)
+        if (!has_checked_collision && base.tempanimator.GetCurrentAnimationTime() >= TimeOfCollision)
         {
             HandleCollision();
             has_checked_collision = true;
@@ -55,21 +55,21 @@ public abstract class MeleeBase : WeaponBase
         // TEMP
         if (IsAttacking() && !is_blocking)
         {
-            if (base.animator.GetCurrentAnimationTime() < TimeOfCollision)
+            if (base.tempanimator.GetCurrentAnimationTime() < TimeOfCollision)
             {
-                float a = base.animator.GetCurrentAnimationTime() / TimeOfCollision;
-                animator.renderer.color = new Color(1, 1, 1, a / 4f);
+                float a = base.tempanimator.GetCurrentAnimationTime() / TimeOfCollision;
+                tempanimator.renderer.color = new Color(1, 1, 1, a / 4f);
             }
-            else if (base.animator.GetCurrentAnimationTime() < TimeOfCollision + 0.1f)
+            else if (base.tempanimator.GetCurrentAnimationTime() < TimeOfCollision + 0.1f)
             {
-                Color c = animator.renderer.color;
-                animator.renderer.color = new Color(c.r, c.g, c.b, 1);
+                Color c = tempanimator.renderer.color;
+                tempanimator.renderer.color = new Color(c.r, c.g, c.b, 1);
             }
             else
             {
-                float a = 1 - (base.animator.GetCurrentAnimationTime() - TimeOfCollision) / (base.animator.GetDuration() - TimeOfCollision);
-                Color c = animator.renderer.color;
-                animator.renderer.color = new Color(c.r, c.g, c.b, a / 4f);
+                float a = 1 - (base.tempanimator.GetCurrentAnimationTime() - TimeOfCollision) / (base.tempanimator.GetDuration() - TimeOfCollision);
+                Color c = tempanimator.renderer.color;
+                tempanimator.renderer.color = new Color(c.r, c.g, c.b, a / 4f);
             }
             
         }
@@ -150,8 +150,8 @@ public abstract class MeleeBase : WeaponBase
                         {
                             is_blocking = true;
                             other_weapon.is_blocking = true;
-                            animator.renderer.color = new Color(0.9f, 1f, 1f, 0.5f);
-                            other_weapon.animator.renderer.color = new Color(0.9f, 1f, 1f, 0.5f);
+                            tempanimator.renderer.color = new Color(0.9f, 1f, 1f, 0.5f);
+                            other_weapon.tempanimator.renderer.color = new Color(0.9f, 1f, 1f, 0.5f);
 
                             // stun
                             Vector2 dir = (col.transform.position - owner.transform.position).normalized;
@@ -176,8 +176,8 @@ public abstract class MeleeBase : WeaponBase
 
 
         // TEMP
-        if (hit_character) animator.renderer.color = Color.red;
-        else if (hit_terrain) animator.renderer.color = new Color(1, 0.8f, 0.1f);
+        if (hit_character) tempanimator.renderer.color = Color.red;
+        else if (hit_terrain) tempanimator.renderer.color = new Color(1, 0.8f, 0.1f);
     }
     private HashSet<Collider2D> GetCollidedObjects()
     {
@@ -206,7 +206,7 @@ public abstract class MeleeBase : WeaponBase
         /// that the animation is over.
         // Debug.Log("Animate Melee");
 
-        animator.BeginAnimation();
+        tempanimator.BeginAnimation();
     }
 
 

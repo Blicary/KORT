@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 1905866433}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
@@ -1542,6 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 1257618782}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
@@ -1884,6 +1886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 826442313}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
@@ -9724,6 +9727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 658004757}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
@@ -10301,6 +10305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 427214448}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
@@ -10620,6 +10625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 1391181752}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
@@ -13597,6 +13603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 2067334297}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
@@ -13924,6 +13931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 385163003}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
@@ -16239,6 +16247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 691778150}
+  animator: {fileID: 0}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:

@@ -8,7 +8,7 @@ public abstract class WeaponBase
     protected Character owner;
     protected AttackInfoHub attack_info_hub;
     protected CharAimInfoHub aim_info_hub;
-
+    
 
     // general
     public abstract string WeaponName { get; }
@@ -25,14 +25,15 @@ public abstract class WeaponBase
         set
         {
             attack_time_left = value;
-            animator.SetTime(AttackDuration - attack_time_left);
+            tempanimator.SetTime(AttackDuration - attack_time_left);
         }
     }
 
 
     // animation
     public SpriteRenderer animation_renderer; // on info hub?...
-    protected SpriteAnimator animator;
+    protected SpriteAnimator tempanimator;
+    protected Animator animator;
     
 
 
@@ -40,14 +41,15 @@ public abstract class WeaponBase
     public WeaponBase()
     {
     }
-    public void Initialize(Character owner, AttackInfoHub attack_info_hub, CharAimInfoHub aim_info_hub, SpriteRenderer weapon_renderer)
+    public void Initialize(Character owner, AttackInfoHub attack_info_hub, CharAimInfoHub aim_info_hub,
+        SpriteRenderer weapon_renderer, Animator animator)
     {
         this.owner = owner;
         this.attack_info_hub = attack_info_hub;
         this.aim_info_hub = aim_info_hub;
         this.animation_renderer = weapon_renderer;
 
-        animator = new SpriteAnimator(animation_renderer, AttackDuration);
+        tempanimator = new SpriteAnimator(animation_renderer, AttackDuration);
     }
 
     public virtual void Update()
@@ -56,7 +58,7 @@ public abstract class WeaponBase
         {
             attack_time_left -= Time.deltaTime;
         }
-        if (animator.Update(Time.deltaTime))
+        if (tempanimator.Update(Time.deltaTime))
         {
             OnAnimationEnd();
         }
@@ -71,7 +73,7 @@ public abstract class WeaponBase
     }
     public virtual void InterruptAttack()
     {
-        animator.StopAnimation();
+        tempanimator.StopAnimation();
         OnAnimationEnd();
     }
 
@@ -94,7 +96,16 @@ public abstract class WeaponBase
         return !IsAttacking();
     }
 
-    protected virtual void OnAnimationEnd() { }
+    private void SetAnimationAttacking(bool attacking)
+    {
+        if (!animator) return;
+        animator.SetBool("Attacking", attacking);
+    }
+
+    protected virtual void OnAnimationEnd()
+    {
+        SetAnimationAttacking(false);
+    }
 
     public bool IsAttacking()
     {

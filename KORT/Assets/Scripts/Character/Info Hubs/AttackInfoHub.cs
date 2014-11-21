@@ -7,6 +7,7 @@ public enum WeaponType { TestMelee, RangedMelee }
 
 [RequireComponent(typeof(Character))]
 [RequireComponent(typeof(CharAimInfoHub))]
+[RequireComponent(typeof(Animator))]
 
 public class AttackInfoHub : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class AttackInfoHub : MonoBehaviour
     private Character character;
     private CharAimInfoHub aim_info_hub;
     public SpriteRenderer weapon_renderer;
+    public Animator animator;
     
 
     // Weapons
@@ -37,6 +39,9 @@ public class AttackInfoHub : MonoBehaviour
         // get references
         character = GetComponent<Character>();
         aim_info_hub = GetComponent<CharAimInfoHub>();
+
+        if (!animator) Debug.LogWarning("Missing Animator component");
+        
 
         // set initial active weapon
         CreateActiveWeaponInstance();
@@ -77,7 +82,7 @@ public class AttackInfoHub : MonoBehaviour
             t == WeaponType.TestMelee ? (WeaponBase)new TestRanged() :
             null;
 
-        active_weapon.Initialize(character, this, aim_info_hub, weapon_renderer);
+        active_weapon.Initialize(character, this, aim_info_hub, weapon_renderer, animator);
     }
 
     private void OnCharacterStun(object sender, EventArgs<Vector2> e)

@@ -7,6 +7,7 @@ using System;
 [RequireComponent(typeof(CharMoveInfoHub))]
 [RequireComponent(typeof(CharAimInfoHub))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 
 
 public class RollerBladeMovement : MonoBehaviour
@@ -15,7 +16,9 @@ public class RollerBladeMovement : MonoBehaviour
     private Character character;
     private CharMoveInfoHub move_infohub;
     private CharAimInfoHub aim_infohub;
+
     public Transform graphics_object;
+    private Animator animator;
 
 
     // movement
@@ -49,8 +52,10 @@ public class RollerBladeMovement : MonoBehaviour
         character = GetComponent<Character>();
         move_infohub = GetComponent<CharMoveInfoHub>();
         aim_infohub = GetComponent<CharAimInfoHub>();
+        animator = GetComponent<Animator>();
 
         if (!graphics_object) Debug.LogWarning("No graphics object specified");
+        if (!animator) Debug.LogWarning("No Animator component on graphics object");
     }
     public void Start()
     {
@@ -94,12 +99,15 @@ public class RollerBladeMovement : MonoBehaviour
 
         // rotation
         rotation -= input_turn * (input_break ? break_rotate_speed : rotate_speed) * Time.deltaTime;
-        graphics_object.localEulerAngles = new Vector3(0, 0, (rotation * Mathf.Rad2Deg) - 90);
+        //graphics_object.localEulerAngles = new Vector3(0, 0, (rotation * Mathf.Rad2Deg) - 90);
         direction = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
 
         // inform infohub
         aim_infohub.InformAimDirection(direction);
         aim_infohub.InformAimRotation(rotation);
+
+        // animation
+        UpdateAnimationDirection();
     }
     public void FixedUpdate()
     {
@@ -116,6 +124,8 @@ public class RollerBladeMovement : MonoBehaviour
         
 
         // regular movement
+        SetAnimationMoving(false);
+
         if (input_break)
         {
             // breaking drag
@@ -134,15 +144,20 @@ public class RollerBladeMovement : MonoBehaviour
             // trying to move forward
             else if (input_fwrd)
             {
+                //if (name == "Player") Debug.Log("set moving");
                 rigidbody2D.velocity = direction * Mathf.Max(speed, rigidbody2D.velocity.magnitude);
+                SetAnimationMoving(true);
             }
         }
+        
 
 
         // inform infohub
         move_infohub.InformVelocity(rigidbody2D.velocity);
         move_infohub.InformVelocityLastFrame(velocity_last);
     }
+
+    
 
     public void OnCollisionStay2D(Collision2D collision)
     {
@@ -228,6 +243,24 @@ public class RollerBladeMovement : MonoBehaviour
         SetAim(direction);
     }
 
+    private void UpdateAnimationDirection()
+    {
+        if (!animator) return;
+        if (rotation > 0 && rotation < Mathf.PI)
+        {
+            animator.SetInteger("Direction", 0);
+        }
+        else
+        {
+            animator.SetInteger("Direction", 4);
+        }
+    }
+    private void SetAnimationMoving(bool moving)
+    {
+        if (!animator) return;
+
+        animator.SetBool("Moving", moving);
+    }
 
     // events
     private void OnSetAim(object sender, EventArgs<float> e)
