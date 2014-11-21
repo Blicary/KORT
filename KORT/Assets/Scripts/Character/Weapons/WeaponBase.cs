@@ -48,6 +48,7 @@ public abstract class WeaponBase
         this.attack_info_hub = attack_info_hub;
         this.aim_info_hub = aim_info_hub;
         this.animation_renderer = weapon_renderer;
+        this.animator = animator;
 
         tempanimator = new SpriteAnimator(animation_renderer, AttackDuration);
     }
@@ -84,6 +85,7 @@ public abstract class WeaponBase
     protected virtual void HandleAttack()
     {
         attack_time_left = AttackDuration;
+        SetAnimationAttacking(true);
     }
 
     /// <summary>

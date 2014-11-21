@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 21200004}
-  animator: {fileID: 0}
+  animator: {fileID: 9500000}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:

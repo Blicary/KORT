@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_renderer: {fileID: 826442313}
-  animator: {fileID: 0}
+  animator: {fileID: 225266887}
   chosen_weapon: 0
   weapon_start_reach: 1.32000005
   weapon_collision_layer:
