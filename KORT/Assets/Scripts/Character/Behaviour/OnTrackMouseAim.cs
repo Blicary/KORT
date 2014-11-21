@@ -11,7 +11,7 @@ public class OnTrackMouseAim : MonoBehaviour
     private Character character;
     private CharAimInfoHub aim_infohub;
     
-    public Transform graphics_object;
+    public Transform rotating_graphics_object;
     private Animator animator;
 
 
@@ -28,7 +28,7 @@ public class OnTrackMouseAim : MonoBehaviour
         aim_infohub = GetComponent<CharAimInfoHub>();
         animator = GetComponent<Animator>();
 
-        if (!animator) Debug.LogWarning("No Animator component on graphics object");
+        if (!animator) Debug.LogWarning("Missing Animator component");
     }
 
     public void Update()
@@ -39,7 +39,7 @@ public class OnTrackMouseAim : MonoBehaviour
         aim_rotation = GeneralHelpers.AngleBetweenVectors(transform.position, mouse_pos);
 
         // animation
-        //graphics_object.localEulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * aim_rotation - 90);
+        rotating_graphics_object.localEulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * aim_rotation - 90);
         UpdateAnimationDirection();
 
 

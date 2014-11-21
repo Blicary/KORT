@@ -17,7 +17,7 @@ public class RollerBladeMovement : MonoBehaviour
     private CharMoveInfoHub move_infohub;
     private CharAimInfoHub aim_infohub;
 
-    public Transform graphics_object;
+    public Transform rotating_graphics_object;
     private Animator animator;
 
 
@@ -54,8 +54,8 @@ public class RollerBladeMovement : MonoBehaviour
         aim_infohub = GetComponent<CharAimInfoHub>();
         animator = GetComponent<Animator>();
 
-        if (!graphics_object) Debug.LogWarning("No graphics object specified");
-        if (!animator) Debug.LogWarning("No Animator component on graphics object");
+        if (!rotating_graphics_object) Debug.LogWarning("No graphics object specified");
+        if (!animator) Debug.LogWarning("Missing Animator component");
     }
     public void Start()
     {
@@ -99,7 +99,7 @@ public class RollerBladeMovement : MonoBehaviour
 
         // rotation
         rotation -= input_turn * (input_break ? break_rotate_speed : rotate_speed) * Time.deltaTime;
-        //graphics_object.localEulerAngles = new Vector3(0, 0, (rotation * Mathf.Rad2Deg) - 90);
+        rotating_graphics_object.localEulerAngles = new Vector3(0, 0, (rotation * Mathf.Rad2Deg) - 90);
         direction = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
 
         // inform infohub
@@ -197,7 +197,7 @@ public class RollerBladeMovement : MonoBehaviour
         if (rigidbody2D.velocity.magnitude <= break_turn_speed_threshold)
         {
             rotation += Mathf.PI;
-            graphics_object.rotation = Quaternion.Euler(0, 0, (rotation * Mathf.Rad2Deg) - 90);
+            rotating_graphics_object.rotation = Quaternion.Euler(0, 0, (rotation * Mathf.Rad2Deg) - 90);
             return true;
         }
         return false;

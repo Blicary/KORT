@@ -150,7 +150,7 @@ public class HouseManager : MonoBehaviour
             if (port_array[i].combatant_entrance)
                 entry_ports.Add(port_array[i]);
         }
-        if (doors_array.Length < _instance.houses_in_play.Length)
+        if (entry_ports.Count < _instance.houses_in_play.Length)
             Debug.LogError("Not enough entrance ports in scene.");
 
 
