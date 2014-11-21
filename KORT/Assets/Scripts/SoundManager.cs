@@ -34,22 +34,13 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            // keep new scene's music
-            Debug.Log("new music: " + background_music.Length);
-            StopAllMusic();
-            _instance.play_on_awake = play_on_awake;
-            _instance.background_music = background_music;
-
-            if (_instance.play_on_awake)
-            {
-                Debug.Log("ici");
-                StartBeginMusic();
-
-            }
-
-            // destroy other instances that are not the already existing singleton
+            // new sound manager found, make it the new instance
             if (this != _instance)
-                Destroy(this.gameObject);
+            {
+                Destroy(_instance.gameObject);
+
+                _instance = this;
+            }
         }
 
         StopAllMusic();
