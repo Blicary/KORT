@@ -10,17 +10,17 @@ Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\
 Loading C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build_working_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build_working_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build_working_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.061 seconds
+- Completed reload, in  0.067 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build_working_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\build_working_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 0.279937 ms
+UnloadTime: 0.273567 ms
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1269.
-Total: 0.792743 ms (FindLiveObjects: 0.055916 ms CreateObjectMapping: 0.012032 ms MarkObjects: 0.273921 ms  DeleteObjects: 0.008493 ms)
+Total: 0.747090 ms (FindLiveObjects: 0.055562 ms CreateObjectMapping: 0.012032 ms MarkObjects: 0.262950 ms  DeleteObjects: 0.008847 ms)
 
 Menu Camera (UnityEngine.Camera)
  
@@ -30,55 +30,19 @@ The door for house Stark is now open.
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 1.156910 ms
-new music: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
+UnloadTime: 2.101832 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 66 unused Assets to reduce memory usage. Loaded Objects now: 368.
-Total: 1.120458 ms (FindLiveObjects: 0.017695 ms CreateObjectMapping: 0.012032 ms MarkObjects: 0.196062 ms  DeleteObjects: 0.270736 ms)
+Unloading 60 unused Assets to reduce memory usage. Loaded Objects now: 519.
+Total: 0.660029 ms (FindLiveObjects: 0.033974 ms CreateObjectMapping: 0.012032 ms MarkObjects: 0.165626 ms  DeleteObjects: 0.054855 ms)
 
-UnloadTime: 0.346825 ms
-new music: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+UnloadTime: 0.649058 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-ici
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 3334.
+Total: 1.947176 ms (FindLiveObjects: 0.152886 ms CreateObjectMapping: 0.031143 ms MarkObjects: 0.635256 ms  DeleteObjects: 0.679494 ms)
 
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1262.
-Total: 0.688695 ms (FindLiveObjects: 0.035744 ms CreateObjectMapping: 0.014156 ms MarkObjects: 0.248086 ms  DeleteObjects: 0.011678 ms)
-
-The door for house Stark is now open.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 1.502319 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 64 unused Assets to reduce memory usage. Loaded Objects now: 362.
-Total: 0.913778 ms (FindLiveObjects: 0.018402 ms CreateObjectMapping: 0.015217 ms MarkObjects: 0.221189 ms  DeleteObjects: 0.082105 ms)
-
-UnloadTime: 0.451580 ms
-new music: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-ici
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1266.
-Total: 0.725148 ms (FindLiveObjects: 0.043176 ms CreateObjectMapping: 0.016279 ms MarkObjects: 0.271443 ms  DeleteObjects: 0.014156 ms)
-
-Menu Camera (UnityEngine.Camera)
+Spawn Point (UnityEngine.Transform)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

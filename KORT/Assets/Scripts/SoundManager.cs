@@ -81,6 +81,12 @@ public class SoundManager : MonoBehaviour
 
         _instance.background_music[track].Stop();
     }
+    public static void PauseMusic()
+    {
+        if (track >= _instance.background_music.Length) return;
+
+        _instance.background_music[track].Pause();
+    }
     public static void StartMusic()
     {
         if (track >= _instance.background_music.Length) return;

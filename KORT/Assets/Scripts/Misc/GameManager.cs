@@ -150,6 +150,8 @@ public class GameManager : MonoBehaviour
         _instance.cam_main.gameObject.SetActive(false);
         _instance.cam_in_game_menu.gameObject.SetActive(true);
 
+        SoundManager.PauseMusic();
+
         _instance.dead_screen.SetIn();
     }
     public static void ClearArena()
@@ -181,6 +183,8 @@ public class GameManager : MonoBehaviour
         _instance.cam_main.gameObject.SetActive(false);
         _instance.cam_in_game_menu.gameObject.SetActive(true);
 
+        SoundManager.StopMusic();
+
         _instance.gg_page.SetIn();
     }
     public static void LoadMainMenu()
@@ -195,6 +199,8 @@ public class GameManager : MonoBehaviour
         _instance.cam_main.gameObject.SetActive(true);
         screen_fade.InstantBlack();
         screen_fade.FadeToClear();
+
+        SoundManager.StartMusic();
 
         HouseManager.CreatePlayerCombatantObject();
     }

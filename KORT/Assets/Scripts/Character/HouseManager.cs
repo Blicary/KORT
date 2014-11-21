@@ -133,6 +133,9 @@ public class HouseManager : MonoBehaviour
     }
     private static void FindDoors()
     {
+        if (entrance_points == null || doors == null) return; // BUG FIX
+
+
         // get exit doors
         ExitDoor[] doors_array = FindObjectsOfType<ExitDoor>();
         if (doors_array.Length < _instance.houses_in_play.Length)
@@ -161,12 +164,16 @@ public class HouseManager : MonoBehaviour
         // save exit doors and entrance transforms
         for (int i = 0; i < _instance.houses_in_play.Length; ++i)
         {
+
             doors[_instance.houses_in_play[i]] = doors_array[i];
             entrance_points[_instance.houses_in_play[i]] = entry_ports[i].GetSpawnPoint();
+            
         }
     }
     private static void ResetCurrentArenaKills()
     {
+        if (houses == null) return;
+
         foreach (HouseName house_name in _instance.houses_in_play)
         {
             houses[house_name].ResetArenaKills();
