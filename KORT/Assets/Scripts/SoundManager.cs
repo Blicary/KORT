@@ -22,7 +22,12 @@ public class SoundManager : MonoBehaviour
     public AudioSource[] background_music;
     public bool play_on_awake = true;
     private static int track = 0;
-    
+
+    public AudioSource as_sword_kill;
+    public AudioSource as_sword_hit;
+    public AudioSource as_sword_miss;
+
+
 
     public void Awake()
     {
@@ -92,6 +97,21 @@ public class SoundManager : MonoBehaviour
         if (track >= _instance.background_music.Length) return;
 
         _instance.background_music[track].Play();
+    }
+
+
+
+    public static void MakeSoundSwordKill(Vector3 pos)
+    {
+        Instantiate(_instance.as_sword_kill, pos, Quaternion.identity);
+    }
+    public static void MakeSoundSwordHit(Vector3 pos)
+    {
+        Instantiate(_instance.as_sword_hit, pos, Quaternion.identity);
+    }
+    public static void MakeSoundSwordMiss(Vector3 pos)
+    {
+        Instantiate(_instance.as_sword_miss, pos, Quaternion.identity);
     }
 
 }

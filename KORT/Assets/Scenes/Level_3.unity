@@ -244,6 +244,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &4877417
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -474,6 +476,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &6320116
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -10238,6 +10242,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &151662751
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -11623,6 +11629,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &154094045
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -15001,6 +15009,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &182096949
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -17019,6 +17029,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &214278924
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -18250,6 +18262,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &236605665
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -20686,6 +20700,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &260726083
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -23226,6 +23242,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &303136754
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -23456,6 +23474,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &303507679
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -23842,6 +23862,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &306035274
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -24490,6 +24512,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &336831370
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -24794,6 +24818,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &339706254
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -29978,6 +30004,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &412907259
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -30849,6 +30877,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &423585794
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -31514,6 +31544,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &444198703
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -32225,6 +32257,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &464527380
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -34433,6 +34467,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &517779186
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -34816,6 +34852,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &525774722
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -35524,50 +35562,6 @@ Prefab:
   m_RootGameObject: {fileID: 346740504}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1001 &545875890
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-  m_RootGameObject: {fileID: 1763100681}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &545923960
 GameObject:
   m_ObjectHideFlags: 0
@@ -36226,6 +36220,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &557411107
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -37868,6 +37864,8 @@ MonoBehaviour:
   max_hit_points: 3
   player_controlled: 1
   house_name: 0
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &567002866
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -44113,6 +44111,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &626983867
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -44554,6 +44554,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &640453866
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -44883,6 +44885,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &643846582
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -48146,6 +48150,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &706868900
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -48573,6 +48579,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &722413871
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -49604,6 +49612,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &759896675
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -53730,6 +53740,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &813981065
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -55574,6 +55586,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &833104713
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -56067,6 +56081,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &841960944
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -63832,6 +63848,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &944910486
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -66313,6 +66331,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &993259528
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -66991,6 +67011,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1008863877
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -67223,6 +67245,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1011018293
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -67504,6 +67528,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1012175684
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -74404,6 +74430,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1133341425
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -75735,6 +75763,50 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_Radius: 14.0799999
   m_Center: {x: 0, y: 0}
+--- !u!1001 &1140746624
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+  m_RootGameObject: {fileID: 1763100681}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &1142695686
 Prefab:
   m_ObjectHideFlags: 0
@@ -78597,6 +78669,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1184448816
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -78878,6 +78952,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1187240974
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -84078,6 +84154,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1229771944
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -84783,6 +84861,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1253878609
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -85180,6 +85260,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1258188387
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -85797,6 +85879,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1260503034
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -91018,6 +91102,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1327108093
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -94709,6 +94795,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1409301871
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -95108,6 +95196,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1414540125
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -100410,6 +100500,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1510599137
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -101842,6 +101934,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1544859719
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -102299,6 +102393,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1552960740
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -104628,6 +104724,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1589821542
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -106647,6 +106745,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1615329591
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -110671,6 +110771,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1664598396
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -111285,6 +111387,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1681946500
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -111709,6 +111813,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1684577980
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -112171,6 +112277,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1691423115
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -116206,6 +116314,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 463908891}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1722787102
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -116437,6 +116547,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1723676822
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -120047,7 +120159,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-  m_PrefabInternal: {fileID: 545875890}
+  m_PrefabInternal: {fileID: 1140746624}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1763100684}
@@ -120065,11 +120177,11 @@ AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 8200000, guid: 6552b297c3dd4c14aa46c4e0d047e972,
     type: 2}
-  m_PrefabInternal: {fileID: 545875890}
+  m_PrefabInternal: {fileID: 1140746624}
   m_GameObject: {fileID: 1763100681}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 315d5b4dd549fb5428c059d8ce51126f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c39320cf06503b34b8e95d48b62d885c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -120124,7 +120236,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 6552b297c3dd4c14aa46c4e0d047e972,
     type: 2}
-  m_PrefabInternal: {fileID: 545875890}
+  m_PrefabInternal: {fileID: 1140746624}
   m_GameObject: {fileID: 1763100681}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -120134,11 +120246,14 @@ MonoBehaviour:
   background_music:
   - {fileID: 1763100682}
   play_on_awake: 1
+  as_sword_kill: {fileID: 8200000, guid: 75fb8792b4499564da6f2dbfd7da0032, type: 2}
+  as_sword_hit: {fileID: 8200000, guid: 3fa2a3588ebf2784b9e6d00177114d9b, type: 2}
+  as_sword_miss: {fileID: 8200000, guid: f4a291b2ee4858442ab1f7b136f95fa4, type: 2}
 --- !u!4 &1763100684
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
-  m_PrefabInternal: {fileID: 545875890}
+  m_PrefabInternal: {fileID: 1140746624}
   m_GameObject: {fileID: 1763100681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -120826,6 +120941,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1769037333
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -129033,6 +129150,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1906836767
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -132254,6 +132373,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 810543769}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &1939573447
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -140159,6 +140280,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &2041933597
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -140732,6 +140855,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &2060507431
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -142128,6 +142253,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 1093301412}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &2072565511
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -145890,6 +146017,8 @@ MonoBehaviour:
   can_block: 0
   max_hit_points: 1
   associated_port: {fileID: 966555999}
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!50 &2142802709
 Rigidbody2D:
   m_ObjectHideFlags: 0

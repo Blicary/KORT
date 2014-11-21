@@ -37,7 +37,7 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 315d5b4dd549fb5428c059d8ce51126f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c39320cf06503b34b8e95d48b62d885c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -101,6 +101,9 @@ MonoBehaviour:
   background_music:
   - {fileID: 8200000}
   play_on_awake: 1
+  as_sword_kill: {fileID: 8200000, guid: 75fb8792b4499564da6f2dbfd7da0032, type: 2}
+  as_sword_hit: {fileID: 8200000, guid: 3fa2a3588ebf2784b9e6d00177114d9b, type: 2}
+  as_sword_miss: {fileID: 8200000, guid: f4a291b2ee4858442ab1f7b136f95fa4, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
