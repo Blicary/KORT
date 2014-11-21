@@ -22827,7 +22827,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 4e368245ddc05314ba8eadcc14b0283b, type: 2}
       propertyPath: required_kills
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e368245ddc05314ba8eadcc14b0283b, type: 2}
@@ -132537,7 +132537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5079a93e1e15043bf2d0d69669b95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  required_kills: 10
+  required_kills: 20
 --- !u!4 &1939841435
 Transform:
   m_ObjectHideFlags: 0

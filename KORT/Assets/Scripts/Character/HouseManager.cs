@@ -28,8 +28,8 @@ public class HouseManager : MonoBehaviour
     private static Dictionary<HouseName, ExitDoor> doors;
     private static Dictionary<HouseName, Transform> entrance_points;
 
-    private static int num_combatants_per_house = 2;
-
+    private static int num_combatants_per_house = 4;
+    
 
 
     // PUBLIC MODIFIERS

@@ -15,6 +15,8 @@ public class OnTrackMovement : MonoBehaviour
     public LayerMask tracks_layer;          // physics layer for track raycasting
     public CircleCollider2D tracks_checker; // separate (larger) collider for colliding with tracks 
 
+    public AudioSource sound_track;
+
 
     // Movement / physics
     public float radius = 1f;
@@ -193,6 +195,8 @@ public class OnTrackMovement : MonoBehaviour
         // insure no interference from transform rotation
         transform.rotation = Quaternion.identity;
 
+        sound_track.Play();
+
         SendMessage("OnTrackAttach", SendMessageOptions.DontRequireReceiver);
     }
     private void DetachFromTrack()
@@ -201,6 +205,8 @@ public class OnTrackMovement : MonoBehaviour
 
         on_track = false;
         track = null;
+
+        sound_track.Stop();
 
         SendMessage("OnTrackDettach", SendMessageOptions.DontRequireReceiver);
     }

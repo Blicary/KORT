@@ -1,0 +1,60 @@
+Initialize engine version: 4.5.5f1 (7684ad0c5a44)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA NVS 5200M (ID=0x1140)
+    Vendor:   NVIDIA
+    VRAM:     971 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\Build_RGS_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\Build_RGS_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\Build_RGS_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\Build_RGS_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.078 seconds
+desktop: 1600x900 50Hz; virtual: 1600x900 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\Build_RGS_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Robert Wild\My Files Main\___Personal\_Blicary\KORT\KORT\Build_RGS_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 0.261180 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1316.
+Total: 0.765139 ms (FindLiveObjects: 0.053439 ms CreateObjectMapping: 0.012032 ms MarkObjects: 0.276398 ms  DeleteObjects: 0.008847 ms)
+
+Menu Camera (UnityEngine.Camera)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+The door for house Stark is now open.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 2.171551 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 62 unused Assets to reduce memory usage. Loaded Objects now: 544.
+Total: 0.886881 ms (FindLiveObjects: 0.023003 ms CreateObjectMapping: 0.014863 ms MarkObjects: 0.210572 ms  DeleteObjects: 0.067595 ms)
+
+UnloadTime: 0.558105 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 3401.
+Total: 1.794997 ms (FindLiveObjects: 0.122450 ms CreateObjectMapping: 0.028666 ms MarkObjects: 0.559521 ms  DeleteObjects: 0.660029 ms)
+
+Spawn Point (UnityEngine.Transform)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Spawn Point (UnityEngine.Transform)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+The door for house Stark is now open.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Spawn Point (UnityEngine.Transform)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
