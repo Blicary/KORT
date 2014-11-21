@@ -247,7 +247,7 @@ public class RollerBladeMovement : MonoBehaviour
     {
         if (!animator) return;
 
-        Debug.DrawLine(transform.position, (Vector2)transform.position + direction * 10f);
+        Debug.DrawLine(transform.position, (Vector2)transform.position + direction * 3f);
 
         animator.SetInteger("Direction", GeneralHelpers.AngleToEightDirInt(rotation));
     }
