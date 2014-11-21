@@ -1417,11 +1417,11 @@ Transform:
   m_PrefabInternal: {fileID: 1039548765}
   m_GameObject: {fileID: 45196484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 115791964}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1 &49086315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2611,7 +2611,6 @@ Transform:
   - {fileID: 30049306}
   - {fileID: 1419807217}
   - {fileID: 150680184}
-  - {fileID: 45196486}
   m_Father: {fileID: 0}
   m_RootOrder: 12
 --- !u!1001 &116252156
@@ -19880,6 +19879,10 @@ Prefab:
       propertyPath: victory_page
       value: 
       objectReference: {fileID: 45196485}
+    - target: {fileID: 11400000, guid: 809e4a68e7b337f47a8acc8778d71628, type: 2}
+      propertyPath: initial_scene_state
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 809e4a68e7b337f47a8acc8778d71628, type: 2}
   m_RootGameObject: {fileID: 1221688185}
@@ -27140,11 +27143,11 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 115791964}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 400000, guid: a12f0f8ee1afa904b8e36ccbe2d1b8bf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a12f0f8ee1afa904b8e36ccbe2d1b8bf, type: 2}
       propertyPath: m_LocalPosition.y
@@ -27172,7 +27175,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a12f0f8ee1afa904b8e36ccbe2d1b8bf, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: a12f0f8ee1afa904b8e36ccbe2d1b8bf, type: 2}
       propertyPath: player
@@ -32479,7 +32482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48179375aff58644b971ae86b95e718b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initial_scene_state: 0
+  initial_scene_state: 1
   cam_in_game_menu: {fileID: 167518102}
   cam_main: {fileID: 844173457}
   dead_screen: {fileID: 30049307}
@@ -54365,7 +54368,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fc6aab6324ccb044db7f4e780b256c45, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: fc6aab6324ccb044db7f4e780b256c45, type: 2}
       propertyPath: player
