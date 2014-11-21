@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background_music:
   - {fileID: 8200000}
-  play_on_start: 1
+  play_on_awake: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

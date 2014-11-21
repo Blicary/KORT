@@ -35,13 +35,17 @@ public class SoundManager : MonoBehaviour
         else
         {
             // keep new scene's music
+            Debug.Log("new music: " + background_music.Length);
             StopAllMusic();
-            Debug.Log("poa: " + play_on_awake);
             _instance.play_on_awake = play_on_awake;
             _instance.background_music = background_music;
 
-            if (_instance.play_on_awake) StartBeginMusic();
+            if (_instance.play_on_awake)
+            {
+                Debug.Log("ici");
+                StartBeginMusic();
 
+            }
 
             // destroy other instances that are not the already existing singleton
             if (this != _instance)
@@ -58,8 +62,11 @@ public class SoundManager : MonoBehaviour
 
     private static void StopAllMusic()
     {
+        if (_instance.background_music == null) return;
+
         for (int i = 0; i < _instance.background_music.Length; ++i)
         {
+            if (_instance.background_music[i] == null) continue;
             _instance.background_music[i].Stop();
         }
     }

@@ -2139,7 +2139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &829238497
 Transform:
   m_ObjectHideFlags: 0
@@ -2277,6 +2277,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: background_music.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2313,6 +2317,14 @@ Prefab:
       propertyPath: play_on_awake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
+      propertyPath: background_music.Array.data[0]
+      value: 
+      objectReference: {fileID: 885477463}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6552b297c3dd4c14aa46c4e0d047e972, type: 2}
   m_RootGameObject: {fileID: 885477462}

@@ -7,7 +7,11 @@ public class PlayerCam : MonoBehaviour
 
     public void Update()
     {
-        if (player == null) return;
+        if (player == null)
+        {
+            //FindPlayer();
+            return;
+        }
         
 
 
