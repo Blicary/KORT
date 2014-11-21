@@ -44,9 +44,6 @@ public class HouseManager : MonoBehaviour
         }
         else
         {
-            // keep new public instance vars
-            _instance.combatant_prefab = this.combatant_prefab;
-
             // destroy other instances that are not the already existing singleton
             if (this != _instance)
                 Destroy(this.gameObject);
@@ -113,7 +110,9 @@ public class HouseManager : MonoBehaviour
     public static void CreatePlayerCombatantObject()
     {
         // create new player
-        Instantiate(_instance.combatant_prefab, entrance_points[_instance.combatant_prefab.house_name].position, entrance_points[_instance.combatant_prefab.house_name].rotation);
+        Debug.Log(entrance_points[_instance.combatant_prefab.house_name]);
+        Instantiate(_instance.combatant_prefab, entrance_points[_instance.combatant_prefab.house_name].position,
+            entrance_points[_instance.combatant_prefab.house_name].rotation);
 
         // connect new player to the main cam
         PlayerCam cam = GameManager.GetCamMain().GetComponent<PlayerCam>();

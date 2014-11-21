@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-public enum HouseName { Stark, Lannister }
+public enum HouseName { Stark }
 
 public class House
 {

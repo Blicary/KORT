@@ -17,7 +17,7 @@ public class Portcullis : MonoBehaviour
 
     
 
-    public void Start()
+    public void Awake()
     {
         Transform t = transform.GetChild(0);
         if (!t) Debug.LogError("No spawn point object found");
