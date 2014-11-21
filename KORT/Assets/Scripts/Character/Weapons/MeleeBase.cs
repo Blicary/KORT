@@ -176,8 +176,19 @@ public abstract class MeleeBase : WeaponBase
 
 
         // TEMP
-        if (hit_character) tempanimator.renderer.color = Color.red;
-        else if (hit_terrain) tempanimator.renderer.color = new Color(1, 0.8f, 0.1f);
+        if (hit_character)
+        {
+            tempanimator.renderer.color = Color.red;
+            SoundManager.MakeSoundSwordKill(owner.transform.position);
+        }
+        else if (hit_terrain)
+        {
+            tempanimator.renderer.color = new Color(1, 0.8f, 0.1f);
+        }
+        else
+        {
+
+        }
     }
     private HashSet<Collider2D> GetCollidedObjects()
     {
