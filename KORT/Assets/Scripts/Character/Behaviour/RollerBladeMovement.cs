@@ -246,14 +246,11 @@ public class RollerBladeMovement : MonoBehaviour
     private void UpdateAnimationDirection()
     {
         if (!animator) return;
-        if (rotation > 0 && rotation < Mathf.PI)
-        {
-            animator.SetInteger("Direction", 0);
-        }
-        else
-        {
-            animator.SetInteger("Direction", 4);
-        }
+
+        Debug.Log(rotation);
+        Debug.DrawLine(transform.position, (Vector2)transform.position + direction * 10f);
+
+        animator.SetInteger("Direction", GeneralHelpers.AngleToEightDirInt(rotation));
     }
     private void SetAnimationMoving(bool moving)
     {
