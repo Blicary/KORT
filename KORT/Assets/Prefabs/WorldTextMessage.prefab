@@ -58,14 +58,14 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Text: CONGRADULATIONS
+  m_Text: Message
   m_OffsetZ: -5
-  m_CharacterSize: .25
+  m_CharacterSize: .400000006
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 80
+  m_FontSize: 50
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee0645b0d0d7c44eaf6f591e2c64062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: .300000012
+  amount: .5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

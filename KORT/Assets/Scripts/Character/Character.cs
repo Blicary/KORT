@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
 
     // health
     public int max_hit_points = 3;
-    private int hit_points;
+    protected int hit_points;
 
     // stun
     private const float stun_duration = 0.5f; // seconds duration of being stunned
@@ -65,6 +65,7 @@ public class Character : MonoBehaviour
             if (can_damage)
             {
                 hit_points -= 1;
+                OnTakeDamage();
 
                 if (hit_points == 0)
                 {
@@ -81,6 +82,11 @@ public class Character : MonoBehaviour
 
             Stun(force);
         }
+    }
+
+    protected virtual void OnTakeDamage()
+    {
+
     }
 
     // PRIVATE MODIFIERS

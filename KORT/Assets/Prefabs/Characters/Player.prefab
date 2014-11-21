@@ -320,7 +320,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.7166519, y: -22.5270576, z: 0}
+  m_LocalPosition: {x: -48.8571129, y: -31.0096264, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400026}
@@ -696,6 +696,8 @@ MonoBehaviour:
   max_hit_points: 3
   player_controlled: 1
   house_name: 0
+  text_message_prefab: {fileID: 10200000, guid: dbccdf98bc191d14784dfc515c356118,
+    type: 2}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

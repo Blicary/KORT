@@ -7,6 +7,7 @@ public class Combatant : Character
 {
     public bool player_controlled = false;
     public HouseName house_name;
+    public TextMesh text_message_prefab;
 
 
     public void RecordKill()
@@ -21,5 +22,15 @@ public class Combatant : Character
 
         // replace with dead body and destroy
         Destroy(gameObject);
+    }
+
+    protected override void OnTakeDamage()
+    {
+        TextMesh tm = (TextMesh)Instantiate(text_message_prefab, transform.position, Quaternion.identity);
+        tm.text = base.hit_points + " / " + base.max_hit_points + "HP";
+        //tm.color = Color.red;
+        
+
+        base.OnTakeDamage();
     }
 }
