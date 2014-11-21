@@ -21,9 +21,9 @@ public class GeneralHelpers
     }
     public static float PosifyRotation(float rotation)
     {
-        rotation = rotation % Mathf.PI * 2f;
+        rotation = rotation % (Mathf.PI * 2f);
 
-        return rotation > 0 ? rotation : rotation + Mathf.PI * 2f;
+        return rotation >= 0 ? rotation : rotation + Mathf.PI * 2f;
     }
     /// <summary>
     /// 0 is north, 1 is north west etc.
