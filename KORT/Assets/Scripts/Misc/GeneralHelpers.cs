@@ -21,7 +21,22 @@ public class GeneralHelpers
     }
     public static float PosifyRotation(float rotation)
     {
+        rotation = rotation % Mathf.PI * 2f;
+
         return rotation > 0 ? rotation : rotation + Mathf.PI * 2f;
+    }
+    /// <summary>
+    /// 0 is north, 1 is north west etc.
+    /// </summary>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public static int AngleToEightDirInt(float angle)
+    {
+        float a = PosifyRotation(angle) - (Mathf.PI * (2 / 16f));
+        int dir = (int)(a / (Mathf.PI / 4f)) - 1;
+        if (dir == -1) dir = 7;
+
+        return dir;
     }
     public static float AngleBetweenVectors(Vector2 p1, Vector2 p2)
     {
