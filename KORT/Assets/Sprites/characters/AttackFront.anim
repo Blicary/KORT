@@ -292,7 +292,28 @@ AnimationClip:
       m_PostInfinity: 2
     path: WeaponArc/Right hand
   m_FloatCurves: []
-  m_PPtrCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 7d9ec70e3f6af634db29adb773e94713, type: 3}
+    attribute: m_Sprite
+    path: BodyNHead
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 465daaa9e9e1300469d9d678517b3d6d, type: 3}
+    attribute: m_Sprite
+    path: SkatesLeft
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 465daaa9e9e1300469d9d678517b3d6d, type: 3}
+    attribute: m_Sprite
+    path: SkatesRight
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
