@@ -22,7 +22,7 @@ public class GGPage : MenuPage
         // header
         GUI.skin = heading_skin;
         House house = HouseManager.GetHouse(player.house_name);
-        MenuHelper.GUILayoutHeader("House " + house.Name + " has perished", t);
+        MenuHelper.GUILayoutHeader("Your house " + " has perished", t);
 
         GUILayout.EndArea();
         GUILayout.BeginArea(new Rect(120 + (-1100 * (1 - t)), 120, 1000, 800));
