@@ -91,7 +91,7 @@ Transition:
     m_ExitTime: .899999976
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 1
+    m_EventTreshold: 7
     m_ExitTime: .899999976
   m_Atomic: 0
   m_Solo: 0
@@ -115,7 +115,7 @@ Transition:
     m_ExitTime: .899999976
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 6
+    m_EventTreshold: 2
     m_ExitTime: .899999976
   m_Atomic: 0
   m_Solo: 0
@@ -299,7 +299,7 @@ Transition:
     m_ExitTime: .899999976
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 5
+    m_EventTreshold: 3
     m_ExitTime: .899999976
   m_Atomic: 0
   m_Solo: 0
@@ -323,7 +323,7 @@ Transition:
     m_ExitTime: .899999976
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 2
+    m_EventTreshold: 6
     m_ExitTime: .899999976
   m_Atomic: 0
   m_Solo: 0
@@ -427,7 +427,7 @@ Transition:
     m_ExitTime: .899999976
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 7
+    m_EventTreshold: 1
     m_ExitTime: .899999976
   m_Atomic: 0
   m_Solo: 0
@@ -571,7 +571,7 @@ Transition:
     m_ExitTime: .75
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 3
+    m_EventTreshold: 5
     m_ExitTime: .75
   m_Atomic: 0
   m_Solo: 0
@@ -1020,7 +1020,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 5027cb1426d7422448ce2ba84afee2f2, type: 2}
+  - {fileID: 0}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 48, y: 12, z: 0}
   m_IKOnFeet: 0
@@ -1063,13 +1063,13 @@ State:
   m_PrefabInternal: {fileID: 0}
   m_Name: MoveEast
   m_Speed: 1
-  m_CycleOffset: 0
+  m_CycleOffset: .5
   m_Motions:
   - {fileID: 7400000, guid: 95cb287339a6037458bcb51b8ef4068f, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 456, y: 12, z: 0}
   m_IKOnFeet: 0
-  m_Mirror: 0
+  m_Mirror: 1
   m_Tag: 
 --- !u!1102 &110262939
 State:
@@ -1217,9 +1217,6 @@ StateMachine:
       second:
       - {fileID: 110127493}
     data:
-      first: {fileID: 110276532}
-      second: []
-    data:
       first: {fileID: 110250860}
       second:
       - {fileID: 110115147}
@@ -1228,12 +1225,15 @@ StateMachine:
       second:
       - {fileID: 110146144}
     data:
-      first: {fileID: 110201670}
-      second: []
-    data:
       first: {fileID: 110209800}
       second:
       - {fileID: 110187187}
+    data:
+      first: {fileID: 110201670}
+      second: []
+    data:
+      first: {fileID: 110276532}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 72, y: 312, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -1259,18 +1259,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110209347}
-      second:
-      - {fileID: 110159403}
-    data:
-      first: {fileID: 110215070}
-      second:
-      - {fileID: 110182347}
-    data:
-      first: {fileID: 110239376}
-      second:
-      - {fileID: 110130986}
-    data:
       first: {fileID: 110240110}
       second:
       - {fileID: 110143896}
@@ -1282,25 +1270,37 @@ StateMachine:
       - {fileID: 110132438}
       - {fileID: 110149815}
     data:
-      first: {fileID: 110241759}
+      first: {fileID: 110287504}
       second:
-      - {fileID: 110192277}
+      - {fileID: 110143385}
     data:
       first: {fileID: 110267150}
       second:
       - {fileID: 110126909}
     data:
+      first: {fileID: 110241759}
+      second:
+      - {fileID: 110192277}
+    data:
+      first: {fileID: 110215070}
+      second:
+      - {fileID: 110182347}
+    data:
       first: {fileID: 110274478}
       second:
       - {fileID: 110196778}
     data:
-      first: {fileID: 110287504}
+      first: {fileID: 110239376}
       second:
-      - {fileID: 110143385}
+      - {fileID: 110130986}
     data:
       first: {fileID: 110289225}
       second:
       - {fileID: 110160486}
+    data:
+      first: {fileID: 110209347}
+      second:
+      - {fileID: 110159403}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 48, y: 324, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
