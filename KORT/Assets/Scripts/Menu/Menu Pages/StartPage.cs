@@ -48,7 +48,7 @@ class StartPage : MenuPage
         CombatantStats dead_stats = house.GetLastCombatantStats();
         CombatantStats stats = house.GetCurrentCombatantStats();
 
-        string text = house.Name + " is " + (house.CombatantsLeft() + 1) + " combatants strong. \n";
+        string text = "House " + house.Name + " is " + (house.CombatantsLeft() + 1) + " combatants strong. \n";
         text += stats.name + " prepares to take up the fight...";
 
         return text;

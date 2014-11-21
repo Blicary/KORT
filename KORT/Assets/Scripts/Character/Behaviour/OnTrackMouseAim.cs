@@ -31,7 +31,7 @@ public class OnTrackMouseAim : MonoBehaviour
         Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         aim_rotation = GeneralHelpers.AngleBetweenVectors(transform.position, mouse_pos);
 
-        graphics_object.localEulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * aim_rotation - 90);
+        //graphics_object.localEulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * aim_rotation - 90);
 
 
         // inform infohub
