@@ -36,8 +36,17 @@ public class Portcullis : MonoBehaviour
             progress_to_spawn -= 1;
             SpawnMob();
         }
+    }
+    public void RecordMobDeathToNonCombatant()
+    {
+        progress_to_spawn += 1;
 
-        //Debug.Log("progress to spawn: " + progress_to_spawn);
+        // spawn mobs
+        while (progress_to_spawn >= 1)
+        {
+            progress_to_spawn -= 1;
+            SpawnMob();
+        }
     }
 
     private void SpawnMob()

@@ -13,4 +13,10 @@ public class Mob : Character
         associated_port.RecordMobDeath();
         base.Kill();
     }
+    protected override void Kill()
+    {
+        // record death by non combatant
+        associated_port.RecordMobDeathToNonCombatant();
+        base.Kill();
+    }
 }
